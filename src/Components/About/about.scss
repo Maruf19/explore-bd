@@ -1,0 +1,143 @@
+/* Colors */
+
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl (187, 85%, 43%),
+    hsl (199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.about {
+  width: 100%;
+
+  .secTitle {
+    padding-top: 2.5rem;
+    .title {
+      position: relative;
+      width: max-content;
+      color: var(--textColor);
+      margin: 1rem 0;
+      z-index: 2;
+
+      &::after {
+        position: absolute;
+        content: "";
+        background: var(--SecondaryColor);
+        height: 5px;
+        width: 120px;
+        right: 0;
+        left: 0;
+        bottom: 0px;
+        z-index: -1;
+      }
+    }
+    .shortDesc {
+      font-size: 1rem;
+      margin-bottom: 3rem;
+      color: var(--blackColor);
+      font-weight: 500;
+    }
+  }
+
+  .secContent {
+    justify-content: center;
+    gap: 1.5rem;
+
+    .singleDestination {
+      height: 100%;
+      display: grid;
+      row-gap: 0.5px;
+      padding: 1rem;
+      border-radius: 10px;
+      align-items: center;
+      background: var(--cardBG);
+      box-shadow: 0 2px 4px rgb(140, 140, 141);
+      overflow: hidden;
+
+      &:hover {
+        background: var(--cardHover);
+        box-shadow: 0 4px 4px rgb(140, 140, 141);
+        transition: 0.3s ease;
+      }
+
+      .imageDiv {
+        height: 250px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: 0.2s ease;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .cardInfo {
+        padding: 1rem;
+
+        .destTitle {
+          color: var(--blackColor);
+          font-size: 1.25rem;
+        }
+
+        .continent {
+          gap: 0.5rem;
+
+          .name {
+            color: var(--textColor);
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Queries ======================
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+
+    &::after {
+      width: 155px !important;
+    }
+  }
+
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+
+    .singleDestination {
+      height: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 848px) {
+  .secContent {
+    grid-template-columns: repeat(3, 1fr);
+
+    .singleDestination {
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl (187, 85%, 43%),
+    hsl (199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.contact {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .form {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+.contact .form .contact-info {
+  padding: 2.3rem 2.2rem;
+  position: relative;
+}
+.contact .form .contact-info .title {
+  color: #1abc9c;
+  text-transform: capitalize;
+}
+.contact .form .contact-info .text {
+  color: #333;
+  margin: 1.5rem 0 2rem 0;
+}
+.contact .form .contact-info .information {
+  display: flex;
+  color: #555;
+  margin: 0.7rem 0;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.contact .form .contact-info .information p {
+  color: var(--textColor);
+}
+.contact .form .contact-info .social-media {
+  padding: 2rem 0 0 0;
+}
+.contact .form .contact-info .social-media p {
+  color: #333;
+}
+.contact .form .contact-info .social-media .social-icons {
+  display: flex;
+  font-size: 25px;
+}
+.contact .form .contact-form {
+  background-color: #1abc9c;
+  position: relative;
+}
+.contact .form .contact-form form {
+  padding: 2.3rem 2rem;
+  z-index: 10;
+  overflow: hidden;
+  position: relative;
+}
+.contact .form .contact-form form .title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+.contact .form .contact-form form .input-container {
+  position: relative;
+  margin: 1rem 0;
+}
+.contact .form .contact-form form .input-container input {
+  width: 100%;
+  outline: none;
+  border: 2px solid var(--whiteColor);
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: var(--whiteColor);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.contact .form .contact-form form .input-container textarea {
+  width: 100%;
+  outline: none;
+  border: 2px solid var(--whiteColor);
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: var(--whiteColor);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.contact .form .contact-form form .btn {
+  margin-top: 1rem;
+}
+.contact .form .contact-form form .btn a {
+  font-weight: 600;
+  color: var(--whiteColor);
+}
+
+@media (max-width: 480px) {
+  .form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}/*# sourceMappingURL=contact.css.map */

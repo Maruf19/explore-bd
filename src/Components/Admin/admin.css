@@ -1,0 +1,14 @@
+.admin {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.left {
+    grid-column: 1 / 2;
+  }
+
+  .right {
+    grid-column: 2 / 4;
+    padding-right: 2rem;
+  }

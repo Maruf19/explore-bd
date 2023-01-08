@@ -22,11 +22,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--whiteColorDeam);
+  /* background: var(--whiteColorDeam); */
   width: 100%;
   padding: 1rem;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(2, 15, 29, 0.242);
+}
+
+.header.active {
+  background: var(--whiteColorDeam);
+  transition: 0.3s ease-in-out;
+}
+.header .navItem li,
+.header .main-logo,
+.header .navBar .navLists .navItem {
+  color: white;
+}
+
+.header.active .navItem li,
+.header.active .navBar .navLists .navItem {
+  color: #111 !important;
+}
+
+.header.active .main-logo,
+.header.active .logo .icon{
+  color: var(--PrimaryColor) !important;
+}
+
+.header .navBar .navLists {
+  text-decoration: none;
 }
 .header .logo {
   font-weight: 600;
@@ -34,15 +58,18 @@
   align-items: center;
   justify-content: center;
 }
+
 .header .logo h1 {
   font-size: 25px;
   color: var(--blackColor);
 }
+
 .header .logo .icon {
   font-weight: 25px;
-  color: var(--PrimaryColor);
+  color: #fff;
   transform: translate(5px);
 }
+
 @media screen and (max-width: 768px) {
   .header .navBar {
     position: absolute;
@@ -60,6 +87,7 @@
     box-shadow: 0 2px 4px rgba(2, 15, 29, 0.984);
     transition: 0.5s ease-in-out;
   }
+
   .header .navBar .navLists {
     flex-direction: column;
     justify-content: center;
@@ -67,17 +95,21 @@
     margin: auto;
     padding: 0.5rem 0;
   }
+
   .header .navBar .navLists .navItem {
     padding: 0.5rem 0;
   }
+
   .header .navBar .navLists .navItem .navLink {
     color: var(--textColor);
     font-size: 0.9rem;
     font-weight: 600;
   }
+
   .header .navBar .navLists .navItem .navLink:hover {
     color: var(--PrimaryColor);
   }
+
   .header .navBar .navLists .btn {
     margin-top: 1rem;
   }
@@ -108,7 +140,7 @@
 
 @media screen and (min-width: 769px) {
   .toggleNavbar,
-.closeNavbar {
+  .closeNavbar {
     display: none;
   }
   .header {
@@ -146,4 +178,4 @@
   .header {
     padding: 1rem 0.5rem;
   }
-}/*# sourceMappingURL=navbar.css.map */
+} /*# sourceMappingURL=navbar.css.map */

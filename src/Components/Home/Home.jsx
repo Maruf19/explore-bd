@@ -14,6 +14,7 @@ import Main from "../Main/Main";
 import Services from "../Services/Services";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Feedback from "../Feedback/Feedback";
 
 const Home = () => {
   //create a react hook to add a scroll animation
@@ -84,6 +85,7 @@ const Home = () => {
       <Services></Services>
       <Main></Main>
       <Slider></Slider>
+      <Feedback></Feedback>
       <Footer> </Footer>
     </div>
   );

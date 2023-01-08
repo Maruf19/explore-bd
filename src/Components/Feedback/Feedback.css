@@ -1,0 +1,20 @@
+.feedback-form {
+    margin: 3rem 0 4rem 0;
+}
+
+.feedback-form textarea {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background: none;
+}
+
+.submit {
+    background-color: hsl(199, 100%, 33%);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}

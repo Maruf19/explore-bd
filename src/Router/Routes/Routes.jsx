@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Admin from "../../Components/Admin/Admin";
-
 import Home from "../../Components/Home/Home";
 import About from "../../Components/About/About";
 import Packages from "../../Components/Packages/Packages";
@@ -8,8 +6,10 @@ import Schedule from "../../Components/Schedule/Schedule";
 import Snap from "../../Components/Snap/Snap";
 import Contact from "../../Components/Contact/Contact";
 import Book from "../../Components/Book/Book";
-
-// import Admin from "./Components/Admin/Admin";
+import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
+import AdminLayout from "../../Components/Admin/AdminLayout/AdminLayout";
+import Admin from "../../Components/Admin/Admin/Admin";
+import AdminSerivces from "../../Components/Admin/AdminServices/AdminSerivces";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +39,24 @@ const router = createBrowserRouter([
     {
         path: "/book",
         element: <Book></Book>
+    },
+    {
+        path: "/admin",
+        element: <AdminLayout/>,
+        children: [
+            {
+                path: "/admin",
+                element: <Admin/>
+            },
+            {
+                path:"/admin/services",
+                element: <AdminSerivces/>
+            },
+            {
+                path: "/admin/about",
+                element: <AdminAbout/>
+            }
+        ]
     }
 ]);
 

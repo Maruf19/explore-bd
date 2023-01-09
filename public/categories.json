@@ -1,0 +1,30 @@
+[
+    {
+      "name": "About",
+      "to": "/admin/about"
+    },
+    {
+      "name": "Trip",
+      "to": "/admin/trip"
+    },
+    {
+      "name": "who we are",
+      "to": "/admin/who"
+    },
+    {
+      "name": "Team",
+      "to": "/admin/team"
+    },
+    {
+      "name": "packages",
+      "to": "/admin/packages"
+    },
+    {
+      "name": "schedule",
+      "to": "/admin/schedule"
+    },
+    {
+      "name": "snap",
+      "to": "/admin/snap"
+    }
+  ]

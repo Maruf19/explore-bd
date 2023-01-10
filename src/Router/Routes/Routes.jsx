@@ -10,6 +10,7 @@ import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
 import AdminLayout from "../../Components/Admin/AdminLayout/AdminLayout";
 import Admin from "../../Components/Admin/Admin/Admin";
 import AdminSerivces from "../../Components/Admin/AdminServices/AdminSerivces";
+import Trip from "../../Components/Admin/Trip/Trip";
 
 const router = createBrowserRouter([
     {
@@ -53,8 +54,8 @@ const router = createBrowserRouter([
                 element: <AdminSerivces/>
             },
             {
-                path: "/admin/about",
-                element: <AdminAbout/>
+                path: "/admin/trip",
+                element: <Trip/>
             }
         ]
     }

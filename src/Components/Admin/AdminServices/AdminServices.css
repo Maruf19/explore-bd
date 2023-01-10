@@ -1,12 +1,12 @@
-.admin-services .title {
+.form-field .title {
     margin: 2rem 0;
     font-size: 2rem;
     font-weight: normal;
     text-transform: capitalize;
 }
 
-.admin-services input,
-.admin-services textarea {
+.form-field input,
+.form-field textarea {
   display: block;
   margin: 1rem 0;
   width: 100%;

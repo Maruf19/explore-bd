@@ -1,9 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
 
 const Trip = () => {
-    const [photo, setPhoto] = useState('')
-
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
@@ -30,23 +27,16 @@ const Trip = () => {
                 }
             })
             .catch((err) => console.error(err));
-
     }
-
-    const handleImage = e =>  {
-        console.log(e.target.files)
-        setPhoto(e.target.files[0])
-    }
-    
     return (
         <div className='form-field'>
             <h3 className="title">
                 Add Your trip here
             </h3>
             <form onSubmit={handleSubmit}>
-                <input type="file" name="image" onChange={handleImage} />
+                <input type="file" name="image" />
                 <input type="text" name='title' placeholder='Title' />
-                <input name="location" placeholder='Location'/>
+                <input name="location" placeholder='Location' />
                 <input type="submit" value="Submit" className='submit' />
             </form>
         </div>

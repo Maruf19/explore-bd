@@ -6,7 +6,6 @@ import Schedule from "../../Components/Schedule/Schedule";
 import Snap from "../../Components/Snap/Snap";
 import Contact from "../../Components/Contact/Contact";
 import Book from "../../Components/Book/Book";
-import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
 import AdminLayout from "../../Components/Admin/AdminLayout/AdminLayout";
 import Admin from "../../Components/Admin/Admin/Admin";
 import AdminSerivces from "../../Components/Admin/AdminServices/AdminSerivces";

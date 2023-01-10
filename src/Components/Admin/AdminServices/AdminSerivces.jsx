@@ -1,5 +1,4 @@
-import Aos from 'aos';
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./AdminServices.css"
 
 const AdminSerivces = () => {

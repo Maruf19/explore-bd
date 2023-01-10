@@ -1,4 +1,5 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 import "./AdminServices.css"
 
 const AdminSerivces = () => {
@@ -8,14 +9,10 @@ const AdminSerivces = () => {
         const title = form.title.value;
         const desc = form.desc.value;
 
-        const servicesData ={
+        const servicesData = {
             title,
             desc
         }
-
-        // ===========
-        // GET THE DATAS IN SERVICES SECTION AND START WORK FROM HERE
-        //  ================
 
         fetch('http://localhost:5000/admin/services', {
             method: "POST",
@@ -24,21 +21,25 @@ const AdminSerivces = () => {
             },
             body: JSON.stringify(servicesData)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.acknowledged) {
-                alert('Services placed successfully')
-                event.target.reset()
-            }
-        })
-        .catch((err) => console.error(err));
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('Services placed successfully')
+                    event.target.reset()
+                }
+            })
+            .catch((err) => console.error(err));
     }
     return (
         <div className='admin-services'>
+            <h3 className="title">
+                Add Your services here
+            </h3>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='title' placeholder='Service title' />
-                <input type="text" name='desc' placeholder='service description' />
-                <input type="submit" value="Submit" />
+                <input type="text" name='title' placeholder='Title' />
+                {/* <input type="text" name='desc' placeholder='Description' /> */}
+                <textarea name="desc" placeholder='Description'></textarea>
+                <input type="submit" value="Submit" className='submit' />
             </form>
         </div>
     );

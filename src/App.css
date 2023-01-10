@@ -78,6 +78,10 @@ li {
   align-items: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .btn {
   padding: 0.6rem 1.5rem;
   background: var(--PrimaryColor);

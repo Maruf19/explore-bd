@@ -1,5 +1,20 @@
-.admin-services input {
-    display: block;
-    margin: 1rem 0;
-    width: 50%;
+.admin-services .title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+.admin-services input,
+.admin-services textarea {
+  display: block;
+  margin: 1rem 0;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.submit {
+  background: hsl(199, 100%, 33%);
 }

@@ -10,6 +10,8 @@ import AdminLayout from "../../Components/Admin/AdminLayout/AdminLayout";
 import Admin from "../../Components/Admin/Admin/Admin";
 import AdminSerivces from "../../Components/Admin/AdminServices/AdminSerivces";
 import Trip from "../../Components/Admin/Trip/Trip";
+import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
+import Team from "../../Components/Admin/Team/Team";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
             {
                 path: "/admin/trip",
                 element: <Trip/>
+            },
+            {
+                path: "/admin/about",
+                element: <AdminAbout/>
+            },
+            {
+                path: "/admin/team",
+                element: <Team/>
             }
         ]
     }

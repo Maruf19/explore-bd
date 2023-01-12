@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./about.css";
 // using array, the array named data
 import img from "../../Assets/team1.jpg";
@@ -11,24 +11,24 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 const Data = [
-  {
-    id: 1,
-    imgSrc: img,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-  {
-    id: 2,
-    imgSrc: img2,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-  {
-    id: 3,
-    imgSrc: img3,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
+  // {
+  //   id: 1,
+  //   imgSrc: img,
+  //   destTitle: "Bora Bora",
+  //   location: "New Zealand",
+  // },
+  // {
+  //   id: 2,
+  //   imgSrc: img2,
+  //   destTitle: "Bora Bora",
+  //   location: "New Zealand",
+  // },
+  // {
+  //   id: 3,
+  //   imgSrc: img3,
+  //   destTitle: "Bora Bora",
+  //   location: "New Zealand",
+  // },
   // {
   //   id: 4,
   //   imgSrc: img4,
@@ -72,10 +72,20 @@ const Data = [
 ];
 
 const About = () => {
+  const [teams, setTeams] = useState()
+
   //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/teams')
+    .then(res => res.json())
+    .then(data => setTeams(data))
+  },[teams])
+
+  console.log(teams)
 
   return (
     <div>
@@ -107,19 +117,19 @@ const About = () => {
           {/* using high orfer array mathod (map).
     To use a list of object in one array */}
 
-          {Data.map(({ id, imgSrc, destTitle, location }) => {
+          {teams?.map(({ _id, name, desc }) => {
             return (
-              <div key={id} data-aos="fade-up" className="singleDestination">
+              <div key={_id} data-aos="fade-up" className="singleDestination">
                 {/* Returning single id from the map array */}
 
                 <div className="imageDiv">
-                  <img src={imgSrc} alt={destTitle} />
+                  <img src="/" alt="" />
                 </div>
 
                 <div className="cardInfo">
-                  <h4 className="destTitle"> {destTitle}</h4>
+                  <h4 className="destTitle"> {name}</h4>
                   <span className="continent flex">
-                    <span className="name">{location}</span>
+                    <span className="name">{desc}</span>
                   </span>
                 </div>
               </div>

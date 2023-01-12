@@ -1,27 +1,27 @@
 import React from 'react';
 
-const AdminAbout = () => {
+const Team = () => {
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
-        const title = form.title.value;
+        const name = form.name.value;
         const desc = form.desc.value;
 
-        const aboutData = {
-            title,
+        const teamData = {
+            name,
             desc
         }
-        fetch('http://localhost:5000/admin/about', {
+        fetch('http://localhost:5000/admin/teams', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(aboutData)
+            body: JSON.stringify(teamData)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Services placed successfully')
+                    alert('Team member added successfully')
                     event.target.reset()
                 }
             })
@@ -30,10 +30,10 @@ const AdminAbout = () => {
     return (
         <div className='form-field'>
             <h3 className="title">
-                Add Your about here
+                Add Your team here
             </h3>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='title' placeholder='Title' />
+                <input type="text" name='name' placeholder='Name' />
                 <textarea name="desc" placeholder='Description'></textarea>
                 <input type="submit" value="Submit" className='submit' />
             </form>
@@ -41,4 +41,4 @@ const AdminAbout = () => {
     );
 };
 
-export default AdminAbout;
+export default Team;

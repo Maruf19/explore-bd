@@ -1,75 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./about.css";
-// using array, the array named data
-import img from "../../Assets/team1.jpg";
-import img2 from "../../Assets/team2.jpg";
-import img3 from "../../Assets/team3.jpg";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-
-const Data = [
-  // {
-  //   id: 1,
-  //   imgSrc: img,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-  // {
-  //   id: 2,
-  //   imgSrc: img2,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-  // {
-  //   id: 3,
-  //   imgSrc: img3,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-  // {
-  //   id: 4,
-  //   imgSrc: img4,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-
-  // {
-  //   id: 5,
-  //   imgSrc: img5,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-
-  // {
-  //   id: 6,
-  //   imgSrc: img6,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-
-  // {
-  //   id: 7,
-  //   imgSrc: img7,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-
-  // {
-  //   id: 8,
-  //   imgSrc: img8,
-  //   destTitle: "Bora Bora",
-  //   location: "New Zealand",
-  // },
-
-  // {
-  //   id: 9,
-  //   imgSrc: img9,
-  //   destTitle: "Bora Bora",
-  // },
-];
 
 const About = () => {
   const [teams, setTeams] = useState()

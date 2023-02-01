@@ -37,10 +37,10 @@ const Services = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/services')
-    .then(res => res.json())
-    .then(data => setServices(data))
-  },[])
+    fetch('https://explore-bd-server.vercel.app/admin/services')
+      .then(res => res.json())
+      .then(data => setServices(data))
+  }, [])
 
   return (
     <section className="services container section">

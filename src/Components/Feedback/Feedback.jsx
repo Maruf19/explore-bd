@@ -11,21 +11,21 @@ const Feedback = () => {
             feedback
         }
 
-        fetch('http://localhost:5000/feedback', {
+        fetch('https://explore-bd-server.vercel.app/feedback', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(feedbackData)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.acknowledged) {
-                alert('Feedback placed successfully')
-                event.target.reset()
-            }
-        })
-        .catch((err) => console.error(err));
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('Feedback placed successfully')
+                    event.target.reset()
+                }
+            })
+            .catch((err) => console.error(err));
     }
     return (
         <div className='container'>
@@ -37,7 +37,7 @@ const Feedback = () => {
 
             <form className='feedback-form' onSubmit={handleSubmit}>
                 <textarea name="feedback" cols="150" rows="10"
-                 placeholder='Give your valuable feedback'></textarea>
+                    placeholder='Give your valuable feedback'></textarea>
                 <input type="submit" value="Submit" className='submit' />
             </form>
         </div>

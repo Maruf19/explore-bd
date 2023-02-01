@@ -15,12 +15,10 @@ const About = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/teams')
-    .then(res => res.json())
-    .then(data => setTeams(data))
-  },[teams])
-
-  console.log(teams)
+    fetch('https://explore-bd-server.vercel.app/admin/teams')
+      .then(res => res.json())
+      .then(data => setTeams(data))
+  }, [teams])
 
   return (
     <div>

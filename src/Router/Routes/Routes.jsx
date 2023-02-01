@@ -14,60 +14,60 @@ import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
 import Team from "../../Components/Admin/Team/Team";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home></Home>,
-    },
-    {
-        path: "/about",
-        element: <About></About>,
-    },
-    {
-        path: "/packages",
-        element: <Packages></Packages>,
-    },
-    {
-        path: "/schedule",
-        element: <Schedule></Schedule>,
-    },
-    {
-        path: "/snap",
-        element: <Snap></Snap>,
-    },
-    {
-        path: "/contact",
-        element: <Contact></Contact>,
-    },
-    {
-        path: "/book",
-        element: <Book></Book>
-    },
-    {
+  {
+    path: "/",
+    element: <Home></Home>,
+  },
+  {
+    path: "/about",
+    element: <About></About>,
+  },
+  {
+    path: "/packages",
+    element: <Packages></Packages>,
+  },
+  {
+    path: "/schedule",
+    element: <Schedule></Schedule>,
+  },
+  {
+    path: "/snap",
+    element: <Snap></Snap>,
+  },
+  {
+    path: "/contact",
+    element: <Contact></Contact>,
+  },
+  {
+    path: "/book",
+    element: <Book></Book>,
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
         path: "/admin",
-        element: <AdminLayout/>,
-        children: [
-            {
-                path: "/admin",
-                element: <Admin/>
-            },
-            {
-                path:"/admin/services",
-                element: <AdminSerivces/>
-            },
-            {
-                path: "/admin/trip",
-                element: <Trip/>
-            },
-            {
-                path: "/admin/about",
-                element: <AdminAbout/>
-            },
-            {
-                path: "/admin/team",
-                element: <Team/>
-            }
-        ]
-    }
+        element: <Admin />,
+      },
+      {
+        path: "/admin/services",
+        element: <AdminSerivces />,
+      },
+      {
+        path: "/admin/trip",
+        element: <Trip />,
+      },
+      {
+        path: "/admin/about",
+        element: <AdminAbout />,
+      },
+      {
+        path: "/admin/team",
+        element: <Team />,
+      },
+    ],
+  },
 ]);
 
 export default router;

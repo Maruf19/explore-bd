@@ -15,7 +15,7 @@ const Slider = () => {
   const [feedback, setFeedback] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('https://explore-bd-server.vercel.app/feedback')
       .then(res => res.json())
       .then(data => setFeedback(data))
   }, [feedback])
@@ -37,20 +37,20 @@ const Slider = () => {
           autoPlay={true}
           interval={3000}>
 
-            {
-              feedback?.map(f => <>
-                <div>
-                  <img src={img} alt="" />
-                  <div className="myCarousel">
-                    <h3>Shirley Fultz</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      {f.feedback}
-                    </p>
-                  </div>
+          {
+            feedback?.map(f => <>
+              <div>
+                <img src={img} alt="" />
+                <div className="myCarousel">
+                  <h3>Shirley Fultz</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    {f.feedback}
+                  </p>
                 </div>
-              </>)
-            }
+              </div>
+            </>)
+          }
           {/* 
           <div>
             <img src={img} alt="" />

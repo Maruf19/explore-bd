@@ -10,17 +10,17 @@ import "aos/dist/aos.css";
 
 const Main = () => {
   const [trips, setTrips] = useState()
-  
+
   //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/trips')
-    .then(res => res.json())
-    .then(data => setTrips(data))
-  },[trips])
+    fetch('https://explore-bd-server.vercel.app/admin/trips')
+      .then(res => res.json())
+      .then(data => setTrips(data))
+  }, [trips])
 
   return (
     <section className="main container section">

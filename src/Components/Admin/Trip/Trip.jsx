@@ -12,7 +12,7 @@ const Trip = () => {
             location
         }
 
-        fetch('http://localhost:5000/admin/trips', {
+        fetch('https://explore-bd-server.vercel.app/admin/trips', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

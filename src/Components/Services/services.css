@@ -21,6 +21,7 @@
 .services {
   width: 100%;
 }
+
 .services .secTitle .title {
   position: relative;
   width: -webkit-max-content;
@@ -53,7 +54,7 @@
   align-items: center;
   background: var(--cardBG);
   box-shadow: 0 2px 4px rgb(140, 140, 141);
-  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 .services .secContent .singleDestination:hover {
   background: var(--cardHover);

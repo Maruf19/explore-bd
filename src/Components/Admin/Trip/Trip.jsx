@@ -26,7 +26,7 @@ const Trip = () => {
                         img: imgData.data.url
                     }
 
-                    fetch('http://localhost:5000/admin/trips', {
+                    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/trips', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

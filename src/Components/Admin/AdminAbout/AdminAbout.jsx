@@ -14,7 +14,7 @@ const AdminAbout = () => {
             desc
         }
 
-        fetch('http://localhost:5000/admin/about', {
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/about', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -32,7 +32,7 @@ const AdminAbout = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/admin/about')
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/about')
             .then(res => res.json())
             .then(data => setAboutDesc(data))
     }, [aboutDesc])

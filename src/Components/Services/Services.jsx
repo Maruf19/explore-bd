@@ -37,7 +37,7 @@ const Services = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/services')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/services')
       .then(res => res.json())
       .then(data => setServices(data))
   }, [])

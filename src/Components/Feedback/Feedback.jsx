@@ -13,7 +13,7 @@ const Feedback = () => {
             feedback
         }
 
-        fetch('http://localhost:5000/feedback', {
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/feedback', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

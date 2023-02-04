@@ -24,7 +24,7 @@ const Team = () => {
                         img: imgData.data.url
                     }
 
-                    fetch('http://localhost:5000/admin/teams', {
+                    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/teams', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

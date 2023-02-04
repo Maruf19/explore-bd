@@ -1,8 +1,8 @@
-import React, {  } from 'react';
+import React, { } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AdminSchedule = () => {
-    const {register, handleSubmit} = useForm()
+    const { register, handleSubmit } = useForm()
 
     const handleScheduleDesc = event => {
         event.preventDefault()
@@ -13,7 +13,7 @@ const AdminSchedule = () => {
             desc
         }
 
-        fetch('http://localhost:5000/admin/schedule', {
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -50,7 +50,7 @@ const AdminSchedule = () => {
                         location: data.location,
                     }
 
-                    fetch('http://localhost:5000/admin/scheduleTrip', {
+                    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/scheduleTrip', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"
@@ -71,28 +71,28 @@ const AdminSchedule = () => {
     return (
         <div className='form-field custom-flex'>
             <div>
-            <h3 className="title">
-                Add Your Schedule description here
-            </h3>
-            <form onSubmit={handleScheduleDesc}>
-                <textarea name="desc" placeholder='Package Description' rows={10}></textarea>
-                <input type="submit" value="Submit" className='submit' />
-            </form>
+                <h3 className="title">
+                    Add Your Schedule description here
+                </h3>
+                <form onSubmit={handleScheduleDesc}>
+                    <textarea name="desc" placeholder='Package Description' rows={10}></textarea>
+                    <input type="submit" value="Submit" className='submit' />
+                </form>
             </div>
 
             {/* Add package */}
             <div className='mt-5'>
-            <h3 className="title">
-                Add Your Schedule trip here
-            </h3>
-            <form onSubmit={handleSubmit(handleAddSchedule)}>
-                <input type="file"    {...register("image", {
-                    required: "Image is required"
-                })} />
-                <input type="text" placeholder='Title' {...register("title")} />
-                <input name="location" placeholder='Location' {...register("location")} />
-                <input type="submit" value="Add Trip" className='submit' />
-            </form>
+                <h3 className="title">
+                    Add Your Schedule trip here
+                </h3>
+                <form onSubmit={handleSubmit(handleAddSchedule)}>
+                    <input type="file"    {...register("image", {
+                        required: "Image is required"
+                    })} />
+                    <input type="text" placeholder='Title' {...register("title")} />
+                    <input name="location" placeholder='Location' {...register("location")} />
+                    <input type="submit" value="Add Trip" className='submit' />
+                </form>
             </div>
         </div>
     );

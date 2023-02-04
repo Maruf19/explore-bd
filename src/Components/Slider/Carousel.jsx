@@ -12,7 +12,7 @@ const Slider = () => {
   const [feedback, setFeedback] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/feedback')
       .then(res => res.json())
       .then(data => setFeedback(data))
   }, [feedback])

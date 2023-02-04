@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./snap.css";
 // using array, the array named data
 import img from "../../Assets/img.jpg";
@@ -81,10 +81,18 @@ const Data = [
 ];
 
 const Snap = () => {
+  const [snapDesc, setSnapDesc] = useState([]);
+
   //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/snap')
+      .then(res => res.json())
+      .then(data => setSnapDesc(data))
+  }, [snapDesc])
 
   return (
     <div>
@@ -95,11 +103,12 @@ const Snap = () => {
             Snap from Trip
           </h3>
 
-          <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </h5>
+
+          {
+            snapDesc?.map(desc => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc" key={desc?._id}>
+              {desc?.desc}
+            </h5>)
+          }
         </div>
 
         <div className="secContent grid">

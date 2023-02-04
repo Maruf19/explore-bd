@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import img from "../../Assets/img.jpg";
 // import img2 from "../../Assets/image4.jpg";
 // import img3 from "../../Assets/team3.jpg";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 
 

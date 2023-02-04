@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./snap.css";
-// using array, the array named data
-import img from "../../Assets/img.jpg";
-import img2 from "../../Assets/image2.jpg";
-import img3 from "../../Assets/image3.jpg";
-import img4 from "../../Assets/image4.jpg";
-import img5 from "../../Assets/image5.jpg";
-import img6 from "../../Assets/image6.jpg";
-import img7 from "../../Assets/image7.jpg";
-import img8 from "../../Assets/image8.jpg";
-import img9 from "../../Assets/image10.jpg";
+
 //import icons
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
@@ -19,69 +10,9 @@ import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
-const Data = [
-  {
-    id: 1,
-    imgSrc: img,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-  {
-    id: 2,
-    imgSrc: img2,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-  {
-    id: 3,
-    imgSrc: img3,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-  {
-    id: 4,
-    imgSrc: img4,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-
-  {
-    id: 5,
-    imgSrc: img5,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-
-  {
-    id: 6,
-    imgSrc: img6,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-
-  {
-    id: 7,
-    imgSrc: img7,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-
-  {
-    id: 8,
-    imgSrc: img8,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-  },
-
-  {
-    id: 9,
-    imgSrc: img9,
-    destTitle: "Bora Bora",
-  },
-];
-
 const Snap = () => {
   const [snapDesc, setSnapDesc] = useState([]);
+  const [snap, setSnap] = useState([])
 
   //create a react hook to add a scroll animation
   useEffect(() => {
@@ -93,6 +24,12 @@ const Snap = () => {
       .then(res => res.json())
       .then(data => setSnapDesc(data))
   }, [snapDesc])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/snapTrip')
+      .then(res => res.json())
+      .then(data => setSnap(data))
+  }, [snap])
 
   return (
     <div>
@@ -112,20 +49,17 @@ const Snap = () => {
         </div>
 
         <div className="secContent grid">
-          {/* using high orfer array mathod (map).
-    To use a list of object in one array */}
 
-          {Data.map(({ id, imgSrc, destTitle, location }) => {
+          {snap.map(({ _id, img, title, location }) => {
             return (
-              <div key={id} data-aos="fade-up" className="singleDestination">
-                {/* Returning single id from the map array */}
+              <div key={_id} data-aos="fade-up" className="singleDestination">
 
                 <div className="imageDiv">
-                  <img src={imgSrc} alt={destTitle} />
+                  <img src={img} alt={title} />
                 </div>
 
                 <div className="cardInfo">
-                  <h4 className="destTitle"> {destTitle}</h4>
+                  <h4 className="destTitle"> {title}</h4>
                   <span className="continent flex">
                     <HiOutlineLocationMarker className="icon" />
                     <span className="name">{location}</span>

@@ -13,7 +13,7 @@ const AdminSerivces = () => {
             desc
         }
 
-        fetch('http://localhost:5000/admin/services', {
+        fetch('https://explore-bd-server.vercel.app/admin/services', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

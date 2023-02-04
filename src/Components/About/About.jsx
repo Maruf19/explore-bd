@@ -28,6 +28,8 @@ const About = () => {
       .then(data => setTeams(data))
   }, [teams])
 
+  console.log(teams)
+
   return (
     <div>
       <Navbar></Navbar>
@@ -51,16 +53,14 @@ const About = () => {
           </h3>
         </div>
         <div className="secContent grid">
-          {/* using high orfer array mathod (map).
-    To use a list of object in one array */}
 
-          {teams?.map(({ _id, name, desc }) => {
+          {teams?.map(({ _id, name, desc, img }) => {
             return (
               <div key={_id} data-aos="fade-up" className="singleDestination">
                 {/* Returning single id from the map array */}
 
                 <div className="imageDiv">
-                  <img src="/" alt="" />
+                  <img src={img} alt="" />
                 </div>
 
                 <div className="cardInfo">

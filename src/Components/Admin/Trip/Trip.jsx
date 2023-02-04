@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const Trip = () => {
-    const imageHostKey = "0622eee91f18d4103329c8947242f849";
+    // const imageHostKey = "0622eee91f18d4103329c8947242f849";
 
     const { register, handleSubmit } = useForm();
 
@@ -43,8 +43,6 @@ const Trip = () => {
                 }
             })
     }
-
-   
 
     return (
         <div className='form-field'>

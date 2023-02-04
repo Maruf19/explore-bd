@@ -4,14 +4,13 @@ import { MdTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
 
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
   const [navbar, setNavbar] = useState(false)
   const [color, changeColor] = useState('#111')
-  const location = useLocation()
 
   useEffect(() => {
     if(window.location.pathname === '/') {

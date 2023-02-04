@@ -13,6 +13,7 @@ import Trip from "../../Components/Admin/Trip/Trip";
 import AdminAbout from "../../Components/Admin/AdminAbout/AdminAbout";
 import Team from "../../Components/Admin/Team/Team";
 import AdminPackage from "../../Components/Admin/AdminPackage/AdminPackage";
+import AdminSchedule from "../../Components/Admin/AdminSchedule/AdminSchedule";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/packages",
         element: <AdminPackage />,
+      },
+      {
+        path: "/admin/schedule",
+        element: <AdminSchedule />,
       },
     ],
   },

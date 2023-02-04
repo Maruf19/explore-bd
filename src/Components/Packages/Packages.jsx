@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./packages.css";
-// using array, the array named data
-import img from "../../Assets/img.jpg";
-import img2 from "../../Assets/image2.jpg";
-import img3 from "../../Assets/image3.jpg";
-import img4 from "../../Assets/image4.jpg";
-import img5 from "../../Assets/image5.jpg";
-import img6 from "../../Assets/image6.jpg";
-import img7 from "../../Assets/image7.jpg";
-import img8 from "../../Assets/image8.jpg";
-import img9 from "../../Assets/image10.jpg";
+
 //import icons
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
@@ -18,104 +9,6 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-
-const Data = [
-  {
-    id: 1,
-    imgSrc: img,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    id: 2,
-    imgSrc: img2,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    id: 3,
-    imgSrc: img3,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    id: 4,
-    imgSrc: img4,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-
-  {
-    id: 5,
-    imgSrc: img5,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-
-  {
-    id: 6,
-    imgSrc: img6,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-
-  {
-    id: 7,
-    imgSrc: img7,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-
-  {
-    id: 8,
-    imgSrc: img8,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-
-  {
-    id: 9,
-    imgSrc: img9,
-    destTitle: "Bora Bora",
-    location: "New Zealand",
-    grade: "Cultural Relax",
-    fees: "$700",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-];
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([])
@@ -137,8 +30,6 @@ const Packages = () => {
       .then(res => res.json())
       .then(data => setpackages(data))
   }, [packages])
-
-  console.log(packages)
 
   return (
     <div>

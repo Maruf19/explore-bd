@@ -1,4 +1,6 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
 import "./Feedback.css"
 
 const Feedback = () => {
@@ -28,19 +30,23 @@ const Feedback = () => {
             .catch((err) => console.error(err));
     }
     return (
-        <div className='container'>
-            <div className="secTitle">
-                <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
-                    Give your valuable feedback here
-                </h3>
-            </div>
+        <section>
+            <Navbar />
+            <div className='container py-4'>
+                <div className="secTitle">
+                    <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
+                        Give your valuable feedback here
+                    </h3>
+                </div>
 
-            <form className='feedback-form' onSubmit={handleSubmit}>
-                <textarea name="feedback" cols="150" rows="10"
-                    placeholder='Give your valuable feedback'></textarea>
-                <input type="submit" value="Submit" className='submit' />
-            </form>
-        </div>
+                <form className='feedback-form' onSubmit={handleSubmit}>
+                    <textarea name="feedback" cols="150" rows="10"
+                        placeholder='Give your valuable feedback'></textarea>
+                    <input type="submit" value="Submit" className='submit' />
+                </form>
+            </div>
+            <Footer />
+        </section>
     );
 };
 

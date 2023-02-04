@@ -73,6 +73,10 @@ li {
   align-items: center;
 }
 
+.gap-1 {
+  gap: .5rem;
+}
+
 .grid {
   display: grid;
   align-items: center;
@@ -116,6 +120,10 @@ body {
 
 .mt-5 {
   margin-top: 5rem;
+}
+
+.py-4 {
+  padding: 4rem 0;
 }
 
 .custom-flex {

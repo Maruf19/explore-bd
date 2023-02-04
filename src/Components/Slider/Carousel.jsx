@@ -3,11 +3,8 @@ import "./carousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-// using array, the array named data
 import img from "../../Assets/img.jpg";
-// import img2 from "../../Assets/image4.jpg";
-// import img3 from "../../Assets/team3.jpg";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 

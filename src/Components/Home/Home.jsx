@@ -85,7 +85,6 @@ const Home = () => {
       <Services></Services>
       <Main></Main>
       <Slider></Slider>
-      <Feedback></Feedback>
       <Footer> </Footer>
     </div>
   );

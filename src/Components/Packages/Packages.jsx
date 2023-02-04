@@ -9,6 +9,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([])
@@ -48,8 +49,6 @@ const Packages = () => {
         </div>
 
         <div className="secContent grid">
-          {/* using high orfer array mathod (map).
-    To use a list of object in one array */}
 
           {packages.map(
             ({ _id, img, title, location, grade, price, packageDesc }) => {
@@ -84,10 +83,14 @@ const Packages = () => {
                     <div className="desc">
                       <p>{packageDesc}</p>
                     </div>
-
-                    <button className="btn flex">
+                    <div className="flex gap-1">
+                    <Link to="/schedule" className="btn flex">
                       Details <HiOutlineClipboardCheck className="icon" />
-                    </button>
+                    </Link>
+                    <Link to="/feedback" className="btn flex">
+                      Reviews <HiOutlineClipboardCheck className="icon" />
+                    </Link>
+                    </div>
                   </div>
                 </div>
               );

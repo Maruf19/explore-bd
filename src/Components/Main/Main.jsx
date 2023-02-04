@@ -22,6 +22,8 @@ const Main = () => {
       .then(data => setTrips(data))
   }, [trips])
 
+  console.log(trips)
+
   return (
     <section className="main container section">
       <div className="secTitle">
@@ -35,13 +37,13 @@ const Main = () => {
     To use a list of object in one array */}
 
         {trips?.map(
-          ({ _id, title, location, imgSrc }) => {
+          ({ _id, title, location, img }) => {
             return (
               <div key={_id} data-aos="fade-up" className="singleDestination">
                 {/* Returning single id from the map array */}
 
                 <div className="imageDiv">
-                  <img src={imgSrc} alt={title} />
+                  <img src={img} alt={title} />
                 </div>
 
                 <div className="cardInfo">

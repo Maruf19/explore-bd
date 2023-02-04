@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar/>
       <section className="home" id="home">
         <video src={video} muted autoPlay loop type="video/mp4"></video>
         <div className="homeContent container">

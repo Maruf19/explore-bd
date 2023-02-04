@@ -119,6 +119,7 @@ const Data = [
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([])
+  const [packages, setpackages] = useState([])
 
   //create a react hook to add a scroll animation
   useEffect(() => {
@@ -126,11 +127,18 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/about')
+    fetch('http://localhost:5000/admin/packages')
       .then(res => res.json())
       .then(data => setPackageDesc(data))
   }, [packageDesc])
 
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/tripPackage')
+      .then(res => res.json())
+      .then(data => setpackages(data))
+  }, [packages])
+
+  console.log(packages)
 
   return (
     <div>
@@ -152,18 +160,18 @@ const Packages = () => {
           {/* using high orfer array mathod (map).
     To use a list of object in one array */}
 
-          {Data.map(
-            ({ id, imgSrc, destTitle, location, grade, fees, description }) => {
+          {packages.map(
+            ({ _id, img, title, location, grade, price, packageDesc }) => {
               return (
-                <div key={id} data-aos="fade-up" className="singleDestination">
+                <div key={_id} data-aos="fade-up" className="singleDestination">
                   {/* Returning single id from the map array */}
 
                   <div className="imageDiv">
-                    <img src={imgSrc} alt={destTitle} />
+                    <img src={img} alt={title} />
                   </div>
 
                   <div className="cardInfo">
-                    <h4 className="destTitle"> {destTitle}</h4>
+                    <h4 className="destTitle"> {title}</h4>
                     <span className="continent flex">
                       <HiOutlineLocationMarker className="icon" />
                       <span className="name">{location}</span>
@@ -178,12 +186,12 @@ const Packages = () => {
                         </span>
                       </div>
                       <div className="price">
-                        <h5>{fees}</h5>
+                        <h5>$ {price}</h5>
                       </div>
                     </div>
 
                     <div className="desc">
-                      <p>{description}</p>
+                      <p>{packageDesc}</p>
                     </div>
 
                     <button className="btn flex">

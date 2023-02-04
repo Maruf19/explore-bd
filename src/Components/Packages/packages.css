@@ -48,6 +48,7 @@
   margin-bottom: 3rem;
   color: var(--blackColor);
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 .packages .secContent {
   justify-content: center;
@@ -135,6 +136,7 @@
   font-size: 13.5px;
   color: var(--textColor);
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 .packages .secContent .singleDestination .cardInfo .desc p {
   color: var(--textColor);

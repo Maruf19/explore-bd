@@ -1,47 +1,46 @@
-import React from 'react';
-import "./AdminServices.css"
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 
-const AdminSerivces = () => {
+const AdminPackage = () => {
+    const [aboutDesc, setAboutDesc] = useState([])
+
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
-        const title = form.title.value;
         const desc = form.desc.value;
 
-        const servicesData = {
-            title,
+        const aboutData = {
             desc
         }
 
-        fetch('http://localhost:5000/admin/services', {
+        fetch('http://localhost:5000/admin/packages', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(servicesData)
+            body: JSON.stringify(aboutData)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Services placed successfully')
+                    alert('Package description placed successfully')
                     event.target.reset()
                 }
             })
             .catch((err) => console.error(err));
     }
+
     return (
         <div className='form-field'>
             <h3 className="title">
-                Add Your services here
+                Add Your Package description here
             </h3>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='title' placeholder='Title' />
-                {/* <input type="text" name='desc' placeholder='Description' /> */}
-                <textarea name="desc" placeholder='Description'></textarea>
+                <textarea name="desc" placeholder='Package Description' rows={10}></textarea>
                 <input type="submit" value="Submit" className='submit' />
             </form>
         </div>
     );
 };
 
-export default AdminSerivces;
+export default AdminPackage;

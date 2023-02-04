@@ -11,7 +11,7 @@ const Team = () => {
             name,
             desc
         }
-        fetch('https://explore-bd-server.vercel.app/admin/teams', {
+        fetch('http://localhost:5000/admin/teams', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

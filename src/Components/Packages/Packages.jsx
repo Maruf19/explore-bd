@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./packages.css";
 // using array, the array named data
 import img from "../../Assets/img.jpg";
@@ -118,10 +118,19 @@ const Data = [
 ];
 
 const Packages = () => {
+  const [packageDesc, setPackageDesc] = useState([])
+
   //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/about')
+      .then(res => res.json())
+      .then(data => setPackageDesc(data))
+  }, [packageDesc])
+
 
   return (
     <div>
@@ -132,17 +141,11 @@ const Packages = () => {
             Our Packages
           </h3>
 
-          <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </h5>
+          {
+            packageDesc?.map(desc => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc" key={desc?._id}>
+              {desc?.desc}
+            </h5>)
+          }
         </div>
 
         <div className="secContent grid">

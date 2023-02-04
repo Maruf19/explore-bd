@@ -11,7 +11,7 @@ const Feedback = () => {
             feedback
         }
 
-        fetch('https://explore-bd-server.vercel.app/feedback', {
+        fetch('http://localhost:5000/feedback', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

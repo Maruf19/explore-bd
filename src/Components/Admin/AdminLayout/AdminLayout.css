@@ -1,14 +1,12 @@
 .admin {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 10px;
 }
 
 .leftsidebar {
-  grid-column: 1 / 2;
+  flex-basis: 20%;
 }
 
 .rightsidebar {
-  grid-column: 2 / -1;
-  padding-right: 2rem;
+  flex-basis: 80%;
 }

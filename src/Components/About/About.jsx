@@ -7,15 +7,23 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 const About = () => {
-  const [teams, setTeams] = useState()
+  const [about, setAbout] = useState([])
+  const [teams, setTeams] = useState([]);
 
   //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
+
   useEffect(() => {
-    fetch('https://explore-bd-server.vercel.app/admin/teams')
+    fetch('http://localhost:5000/admin/about')
+      .then(res => res.json())
+      .then(data => setAbout(data))
+  }, [about])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/admin/teams')
       .then(res => res.json())
       .then(data => setTeams(data))
   }, [teams])
@@ -29,16 +37,12 @@ const About = () => {
             Who We Are
           </h3>
 
-          <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s.Lorem Ipsum is
-            simply dummy text of the printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the
-            1500s.
-          </h5>
+          {
+            about?.map(about => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc">
+              {about?.desc}
+            </h5>)
+          }
+
         </div>
 
         <div className="secTitle">

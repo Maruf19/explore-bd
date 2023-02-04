@@ -19,9 +19,9 @@
 
 .leftside {
     background: var(--PrimaryColor);
-    width: 70%;
     height: 100vh;
     color: #fff;
+    width: 20%;
 }
 
 .items {

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaPeopleCarry } from 'react-icons/fa';
-
 
 const LeftsideBar = () => {
     const [categories, setCategories] = useState()
@@ -11,8 +9,6 @@ const LeftsideBar = () => {
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
-
-    console.log(categories)
 
     return (
         <div className=''>

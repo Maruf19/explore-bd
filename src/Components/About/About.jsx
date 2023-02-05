@@ -18,13 +18,13 @@ const About = () => {
 
 
   useEffect(() => {
-    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/about')
+    fetch('http://localhost:5000/admin/about')
       .then(res => res.json())
       .then(data => setAbout(data))
   }, [about])
 
   useEffect(() => {
-    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/teams')
+    fetch('http://localhost:5000/admin/teams')
       .then(res => res.json())
       .then(data => setTeams(data))
   }, [teams])
@@ -33,7 +33,7 @@ const About = () => {
 
   return (
     <div>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Navbar></Navbar>
       <section className="about container section">
         <div className="secTitle">

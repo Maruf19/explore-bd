@@ -24,7 +24,7 @@ const Team = () => {
           };
 
           fetch(
-            "https://explore-bd-server-ahm-rubayed.vercel.app/admin/teams",
+            "http://localhost:5000/admin/teams",
             {
               method: "POST",
               headers: {

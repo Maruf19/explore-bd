@@ -64,6 +64,70 @@ const handleAddData = (picture, title, tutor, lectures, hours) => {
                 {/* <input type="checkbox" className="peer" /> */}
                 <div className="collapse-title bg-white p-4 px-6 peer-checked:bg-black">
                   <div className="flex justify-between font-bold">
+                    <p>Details</p>
+                  </div>
+                </div>
+                <div className="collapse-content bg-white  peer-checked:bg-black p-6">
+                  <div>
+                    <div className="form-control w-full p-5 border">
+                      <label className="label">
+                        <span className="label-text text-white">
+                          Name
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        className="input input-bordered w-full rounded"
+                      />
+                    </div>
+                    <div className="form-control w-full mt-3 p-2 border">
+                      <label className="label">
+                        <span className="label-text text-white">
+                          Contact number
+                        </span>
+                      </label>
+                      <input
+                        type="number"
+                        placeholder="Phone number"
+                        className="input input-bordered w-full rounded"
+                      />
+                    </div>
+                    <div className="flex mt-3 gap-x-3">
+                      <div className="form-control w-full p-3 pb-3 border">
+                        <label className="label">
+                          <span className="label-text">
+                            NID/Passport number
+                          </span>
+                        </label>
+                        <input
+                          type="number"
+                          placeholder=""
+                          className="input input-bordered w-full rounded"
+                        />
+                      </div>
+
+                      <div className="form-control w-full p-3 border">
+                        <label className="label">
+                          <span className="label-text">
+                            Number of guest
+                          </span>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          className="input input-bordered w-full rounded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12">
+                {/* <input type="checkbox" className="peer" /> */}
+                <div className="collapse-title bg-white p-4 px-6 peer-checked:bg-black">
+                  <div className="flex justify-between font-bold">
                     <p>Credit/Debit Card</p>
                     <p>
                       <FaCreditCard className="text-2xl" />
@@ -190,26 +254,24 @@ const handleAddData = (picture, title, tutor, lectures, hours) => {
             </div>
           </div>
 
-          <div className="w-5/12">
+          {/* <div className="w-5/12">
             <div className="border border-black rounded-xl p-4 w-7/12 mx-auto">
               <h4 className="text-xl font-bold mb-2">Summary</h4>
               <div className="flex justify-between">
                 <h1 className="">Total Price:</h1>
-                {/* <h1 className="">${total}</h1> */}
               </div>
 
               <div className="divider mb-[-3px]"></div>
 
               <div className="flex justify-between font-bold">
                 <h1 className="">Total:</h1>
-                {/* <h1 className="">${total}</h1> */}
               </div>
 
               <button className="custom-btn btn-black rounded text-white btn-wide w-full mt-5">
                 Proceed
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

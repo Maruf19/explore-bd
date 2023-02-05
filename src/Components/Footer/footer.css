@@ -1,17 +1,21 @@
 /* Colors */
 :root {
-  --PrimaryColor: hsl(199,100%,33%);
-  --SecondaryColor: hsl(187,85%,43%);
-  --gradientColor: linear-gradient(to right, hsl (187,85%, 43%), hsl (199,100%,33%));
-  --whiteColor:hsl(0,0%,100%);
-  --blackColor:hsl(201,33%,16%);
-  --textColor:hsl(240,4%,36%);
-  --whiteColorDeam:hsl(0,0%,93%);
-  --greyText:rgb(190,190,190);
-  --inputColor: rgb(239,239,239);
-  --bodyColor: rgb(240,240,246);
-  --cardBG: rgb(225,225,235);
-  --cardHover: rgb(255,255,255);
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl (187, 85%, 43%),
+    hsl (199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
 }
 
 .footer {
@@ -32,7 +36,7 @@
 .footer .videoDiv video {
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .footer .videoDiv::after {
   content: "";
@@ -98,14 +102,14 @@
   color: var(--whiteColor);
   opacity: 0.5;
 }
-.footer .secContent .contactDiv .inputDiv .btn {
+.footer .secContent .contactDiv .inputDiv .custom-btn {
   width: 100%;
   justify-content: center;
   color: var(--whiteColor);
   font-weight: 500;
   gap: 0.5rem;
 }
-.footer .secContent .contactDiv .inputDiv .btn .icon {
+.footer .secContent .contactDiv .inputDiv .custom-btn .icon {
   font-size: 18px;
 }
 .footer .secContent .footerCard {
@@ -145,7 +149,7 @@
 }
 .footer .secContent .footerCard .footerSocials {
   -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
+  column-gap: 0.5rem;
 }
 .footer .secContent .footerCard .footerSocials .icon {
   color: var(--whiteColor);
@@ -182,7 +186,13 @@
   transform: translateX(7px);
   font-weight: 800;
 }
-.footer .secContent .footerCard .footerLinks .linkGroup .footerList:hover .icon {
+.footer
+  .secContent
+  .footerCard
+  .footerLinks
+  .linkGroup
+  .footerList:hover
+  .icon {
   color: var(--SecondaryColor);
 }
 .footer .secContent .footerCard .footerDiv {
@@ -228,7 +238,7 @@
   .footer .secContent .contactDiv .inputDiv input {
     width: 60%;
   }
-  .footer .secContent .contactDiv .inputDiv .btn {
+  .footer .secContent .contactDiv .inputDiv .custom-btn {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -256,7 +266,7 @@
   }
   .footer .secContent .footerCard .footerIntro .footerSocials {
     -moz-column-gap: 0.5rem;
-         column-gap: 0.5rem;
+    column-gap: 0.5rem;
   }
   .footer .secContent .footerCard .footerIntro .footerSocials .icon {
     color: var(--whiteColor);
@@ -269,4 +279,4 @@
     font-size: 16px;
     padding: 5px 0;
   }
-}/*# sourceMappingURL=footer.css.map */
+} /*# sourceMappingURL=footer.css.map */

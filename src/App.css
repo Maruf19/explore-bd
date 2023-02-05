@@ -15,7 +15,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #111; 
+  background-color: #111;
   border: 5px solid transparent;
   border-radius: 9px;
   -webkit-background-clip: content-box;
@@ -24,7 +24,7 @@
 /* Colors */
 
 :root {
-  --PrimaryColor: hsl(199, 100%, 33%);
+  --PrimaryColor: #0073a8;
   --SecondaryColor: hsl(187, 85%, 43%);
   --gradientColor: linear-gradient(
     to right,
@@ -44,8 +44,12 @@ html {
   scroll-behavior: smooth;
 }
 
-Link {
-  text-decoration: none;
+.text-primary {
+  color: var(--PrimaryColor);
+}
+
+.bg-primary {
+  background: var(--PrimaryColor);
 }
 
 li {
@@ -68,25 +72,7 @@ li {
   cursor: pointer;
 }
 
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-.gap-1 {
-  gap: .5rem;
-}
-
-.grid {
-  display: grid;
-  align-items: center;
-}
-
-.relative {
-  position: relative;
-}
-
-.btn {
+.custom-btn {
   padding: 0.6rem 1.5rem;
   background: var(--PrimaryColor);
   border-radius: 3rem;
@@ -95,12 +81,12 @@ li {
   color: #fff;
 }
 
-.btn Link {
+.custom-btn Link {
   color: var(--whiteColor);
   font-weight: 500;
 }
 
-.btn:hover {
+.custom-btn:hover {
   background: var(--SecondaryColor);
 }
 
@@ -110,20 +96,8 @@ video {
   height: auto;
 }
 
-input {
-  font-size: 100%;
-}
-
 body {
   background: var(--bodyColor);
-}
-
-.mt-5 {
-  margin-top: 5rem;
-}
-
-.py-4 {
-  padding: 4rem 0;
 }
 
 .custom-flex {

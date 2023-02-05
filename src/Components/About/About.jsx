@@ -5,6 +5,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import ScrollToTop from "../ScrollToTop";
 
 const About = () => {
   const [about, setAbout] = useState([])
@@ -32,6 +33,7 @@ const About = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <section className="about container section">
         <div className="secTitle">

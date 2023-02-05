@@ -31,7 +31,7 @@
   top: 0;
   bottom: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .home .homeContent {
   width: 100%;
@@ -109,7 +109,7 @@
   color: var(--PrimaryColor) !important;
   margin-left: 10px;
 }
-.home .homeContent .cardDiv .input .input[type=range] {
+.home .homeContent .cardDiv .input .input[type="range"] {
   background: blue;
 }
 .home .homeContent .cardDiv .searchOptions {
@@ -120,7 +120,7 @@
   width: max-content;
   bottom: -0.7rem;
   -moz-column-gap: 0.8rem;
-       column-gap: 0.8rem;
+  column-gap: 0.8rem;
   padding: 5px 1rem;
   border-radius: 3rem;
   left: 50%;
@@ -198,7 +198,7 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: 0.2s ease;
 }
 .home .main .secContent .singleDestination .imageDiv:hover img {
@@ -256,14 +256,14 @@
   color: var(--textColor);
   font-weight: 500;
 }
-.home .main .secContent .singleDestination .cardInfo .btn {
+.home .main .secContent .singleDestination .cardInfo .custom-btn {
   margin-top: 1rem;
   color: var(--whiteColor);
   font-weight: 600;
   justify-content: space-between;
   gap: 0.5rem;
 }
-.home .main .secContent .singleDestination .cardInfo .btn .icon {
+.home .main .secContent .singleDestination .cardInfo .custom-btn .icon {
   align-self: center;
   font-size: 18px;
 }
@@ -372,4 +372,4 @@
   .home .secContent .singleDestination {
     height: auto;
   }
-}/*# sourceMappingURL=home.css.map */
+} /*# sourceMappingURL=home.css.map */

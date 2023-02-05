@@ -11,7 +11,6 @@ import "aos/dist/aos.css";
 const Main = () => {
   const [trips, setTrips] = useState()
 
-  //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -22,8 +21,6 @@ const Main = () => {
       .then(data => setTrips(data))
   }, [trips])
 
-  console.log(trips)
-
   return (
     <section className="main container section">
       <div className="secTitle">
@@ -33,8 +30,6 @@ const Main = () => {
       </div>
 
       <div className="secContent grid">
-        {/* using high orfer array mathod (map).
-    To use a list of object in one array */}
 
         {trips?.map(
           ({ _id, title, location, img }) => {
@@ -53,7 +48,7 @@ const Main = () => {
                     <span className="name">{location}</span>
                   </span>
 
-                  <button className="btn flex">
+                  <button className="custom-btn flex">
                     Details <HiOutlineClipboardCheck className="icon" />
                   </button>
                 </div>

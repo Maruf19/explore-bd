@@ -46,9 +46,9 @@ const Navbar = () => {
     <section className="navBarSection">
       <header className={navbar ? 'header active flex': 'header flex'}>
         <div className="logoDiv">
-          <Link to="/" className="logo ">
-            <h1>
-              <MdTravelExplore style={{color: color}} className="icon" /> <Link to="/" style={{color: color}} className="main-logo">Travel </Link>
+          <Link to="/" className="logo">
+            <h1 className="flex items-center gap-2">
+              <MdTravelExplore style={{color: color}} className="icon" /> <Link to="/" style={{color: color}} className="main-logo">ExploreBD </Link>
             </h1>
           </Link>
         </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
               <li style={{color: color}}>Contact</li>
             </NavLink>
 
-            <button className="btn">
+            <button className="custom-btn">
               <Link to="/Book">Book Now</Link>
             </button>
           </ul>

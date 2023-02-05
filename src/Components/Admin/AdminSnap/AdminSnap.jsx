@@ -2,14 +2,12 @@ import React, { } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AdminSnap = () => {
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, reset } = useForm()
 
-    const handleSnapDesc = event => {
-        event.preventDefault()
-        const form = event.target;
-        const desc = form.desc.value;
+    const handleSnapDesc = (data) => {
+        const desc = data.desc;
 
-        const data = {
+        const snapData = {
             desc
         }
 
@@ -18,13 +16,13 @@ const AdminSnap = () => {
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(snapData)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
                     alert('Snap description placed successfully')
-                    event.target.reset()
+                    reset()
                 }
             })
             .catch((err) => console.error(err));
@@ -61,6 +59,7 @@ const AdminSnap = () => {
                         .then(data => {
                             if (data.acknowledged) {
                                 alert('Snap trip placed successfully')
+                                reset()
                             }
                         })
                         .catch((err) => console.error(err));
@@ -69,32 +68,77 @@ const AdminSnap = () => {
     }
 
     return (
-        <div className='form-field custom-flex'>
-            <div>
-                <h3 className="title">
-                    Add Your Snap description here
-                </h3>
-                <form onSubmit={handleSnapDesc}>
-                    <textarea name="desc" placeholder='Package Description' rows={10}></textarea>
-                    <input type="submit" value="Submit" className='submit' />
-                </form>
-            </div>
+        <section className="w-full ml-16">
+            <div className="w-3/5">
+                <h2 className="mt-8 text-3xl font-bold text-primary">Add Snap Description</h2>
+                <div className="my-6 flex justify-center items-center">
+                    <div className="w-full card shadow-2xl p-8">
+                        <form onSubmit={handleSubmit(handleSnapDesc)}>
+                            <div className="grid grid-cols-1 gap-6">
+                                <div className="form-control w-full max-w-xs">
+                                    <textarea
+                                        {...register("desc")}
+                                        type="text"
+                                        className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                                        placeholder="Snap Description"
+                                    />
+                                </div>
+                            </div>
 
-            {/* Add package */}
-            <div className='mt-5'>
-                <h3 className="title">
-                    Add Your Snap trip here
-                </h3>
-                <form onSubmit={handleSubmit(handleAddSnap)}>
-                    <input type="file"    {...register("image", {
-                        required: "Image is required"
-                    })} />
-                    <input type="text" placeholder='Title' {...register("title")} />
-                    <input name="location" placeholder='Location' {...register("location")} />
-                    <input type="submit" value="Add Trip" className='submit' />
-                </form>
+                            <input
+                                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                                type="submit"
+                                value="Add Trip"
+                            />
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div className="w-3/5 my-20">
+                <h2 className="mt-8 text-3xl font-bold text-primary">Add a snap trip</h2>
+                <div className="my-6 flex justify-center items-center">
+                    <div className="w-full card shadow-2xl p-8">
+                        <form onSubmit={handleSubmit(handleAddSnap)}>
+                            <div className="grid grid-cols-1 gap-6">
+                                <div className="form-control w-full max-w-xs">
+                                    <input
+                                        {...register("image", {
+                                            required: "Image is required",
+                                        })}
+                                        type="file"
+                                        className="input input-bordered w-full max-w-xs"
+                                        placeholder="Upload a Snap Image"
+                                    />
+                                </div>
+
+                                <div className="form-control w-full max-w-xs">
+                                    <input
+                                        {...register("title")}
+                                        type="text"
+                                        className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                                        placeholder="Snap Title"
+                                    />
+                                </div>
+                                <div className="form-control w-full max-w-xs">
+                                    <textarea
+                                        {...register("location")}
+                                        type="text"
+                                        className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                                        placeholder="Snap Location"
+                                    />
+                                </div>
+                            </div>
+
+                            <input
+                                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                                type="submit"
+                                value="Add Snap"
+                            />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 };
 

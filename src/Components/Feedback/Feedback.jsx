@@ -32,7 +32,7 @@ const Feedback = () => {
     return (
         <section>
             <Navbar />
-            <div className='container py-4'>
+            <div className='container py-32'>
                 <div className="secTitle">
                     <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
                         Give your valuable feedback here

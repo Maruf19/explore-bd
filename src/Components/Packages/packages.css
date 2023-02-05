@@ -79,7 +79,7 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: 0.2s ease;
 }
 .packages .secContent .singleDestination .imageDiv:hover img {
@@ -141,14 +141,14 @@
 .packages .secContent .singleDestination .cardInfo .desc p {
   color: var(--textColor);
 }
-.packages .secContent .singleDestination .cardInfo .btn {
+.packages .secContent .singleDestination .cardInfo .custom-btn {
   margin-top: 1rem;
   color: var(--whiteColor);
   font-weight: 600;
   justify-content: space-between;
   gap: 0.5rem;
 }
-.packages .secContent .singleDestination .cardInfo .btn .icon {
+.packages .secContent .singleDestination .cardInfo .custom-btn .icon {
   align-self: center;
   font-size: 18px;
 }
@@ -174,4 +174,4 @@
   .secContent .singleDestination {
     height: auto;
   }
-}/*# sourceMappingURL=packages.css.map */
+} /*# sourceMappingURL=packages.css.map */

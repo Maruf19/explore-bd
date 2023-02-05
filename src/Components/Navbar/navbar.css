@@ -45,7 +45,7 @@
 }
 
 .header.active .main-logo,
-.header.active .logo .icon{
+.header.active .logo .icon {
   color: var(--PrimaryColor) !important;
 }
 
@@ -110,10 +110,10 @@
     color: var(--PrimaryColor);
   }
 
-  .header .navBar .navLists .btn {
+  .header .navBar .navLists .custom-btn {
     margin-top: 1rem;
   }
-  .header .navBar .navLists .btn a {
+  .header .navBar .navLists .custom-btn a {
     font-weight: 600;
     color: var(--whiteColor);
   }
@@ -161,10 +161,10 @@
   .header .navBar .navLists .navItem .navLink:hover {
     color: var(--PrimaryColor);
   }
-  .header .navBar .navLists .btn {
+  .header .navBar .navLists .custom-btn {
     margin-left: 1rem;
   }
-  .header .navBar .navLists .btn a {
+  .header .navBar .navLists .custom-btn a {
     color: var(--whiteColor);
     font-weight: 500;
   }

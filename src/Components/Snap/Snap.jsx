@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import ScrollToTop from "../ScrollToTop";
 
 const Snap = () => {
   const [snapDesc, setSnapDesc] = useState([]);
@@ -33,13 +34,13 @@ const Snap = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <section className="snap container section">
         <div className="secTitle">
           <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
             Snap from Trip
           </h3>
-
 
           {
             snapDesc?.map(desc => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc" key={desc?._id}>

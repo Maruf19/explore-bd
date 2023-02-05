@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop";
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([])
@@ -34,6 +35,7 @@ const Packages = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <section className="packages container section">
         <div className="secTitle">
@@ -84,10 +86,10 @@ const Packages = () => {
                       <p>{packageDesc}</p>
                     </div>
                     <div className="flex gap-1">
-                      <Link to="/schedule" className="btn flex">
+                      <Link to="/schedule" className="custom-btn flex">
                         Details <HiOutlineClipboardCheck className="icon" />
                       </Link>
-                      <Link to="/feedback" className="btn flex">
+                      <Link to="/feedback" className="custom-btn flex">
                         Reviews <HiOutlineClipboardCheck className="icon" />
                       </Link>
                     </div>

@@ -117,10 +117,10 @@
   border-radius: 25px;
   transition: 0.3s;
 }
-.contact .form .contact-form form .btn {
+.contact .form .contact-form form .custom-btn {
   margin-top: 1rem;
 }
-.contact .form .contact-form form .btn a {
+.contact .form .contact-form form .custom-btn a {
   font-weight: 600;
   color: var(--whiteColor);
 }
@@ -129,4 +129,4 @@
   .form {
     grid-template-columns: repeat(1, 1fr);
   }
-}/*# sourceMappingURL=contact.css.map */
+} /*# sourceMappingURL=contact.css.map */

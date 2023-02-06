@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Team = () => {
-  const [team, setTeams] = useState([])
+  const [team, setTeams] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
   const handleAddTeam = (data) => {
@@ -44,15 +44,15 @@ const Team = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/teams')
-      .then(res => res.json())
-      .then(data => setTeams(data))
-  }, [team])
-  
+    fetch("http://localhost:5000/admin/teams")
+      .then((res) => res.json())
+      .then((data) => setTeams(data));
+  }, [team]);
+
   const handleDeleteTeam = (team) => {
-    team.preventDefault()
+    team.preventDefault();
     fetch(`http://localhost:5000/team/${team._id}`, {
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -138,26 +138,15 @@ const Team = () => {
                         >
                           Team Name
                         </th>
-                        <th
-                          scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
-                        >
-                          Category
-                        </th>
-                        <th
-                          scope="col"
-                          className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700
-                          uppercase dark:text-gray-400">
-                          Price
-                        </th>
+
                         <th scope="col" className="p-4">
                           {/* <button onClick={handleDeleteTeam(team)} className="sr-only">Delete</button> */}
                         </th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                      {
-                        team?.map(team => <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                      {team?.map((team) => (
+                        <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
                           <td className="p-4 w-4">
                             <div className="flex items-center">
                               <input
@@ -173,22 +162,28 @@ const Team = () => {
                           <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {team?.name}
                           </td>
-                          <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                            Desktop PC
-                          </td>
-                          <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            $1999
-                          </td>
+
                           <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <a
-                              href="/" onClick={() =>handleDeleteTeam(team)}
+                              href="/"
+                              onClick={() => handleDeleteTeam(team)}
+                              className="text-blue-600 dark:text-blue-500 hover:underline"
+                            >
+                              Update
+                            </a>
+                          </td>
+
+                          <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                            <a
+                              href="/"
+                              onClick={() => handleDeleteTeam(team)}
                               className="text-blue-600 dark:text-blue-500 hover:underline"
                             >
                               Delete
                             </a>
                           </td>
-                        </tr>)
-                      }
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

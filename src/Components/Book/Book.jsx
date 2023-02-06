@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./book.css";
 
-import img from "../../Assets/card_img.png";
+
 
 import Navbar from "../Navbar/Navbar";
 const Book = () => {

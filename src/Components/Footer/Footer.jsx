@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           <div className="inputDiv flex">
-            <button data-aos="fade-up" className="custom-btn flex" type="submit">
+            <button data-aos="fade-up" className="btn flex" type="submit">
               Telegram <FiSend className="icon" />
             </button>
           </div>

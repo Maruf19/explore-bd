@@ -1,90 +1,91 @@
 import React from "react";
 import "./contact.css";
-import { BiBuildingHouse } from "react-icons/bi";
-import { FiMail } from "react-icons/fi";
-import { BsPhone } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { FiFacebook } from "react-icons/fi";
-import { FiTwitter } from "react-icons/fi";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { IoLogoLinkedin } from "react-icons/io";
+
+import Navbar from "../Navbar/Navbar";
 
 const Contact = () => {
   return (
     <div>
-      <section
-        className="contact section flex"
-        data-aos="fade-up"
-        data-aos-duration="3000"
-      >
-        <div>
-          <div className="form">
-            <div className="contact-info">
-              <h3 className="title">Let's get in touch</h3>
-              <p className="text">
+      <Navbar></Navbar>
+      <section className="contact container section">
+        <h3
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className="contact-title"
+        >
+          Communicate With US
+        </h3>
+
+        <div class="container">
+          <div class="form">
+            <div class="contact-info">
+              <h3 class="title">Let's get in touch</h3>
+              <p class="text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 dolorum adipisci recusandae praesentium dicta!
               </p>
 
-              <div className="info">
-                <div className="information">
-                  <BiBuildingHouse className="icon" alt="" />
+              <div class="info">
+                <div class="information">
+                  <img src="img/location.png" class="icon" alt="" />
                   <p>92 Cherry Drive Uniondale, NY 11553</p>
                 </div>
-                <div className="information">
-                  <FiMail className="icon" alt="" />
+                <div class="information">
+                  <img src="img/email.png" class="icon" alt="" />
                   <p>lorem@ipsum.com</p>
                 </div>
-                <div className="information">
-                  <BsPhone className="icon" alt="" />
+                <div class="information">
+                  <img src="img/phone.png" class="icon" alt="" />
                   <p>123-456-789</p>
                 </div>
               </div>
 
-              <div className="social-media">
+              <div class="social-media">
                 <p>Connect with us :</p>
-                <div className="social-icons">
-                  <Link to="/">
-                    <FiFacebook classNameName="icon" />
-                  </Link>
-
-                  <Link to="/">
-                    <FiTwitter classNameName="icon" />
-                  </Link>
-
-                  <Link to="/">
-                    <AiOutlineInstagram classNameName="icon" />
-                  </Link>
-
-                  <Link to="/">
-                    <IoLogoLinkedin classNameName="icon" />
-                  </Link>
+                <div class="social-icons">
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="contact-form">
-              <form>
-                <h3 className="title">Contact us</h3>
-                <div className="input-container">
-                  <input type="text" name="name" />
+            <div class="contact-form">
+              <span class="circle one"></span>
+              <span class="circle two"></span>
+
+              <form action="index.html" autocomplete="off">
+                <h3 class="title">Contact us</h3>
+                <div class="input-container">
+                  <input type="text" name="name" class="input" />
                   <label for="">Username</label>
+                  <span>Username</span>
                 </div>
-                <div className="input-container">
-                  <input type="email" name="email" />
+                <div class="input-container">
+                  <input type="email" name="email" class="input" />
                   <label for="">Email</label>
+                  <span>Email</span>
                 </div>
-                <div className="input-container">
-                  <input type="tel" name="phone" />
+                <div class="input-container">
+                  <input type="tel" name="phone" class="input" />
                   <label for="">Phone</label>
+                  <span>Phone</span>
                 </div>
-                <div className="input-container">
-                  <textarea name="message" className="input"></textarea>
+                <div class="input-container textarea">
+                  <textarea name="message" class="input"></textarea>
                   <label for="">Message</label>
+                  <span>Message</span>
                 </div>
-                <button className="btn">
-                  <Link to="/">Send</Link>
-                </button>
+                <input type="submit" value="Send" class="btn" />
               </form>
             </div>
           </div>

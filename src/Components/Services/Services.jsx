@@ -20,7 +20,9 @@ const Services = () => {
     fetch('http://localhost:5000/admin/services')
       .then(res => res.json())
       .then(data => setServices(data))
-  }, [])
+  }, [services])
+
+  console.log(services)
 
   return (
     <section className="services container section">
@@ -43,9 +45,9 @@ const Services = () => {
                   <p>{desc}</p>
                 </div>
 
-                <button className="custom-btn flex">
+                {/* <button className="custom-btn flex">
                   Details <HiOutlineClipboardCheck className="icon" />
-                </button>
+                </button> */}
               </div>
             </div>
           );

@@ -79,7 +79,7 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   transition: 0.2s ease;
 }
 .snap .secContent .singleDestination .imageDiv:hover img {
@@ -170,4 +170,4 @@
   .secContent .singleDestination {
     height: auto;
   }
-} /*# sourceMappingURL=snap.css.map */
+}/*# sourceMappingURL=snap.css.map */

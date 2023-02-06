@@ -21,7 +21,6 @@
 .services {
   width: 100%;
 }
-
 .services .secTitle .title {
   position: relative;
   width: -webkit-max-content;
@@ -54,7 +53,7 @@
   align-items: center;
   background: var(--cardBG);
   box-shadow: 0 2px 4px rgb(140, 140, 141);
-  overflow-wrap: anywhere;
+  overflow: hidden;
 }
 .services .secContent .singleDestination:hover {
   background: var(--cardHover);
@@ -70,7 +69,7 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   transition: 0.2s ease;
 }
 .services .secContent .singleDestination .imageDiv:hover img {
@@ -164,4 +163,4 @@
   .secContent .singleDestination {
     height: auto;
   }
-} /*# sourceMappingURL=services.css.map */
+}/*# sourceMappingURL=services.css.map */

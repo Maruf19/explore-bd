@@ -7,10 +7,11 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import ScrollToTop from "../ScrollToTop";
 
-const About = () => {
-  const [scheduleDesc, setScheduleDesc] = useState([])
-  const [schedule, setSchedule] = useState([])
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
+const About = () => {
+  const [scheduleDesc, setScheduleDesc] = useState([]);
+  const [schedule, setSchedule] = useState([]);
 
   //create a react hook to add a scroll animation
   useEffect(() => {
@@ -18,16 +19,16 @@ const About = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/schedule')
-      .then(res => res.json())
-      .then(data => setScheduleDesc(data))
-  }, [scheduleDesc])
+    fetch("http://localhost:5000/admin/schedule")
+      .then((res) => res.json())
+      .then((data) => setScheduleDesc(data));
+  }, [scheduleDesc]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/scheduleTrip')
-      .then(res => res.json())
-      .then(data => setSchedule(data))
-  }, [schedule])
+    fetch("http://localhost:5000/admin/scheduleTrip")
+      .then((res) => res.json())
+      .then((data) => setSchedule(data));
+  }, [schedule]);
 
   return (
     <div>
@@ -39,11 +40,16 @@ const About = () => {
             Trip Schedule
           </h3>
 
-          {
-            scheduleDesc?.map(desc => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc" key={desc?._id}>
+          {scheduleDesc?.map((desc) => (
+            <h5
+              data-aos="fade-up"
+              data-aos-duration="4000"
+              className="shortDesc"
+              key={desc?._id}
+            >
               {desc?.desc}
-            </h5>)
-          }
+            </h5>
+          ))}
         </div>
 
         <div className="secTitle">
@@ -52,10 +58,13 @@ const About = () => {
           </h3>
         </div>
         <div className="secContent grid">
-
           {schedule.map(({ _id, img, title, location }) => {
             return (
-              <div key={_id} data-aos="fade-right" className="singleDestination">
+              <div
+                key={_id}
+                data-aos="fade-right"
+                className="singleDestination"
+              >
                 {/* Returning single id from the map array */}
 
                 <div className="imageDiv">
@@ -65,6 +74,7 @@ const About = () => {
                 <div className="cardInfo">
                   <h4 className="destTitle"> {title}</h4>
                   <span className="continent flex">
+                    <HiOutlineLocationMarker className="icon" />
                     <span className="name">{location}</span>
                   </span>
                 </div>

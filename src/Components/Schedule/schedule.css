@@ -46,7 +46,6 @@
   margin-bottom: 3rem;
   color: var(--blackColor);
   font-weight: 500;
-  overflow-wrap: anywhere;
 }
 .about .secContent {
   justify-content: center;

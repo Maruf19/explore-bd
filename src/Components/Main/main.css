@@ -1,21 +1,17 @@
 /* Colors */
 :root {
-  --PrimaryColor: hsl(199, 100%, 33%);
-  --SecondaryColor: hsl(187, 85%, 43%);
-  --gradientColor: linear-gradient(
-    to right,
-    hsl (187, 85%, 43%),
-    hsl (199, 100%, 33%)
-  );
-  --whiteColor: hsl(0, 0%, 100%);
-  --blackColor: hsl(201, 33%, 16%);
-  --textColor: hsl(240, 4%, 36%);
-  --whiteColorDeam: hsl(0, 0%, 93%);
-  --greyText: rgb(190, 190, 190);
-  --inputColor: rgb(239, 239, 239);
-  --bodyColor: rgb(240, 240, 246);
-  --cardBG: rgb(225, 225, 235);
-  --cardHover: rgb(255, 255, 255);
+  --PrimaryColor: hsl(199,100%,33%);
+  --SecondaryColor: hsl(187,85%,43%);
+  --gradientColor: linear-gradient(to right, hsl (187,85%, 43%), hsl (199,100%,33%));
+  --whiteColor:hsl(0,0%,100%);
+  --blackColor:hsl(201,33%,16%);
+  --textColor:hsl(240,4%,36%);
+  --whiteColorDeam:hsl(0,0%,93%);
+  --greyText:rgb(190,190,190);
+  --inputColor: rgb(239,239,239);
+  --bodyColor: rgb(240,240,246);
+  --cardBG: rgb(225,225,235);
+  --cardHover: rgb(255,255,255);
 }
 
 .main {
@@ -69,7 +65,7 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   transition: 0.2s ease;
 }
 .main .secContent .singleDestination .imageDiv:hover img {
@@ -160,4 +156,4 @@
   .secContent .singleDestination {
     height: auto;
   }
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

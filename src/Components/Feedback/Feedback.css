@@ -1,20 +1,35 @@
 .feedback-form {
-    margin: 3rem 0 4rem 0;
+  margin: 3rem 0 4rem 0;
 }
 
 .feedback-form textarea {
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid grey;
-    background: none;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background: none;
+  margin-bottom: 10px;
+}
+.client-title {
+  color: #58585f;
+  margin-left: 45%;
+  margin-bottom: 10px;
+}
+.client_name {
+  padding: 1rem;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  margin-left: 35%;
+  margin-bottom: 10px;
 }
 
 .submit {
-    background-color: hsl(199, 100%, 33%);
-    border: none;
-    padding: 1rem 3rem;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: hsl(199, 100%, 33%);
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 45%;
 }

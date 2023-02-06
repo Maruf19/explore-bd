@@ -13,8 +13,8 @@ import { Link } from "react-router-dom";
 import ScrollToTop from "../ScrollToTop";
 
 const Packages = () => {
-  const [packageDesc, setPackageDesc] = useState([])
-  const [packages, setpackages] = useState([])
+  const [packageDesc, setPackageDesc] = useState([]);
+  const [packages, setpackages] = useState([]);
 
   //create a react hook to add a scroll animation
   useEffect(() => {
@@ -22,16 +22,16 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/packages')
-      .then(res => res.json())
-      .then(data => setPackageDesc(data))
-  }, [packageDesc])
+    fetch("http://localhost:5000/admin/packages")
+      .then((res) => res.json())
+      .then((data) => setPackageDesc(data));
+  }, [packageDesc]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/tripPackage')
-      .then(res => res.json())
-      .then(data => setpackages(data))
-  }, [packages])
+    fetch("http://localhost:5000/admin/tripPackage")
+      .then((res) => res.json())
+      .then((data) => setpackages(data));
+  }, [packages]);
 
   return (
     <div>
@@ -43,15 +43,19 @@ const Packages = () => {
             Our Packages
           </h3>
 
-          {
-            packageDesc?.map(desc => <h5 data-aos="fade-up" data-aos-duration="4000" className="shortDesc" key={desc?._id}>
+          {packageDesc?.map((desc) => (
+            <h5
+              data-aos="fade-up"
+              data-aos-duration="4000"
+              className="shortDesc"
+              key={desc?._id}
+            >
               {desc?.desc}
-            </h5>)
-          }
+            </h5>
+          ))}
         </div>
 
         <div className="secContent grid">
-
           {packages.map(
             ({ _id, img, title, location, grade, price, packageDesc }) => {
               return (
@@ -74,7 +78,7 @@ const Packages = () => {
                         <span>
                           {" "}
                           {grade}
-                          <small>+1</small>
+                          <h2>Per Person Package</h2>
                         </span>
                       </div>
                       <div className="price">
@@ -91,6 +95,11 @@ const Packages = () => {
                       </Link>
                       <Link to="/feedback" className="custom-btn flex">
                         Reviews <HiOutlineClipboardCheck className="icon" />
+                      </Link>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link to="/book" className="custom-btn flex">
+                        Book Now
                       </Link>
                     </div>
                   </div>

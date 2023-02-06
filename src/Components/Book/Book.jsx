@@ -1,289 +1,117 @@
+import React, { useEffect, useState } from "react";
+import "./book.css";
 
-import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
-import { FaCreditCard, FaPaypal, FaLock } from 'react-icons/fa';
-import ScrollToTop from "../ScrollToTop";
+import img from "../../Assets/card_img.png";
 
-
+import Navbar from "../Navbar/Navbar";
 const Book = () => {
-const handleAddData = (picture, title, tutor, lectures, hours) => {
-  const data = {
-    picture,
-    title,
-    tutor,
-    lectures,
-    hours
-  }
-
-    fetch("https://nerd-academy-server.vercel.app/perchased-course", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify( data ),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-      }
-      });
-}
-
-
   return (
-    <section className='py-24'>
-        <ScrollToTop/>
-      <div className="w-8/12 mx-auto p-5 shadow-xl border rounded-xl">
-        <h1 className="text-5xl p-4 mb-8">Checkout</h1>
-        <div className="flex">
-          <div className="w-7/12 p-5">
-            <h1 className="text-3xl font-bold">Billing address</h1>
-            <div className="mt-10">
-              <label className="label p-4">
-                <span className="label-text font-bold mb-[-5px]">
-                  Country
-                </span>
-              </label>
-              <select className="select select-bordered w-full max-w-xs rounded border-black">
-                <option disabled selected>
-                  Bangladesh
-                </option>
-                <option>America</option>
-                <option>Canada</option>
-              </select>
-            </div>
+    <div>
+      <Navbar></Navbar>
+      <section className="section container section ">
+        <div className="secTitle">
+          <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
+            Book Your Sit Now
+          </h3>
+        </div>
 
-            <div className="mt-16 ">
-              <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-bold mb-2">Payment method</h1>
-                <div className="flex mr-1">
-                  <p className="text-sm mr-2">Secured connection</p>
-                  <FaLock />
-                </div>
+        <div class="container">
+          <div class="left">
+            <form>
+              Your Name
+              <input
+                type="text"
+                name=""
+                placeholder="Enter name"
+                required
+              ></input>
+              Contact Number
+              <input
+                type="text"
+                name=""
+                placeholder="Enter Your Number"
+                required
+              ></input>
+              Email
+              <input
+                type="text"
+                name=""
+                placeholder="Enter email"
+                required
+              ></input>
+              Address
+              <input
+                type="text"
+                name=""
+                placeholder="Enter address"
+                required
+              ></input>
+              NID/Passport Number
+              <input
+                type="text"
+                name=""
+                placeholder="NID/Passport Number"
+                required
+              ></input>
+              <div id="zip">
+                <label>
+                  Package Name
+                  <select>
+                    <option>Choose State..</option>
+                    <option>Jaflong</option>
+                    <option>Sajek</option>
+                    <option>Rangamati</option>
+                    <option>Bandarban</option>
+                  </select>
+                </label>
+                <label>
+                  No of Child (Age:6 or below)
+                  <input
+                    type="number"
+                    name=""
+                    placeholder="No of Child"
+                  ></input>
+                </label>
               </div>
-
-              <div className="mb-1">
-                {/* <input type="checkbox" className="peer" /> */}
-                <div className="collapse-title bg-white p-4 px-6 peer-checked:bg-black">
-                  <div className="flex justify-between font-bold">
-                    <p>Details</p>
-                  </div>
-                </div>
-                <div className="collapse-content bg-white  peer-checked:bg-black p-6">
-                  <div>
-                    <div className="form-control w-full p-5 border">
-                      <label className="label">
-                        <span className="label-text text-white">
-                          Name
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        className="input input-bordered w-full rounded"
-                      />
-                    </div>
-                    <div className="form-control w-full mt-3 p-2 border">
-                      <label className="label">
-                        <span className="label-text text-white">
-                          Contact number
-                        </span>
-                      </label>
-                      <input
-                        type="number"
-                        placeholder="Phone number"
-                        className="input input-bordered w-full rounded"
-                      />
-                    </div>
-                    <div className="flex mt-3 gap-x-3">
-                      <div className="form-control w-full p-3 pb-3 border">
-                        <label className="label">
-                          <span className="label-text">
-                            NID/Passport number
-                          </span>
-                        </label>
-                        <input
-                          type="number"
-                          placeholder=""
-                          className="input input-bordered w-full rounded"
-                        />
-                      </div>
-
-                      <div className="form-control w-full p-3 border">
-                        <label className="label">
-                          <span className="label-text">
-                            Number of guest
-                          </span>
-                        </label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          className="input input-bordered w-full rounded"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-12">
-                {/* <input type="checkbox" className="peer" /> */}
-                <div className="collapse-title bg-white p-4 px-6 peer-checked:bg-black">
-                  <div className="flex justify-between font-bold">
-                    <p>Credit/Debit Card</p>
-                    <p>
-                      <FaCreditCard className="text-2xl" />
-                    </p>
-                  </div>
-                </div>
-                <div className="collapse-content bg-white  peer-checked:bg-black px-6">
-                  <div>
-                    <div className="form-control w-full p-5 border">
-                      <label className="label">
-                        <span className="label-text text-white">
-                          Name or card
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Name or card"
-                        className="input input-bordered w-full rounded"
-                      />
-                    </div>
-                    <div className="form-control w-full mt-3 p-2 border">
-                      <label className="label">
-                        <span className="label-text text-white">
-                          Card number
-                        </span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="0000 0000 0000 0000"
-                        className="input input-bordered w-full rounded"
-                      />
-                    </div>
-                    <div className="flex mt-3 gap-x-3">
-                      <div className="form-control w-full p-3 border">
-                        <label className="label">
-                          <span className="label-text text-white">
-                            CVC/CVV
-                          </span>
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="CVC"
-                          className="input input-bordered w-full rounded"
-                        />
-                      </div>
-
-                      <div className="form-control w-full p-3 border">
-                        <label className="label">
-                          <span className="label-text text-white">
-                            Expiry date
-                          </span>
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="input input-bordered w-full rounded"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex text-white mt-5 py-5">
-                      {/* <input
-                        type="checkbox"
-                        className="checkbox border border-white"
-                      /> */}
-                      <p className="ml-2">
-                        Securely save this card for my later purchase
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="collapse">
-                <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-white text-white-content peer-checked:bg-black peer-checked:text-white-content border border-black">
-                  <div className="flex justify-between  font-bold">
-                    <p>Paypal</p>
-                    <p>
-                      <FaPaypal className="text-2xl" />
-                    </p>
-                  </div>
-                </div>
-                <div className="collapse-content bg-white  peer-checked:bg-black text-white">
-                  <p className="p-5 text-center font-bold">
-                    In order to complete your transaction, we will transfer
-                    you over to PayPal's secure servers.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-16">
-              <h1 className="font-bold text-2xl mb-1">Order details</h1>
-              <div>
-                <table className="table w-full">
-                  {/* {checkoutItems?.map(data => (
-                    <tbody>
-                      <tr className="flex justify-between">
-                        <td>
-                          <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                              <div className="mask w-16 rounded h-10">
-                                <img src={data?.picture} />
-                              </div>
-                            </div>
-                            <div className="">
-                              <div className="font-bold ">{data?.title}</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div className="text-right">
-                            <p className="font-bold text-black text-lg">
-                              ${data?.price}
-                            </p>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  ))} */}
-                </table>
-              </div>
-            </div>
+            </form>
           </div>
 
-          {/* <div className="w-5/12">
-            <div className="border border-black rounded-xl p-4 w-7/12 mx-auto">
-              <h4 className="text-xl font-bold mb-2">Summary</h4>
-              <div className="flex justify-between">
-                <h1 className="">Total Price:</h1>
+          <div class="right">
+            <h3>PAYMENT</h3>
+            <form>
+              Accepted Card <br></br>
+           
+              <br></br>
+              Credit card number
+              <input
+                type="text"
+                name=""
+                placeholder="Enter card number"
+              ></input>
+              Exp month
+              <input type="text" name="" placeholder="Enter Month"></input>
+              <div id="zip">
+                <label>
+                  Exp year
+                  <select>
+                    <option>Choose Year..</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                  </select>
+                </label>
+                <label>
+                  CVV
+                  <input type="number" name="" placeholder="CVV"></input>
+                </label>
               </div>
-
-              <div className="divider mb-[-3px]"></div>
-
-              <div className="flex justify-between font-bold">
-                <h1 className="">Total:</h1>
-              </div>
-
-              <button className="custom-btn btn-black rounded text-white btn-wide w-full mt-5">
-                Proceed
-              </button>
-            </div>
-          </div> */}
+            </form>
+            <input type="submit" name="" value="Proceed to Checkout"></input>
+          </div>
         </div>
-      </div>
-
-{/* another input field */}
-{/* <div className="my-24 mx-auto w-3/12">
-  <Elements stripe={stripePromise}>
-      <CheckoutForm total={totalAmount} user={user?.displayName} email={user?.email} />
-    </Elements>
-</div> */}
-
-
-    </section>
+      </section>
+    </div>
   );
 };
 

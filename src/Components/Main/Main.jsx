@@ -7,19 +7,20 @@ import { HiOutlineClipboardCheck } from "react-icons/hi";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const Main = () => {
-  const [trips, setTrips] = useState()
+  const [trips, setTrips] = useState();
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/trips')
-      .then(res => res.json())
-      .then(data => setTrips(data))
-  }, [trips])
+    fetch("http://localhost:5000/admin/trips")
+      .then((res) => res.json())
+      .then((data) => setTrips(data));
+  }, [trips]);
 
   return (
     <section className="main container section">
@@ -30,32 +31,29 @@ const Main = () => {
       </div>
 
       <div className="secContent grid">
+        {trips?.map(({ _id, title, location, img }) => {
+          return (
+            <div key={_id} data-aos="fade-up" className="singleDestination">
+              {/* Returning single id from the map array */}
 
-        {trips?.map(
-          ({ _id, title, location, img }) => {
-            return (
-              <div key={_id} data-aos="fade-up" className="singleDestination">
-                {/* Returning single id from the map array */}
-
-                <div className="imageDiv">
-                  <img src={img} alt={title} />
-                </div>
-
-                <div className="cardInfo">
-                  <h4 className="destTitle"> {title}</h4>
-                  <span className="continent flex">
-                    <HiOutlineLocationMarker className="icon" />
-                    <span className="name">{location}</span>
-                  </span>
-
-                  <button className="custom-btn flex">
-                    Details <HiOutlineClipboardCheck className="icon" />
-                  </button>
-                </div>
+              <div className="imageDiv">
+                <img src={img} alt={title} />
               </div>
-            );
-          }
-        )}
+
+              <div className="cardInfo">
+                <h4 className="destTitle"> {title}</h4>
+                <span className="continent flex">
+                  <HiOutlineLocationMarker className="icon" />
+                  <span className="name">{location}</span>
+                </span>
+
+                <Link to="/schedule" className="custom-btn flex">
+                  Upcoming Trip <HiOutlineClipboardCheck className="icon" />
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

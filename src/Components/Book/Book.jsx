@@ -53,6 +53,13 @@ const Book = () => {
                 placeholder="NID/Passport Number"
                 required
               ></input>
+              No. Of Traveler
+              <input
+                type="text"
+                name=""
+                placeholder="No. Of Traveler"
+                required
+              ></input>
               <div id="zip">
                 <label>
                   Package Name
@@ -80,7 +87,6 @@ const Book = () => {
             <h3>PAYMENT</h3>
             <form>
               Accepted Card <br></br>
-           
               <br></br>
               Credit card number
               <input

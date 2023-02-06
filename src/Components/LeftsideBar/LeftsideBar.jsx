@@ -8,7 +8,7 @@ const LeftsideBar = () => {
         fetch('http://localhost:5000/admin/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
-    }, [])
+    }, [categories])
 
     return (
         <div className=''>

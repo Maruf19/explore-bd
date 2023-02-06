@@ -48,51 +48,62 @@ const Team = () => {
       .then(res => res.json())
       .then(data => setTeams(data))
   }, [team])
-
-  console.log(team)
+  
+  const handleDeleteTeam = (team) => {
+    team.preventDefault()
+    fetch(`http://localhost:5000/team/${team._id}`, {
+      method: "DELETE"
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          alert.success(`Product ${team?.name} deleted successfully`);
+        }
+      });
+  };
 
   return (
-    <section classNameName="w-full ml-16">
-      <div classNameName="w-3/5">
-        <h2 classNameName="mt-8 text-3xl font-bold text-primary">Add a Team</h2>
-        <div classNameName="my-6 flex justify-center items-center">
-          <div classNameName="w-full card shadow-2xl p-8">
+    <section className="w-full ml-16">
+      <div className="w-3/5">
+        <h2 className="mt-8 text-3xl font-bold text-primary">Add a Team</h2>
+        <div className="my-6 flex justify-center items-center">
+          <div className="w-full card shadow-2xl p-8">
             <form onSubmit={handleSubmit(handleAddTeam)}>
-              <div classNameName="grid grid-cols-1 gap-6">
-                <div classNameName="form-control w-full max-w-xs">
+              <div className="grid grid-cols-1 gap-6">
+                <div className="form-control w-full max-w-xs">
                   <input
                     {...register("image", {
                       required: "Image is required",
                     })}
                     type="file"
-                    classNameName="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full max-w-xs"
                     placeholder="Upload a Image"
                   />
                 </div>
 
-                <div classNameName="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs">
                   <input
                     {...register("name")}
                     type="text"
-                    classNameName="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
                     placeholder="Name"
                   />
                 </div>
 
-                <div classNameName="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs">
                   <input
                     {...register("desc", {
                       required: "Please provided course title",
                     })}
                     type="text"
-                    classNameName="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
                     placeholder="Team Description"
                   />
                 </div>
               </div>
 
               <input
-                classNameName="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Team"
               />
@@ -100,7 +111,6 @@ const Team = () => {
           </div>
         </div>
       </div>
-
       <div>
         <div className="pr-12 my-16">
           <div className="flex flex-col">
@@ -141,7 +151,7 @@ const Team = () => {
                           Price
                         </th>
                         <th scope="col" className="p-4">
-                          <button className="sr-only">Delete</button>
+                          {/* <button onClick={handleDeleteTeam(team)} className="sr-only">Delete</button> */}
                         </th>
                       </tr>
                     </thead>
@@ -171,7 +181,7 @@ const Team = () => {
                           </td>
                           <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                             <a
-                              href="/"
+                              href="/" onClick={() =>handleDeleteTeam(team)}
                               className="text-blue-600 dark:text-blue-500 hover:underline"
                             >
                               Delete

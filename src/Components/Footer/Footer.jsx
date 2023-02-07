@@ -8,6 +8,10 @@ import { AiFillYoutube } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaTripadvisor } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
+import { FaPhoneAlt } from "react-icons/fa";
+import { BsPhone } from "react-icons/bs";
+import { BiMailSend } from "react-icons/bi";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 import Aos from "aos";
@@ -69,31 +73,26 @@ const Footer = () => {
               data-aos-duration="3000"
               className="linkGroup"
             >
-              <span className="groupTitle">Our Agency</span>
+              <span className="groupTitle">Our Office</span>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Services
+                <HiOutlineLocationMarker className="icon" />
+                132,Zindabazar,Sylhet
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Insurance
+                <BiMailSend className="icon" />
+                marufrony48@gmail.com
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Agency
+                <BsPhone className="icon" />
+                +8801779580031
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Tourism
-              </li>
-
-              <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Payment
+                <FaPhoneAlt className="icon" />
+                +123-456-789
               </li>
             </div>
 
@@ -132,7 +131,7 @@ const Footer = () => {
             </div>
 
             {/* group 03 */}
-            <div
+            {/* <div
               data-aos="fade-up"
               data-aos-duration="9000"
               className="linkGroup"
@@ -163,7 +162,7 @@ const Footer = () => {
                 <FiChevronRight className="icon" />
                 Oceania
               </li>
-            </div>
+            </div> */}
           </div>
 
           <div className="footerDiv flex">

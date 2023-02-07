@@ -101,6 +101,9 @@ const Packages = () => {
                       <Link to="/book" className="custom-btn flex">
                         Book Now
                       </Link>
+                      <Link to="/contact" className="custom-btn flex">
+                        FAQ
+                      </Link>
                     </div>
                   </div>
                 </div>

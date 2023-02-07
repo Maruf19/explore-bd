@@ -202,7 +202,7 @@ textarea.input {
   font-size: 0.95rem;
 }
 
-.icon {
+.contact-icon {
   width: 28px;
   margin-right: 0.7rem;
 }
@@ -324,11 +324,6 @@ textarea.input {
   form,
 .contact-info {
     padding: 1.7rem 1.6rem;
-  }
-  .text,
-.information,
-.social-media p {
-    font-size: 0.8rem;
   }
   .title {
     font-size: 1.15rem;

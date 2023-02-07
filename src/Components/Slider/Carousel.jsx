@@ -39,8 +39,8 @@ const Slider = () => {
                 <img src={img} alt="" />
                 <div className="myCarousel">
                   <p>{f.feedback}</p>
-
-                  <p>{Name}</p>
+                  <br></br>
+                  <h1>-{Name}</h1>
                 </div>
               </div>
             </>

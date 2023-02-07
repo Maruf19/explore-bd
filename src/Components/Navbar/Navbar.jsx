@@ -9,17 +9,16 @@ import { useEffect } from "react";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
-  const [navbar, setNavbar] = useState(false)
-  const [color, changeColor] = useState('#111')
+  const [navbar, setNavbar] = useState(false);
+  const [color, changeColor] = useState("#111");
 
   useEffect(() => {
-    if(window.location.pathname === '/') {
-      changeColor("#fff")
+    if (window.location.pathname === "/") {
+      changeColor("#fff");
+    } else {
+      changeColor("#111");
     }
-    else {
-      changeColor("#111")
-    }
-  },[])
+  }, []);
 
   //Function to toggle Navbar
   const showNav = () => {
@@ -32,51 +31,53 @@ const Navbar = () => {
   };
 
   const changeBg = () => {
-    if(window.scrollY >= 20) {
-      setNavbar(true)
+    if (window.scrollY >= 20) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
     }
-    else {
-      setNavbar(false)
-    }
-  }
+  };
 
-  window.addEventListener('scroll', changeBg)
+  window.addEventListener("scroll", changeBg);
 
   return (
     <section className="navBarSection">
-      <header className={navbar ? 'header active flex': 'header flex'}>
+      <header className={navbar ? "header active flex" : "header flex"}>
         <div className="logoDiv">
           <Link to="/" className="logo">
             <h1 className="flex items-center gap-2">
-              <MdTravelExplore style={{color: color}} className="icon" /> <Link to="/" style={{color: color}} className="main-logo">ExploreBD </Link>
+              <MdTravelExplore className="icon" />{" "}
+              <Link to="/" className="main-logo">
+                ExploreBD{" "}
+              </Link>
             </h1>
           </Link>
         </div>
 
         <div className={active}>
-          <ul className="navLists flex" >
+          <ul className="navLists flex">
             <NavLink className="navItem" exact to="/">
-              <li style={{color: color}}>Home</li>
+              <li>Home</li>
             </NavLink>
 
-            <NavLink className="navItem" exact to="/About" >
-              <li style={{color: color}}>About</li>
+            <NavLink className="navItem" exact to="/About">
+              <li>About</li>
             </NavLink>
 
             <NavLink className="navItem" exact to="/Packages">
-              <li style={{color: color}}>Packages</li>
+              <li>Packages</li>
             </NavLink>
 
             <NavLink className="navItem" exact to="/Schedule">
-              <li style={{color: color}}>Schedule</li>
+              <li >Schedule</li>
             </NavLink>
 
             <NavLink className="navItem" exact to="/Snap">
-              <li style={{color: color}}>Snap</li>
+              <li>Snap</li>
             </NavLink>
 
             <NavLink className="navItem" exact to="/Contact">
-              <li style={{color: color}}>Contact</li>
+              <li >Contact</li>
             </NavLink>
 
             <button className="custom-btn">

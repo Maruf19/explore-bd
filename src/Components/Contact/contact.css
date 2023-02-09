@@ -54,11 +54,9 @@
   left: -13px;
 }
 
-form {
-  padding: 2.3rem 2.2rem;
-  z-index: 10;
-  overflow: hidden;
-  position: relative;
+.learn {
+  background-color: transparent;
+  width: 420px;
 }
 
 .title {
@@ -66,7 +64,7 @@ form {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1;
-  margin-bottom: 0.7rem;
+  margin-bottom: 3rem;
 }
 
 .input-container {
@@ -85,7 +83,7 @@ form {
   font-size: 0.95rem;
   letter-spacing: 0.5px;
   border-radius: 25px;
-  transition: 0.3s;
+  margin-bottom: 1rem;
 }
 
 textarea.input {
@@ -98,7 +96,7 @@ textarea.input {
 
 .input-container label {
   position: absolute;
-  top: 50%;
+  top: -20%;
   left: 15px;
   transform: translateY(-50%);
   padding: 0 0.4rem;
@@ -111,11 +109,11 @@ textarea.input {
 }
 
 .input-container.textarea label {
-  top: 1rem;
+  top: -15%;
   transform: translateY(0);
 }
 
-.btn {
+.send-btn {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
   border: 2px solid #fafafa;

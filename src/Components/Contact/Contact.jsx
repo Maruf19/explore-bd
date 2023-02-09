@@ -10,6 +10,7 @@ import { RiMessengerLine } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
   const form = useRef();
@@ -77,30 +78,33 @@ const Contact = () => {
               <span class="circle one"></span>
               <span class="circle two"></span>
 
-              <form ref={form} onSubmit={sendEmail}>
+              <form ref={form} onSubmit={sendEmail} class="learn">
                 <h3 class="title">Contact us</h3>
                 <div class="input-container">
-                  <input type="text" name="name" class="input" />
                   <label for="">Username</label>
+                  <input type="text" name="name" class="input" required />
                 </div>
+
                 <div class="input-container">
                   <label for="">Email</label>
-                  <input type="email" name="email" class="input" />
+                  <input type="email" name="email" class="input" required />
                 </div>
                 <div class="input-container">
-                  <input type="tel" name="phone" class="input" />
                   <label for="">Phone</label>
+                  <input type="tel" name="phone" class="input" required />
                 </div>
+
                 <div class="input-container textarea">
-                  <textarea name="message" class="input"></textarea>
                   <label for="">Message</label>
+                  <textarea name="message" class="input" required></textarea>
                 </div>
-                <input type="submit" value="Send" class="btn" />
+                <input type="submit" value="Send" class="send-btn" />
               </form>
             </div>
           </div>
         </div>
       </section>
+      <Footer></Footer>
     </div>
   );
 };

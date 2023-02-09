@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-
+import "./team.css";
 const Team = () => {
   const [team, setTeams] = useState([]);
   const { register, handleSubmit, reset } = useForm();
@@ -68,7 +68,7 @@ const Team = () => {
         <h2 className="mt-8 text-3xl font-bold text-primary">Add a Team</h2>
         <div className="my-6 flex justify-center items-center">
           <div className="w-full card shadow-2xl p-8">
-            <form onSubmit={handleSubmit(handleAddTeam)}>
+            <form onSubmit={handleSubmit(handleAddTeam)} className="admin-team">
               <div className="grid grid-cols-1 gap-6">
                 <div className="form-control w-full max-w-xs">
                   <input

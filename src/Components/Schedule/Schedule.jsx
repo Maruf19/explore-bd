@@ -74,7 +74,7 @@ const About = () => {
                 <div className="cardInfo">
                   <h4 className="destTitle"> {title}</h4>
                   <span className="continent flex">
-                    <HiOutlineLocationMarker className="icon" />
+                    <HiOutlineLocationMarker className="schedule-icon" />
                     <span className="name">{location}</span>
                   </span>
                 </div>

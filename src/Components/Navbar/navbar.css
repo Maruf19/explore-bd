@@ -39,7 +39,7 @@
   color: var(--blackColor);
 }
 .header .logo .icon {
-  font-weight: 25px;
+  font-weight: 5px;
   color: var(--PrimaryColor);
   transform: translate(5px);
 }
@@ -47,7 +47,6 @@
   .header .navBar {
     position: absolute;
     background-color: var(--whiteColorDeam);
-    height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
     width: 80%;
@@ -108,7 +107,7 @@
 
 @media screen and (min-width: 769px) {
   .toggleNavbar,
-.closeNavbar {
+  .closeNavbar {
     display: none;
   }
   .header {

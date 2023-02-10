@@ -16,6 +16,7 @@ import AdminPackage from "../../Components/Admin/AdminPackage/AdminPackage";
 import AdminSchedule from "../../Components/Admin/AdminSchedule/AdminSchedule";
 import AdminSnap from "../../Components/Admin/AdminSnap/AdminSnap";
 import Feedback from "../../Components/Feedback/Feedback";
+import Login from "../../Components/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -48,8 +49,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/feedback",
-    element: <Feedback/>,
+    element: <Feedback />,
   },
+
+  {
+    path: "/login",
+    element: <Login />,
+  },
+
   {
     path: "/admin",
     element: <AdminLayout />,
@@ -85,7 +92,7 @@ const router = createBrowserRouter([
       {
         path: "/admin/snap",
         element: <AdminSnap />,
-      }
+      },
     ],
   },
 ]);

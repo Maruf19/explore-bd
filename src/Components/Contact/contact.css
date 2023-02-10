@@ -316,11 +316,11 @@ textarea.input {
     display: none;
   }
   .square,
-.big-circle {
+  .big-circle {
     display: none;
   }
   form,
-.contact-info {
+  .contact-info {
     padding: 1.7rem 1.6rem;
   }
   .title {

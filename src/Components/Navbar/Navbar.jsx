@@ -3,7 +3,7 @@ import "./navbar.css";
 import { MdTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
-
+import { MdPersonPin } from "react-icons/md";
 import { NavLink, Link } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -69,7 +69,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink className="navItem" exact to="/Schedule">
-              <li >Schedule</li>
+              <li>Schedule</li>
             </NavLink>
 
             <NavLink className="navItem" exact to="/Snap">
@@ -77,11 +77,11 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink className="navItem" exact to="/Contact">
-              <li >Contact</li>
+              <li>Contact</li>
             </NavLink>
 
             <button className="custom-btn">
-              <Link to="/Book">Book Now</Link>
+              <Link> Sign Up </Link>
             </button>
           </ul>
 

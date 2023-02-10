@@ -37,7 +37,6 @@
 }
 .home .homeContent {
   width: 100%;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   padding: 8rem 1.5rem 3rem;
@@ -100,9 +99,6 @@
 .home .homeContent .cardDiv .input input::-moz-placeholder {
   font-size: 13px;
 }
-.home .homeContent .cardDiv .input input:-ms-input-placeholder {
-  font-size: 13px;
-}
 .home .homeContent .cardDiv .input input::placeholder {
   font-size: 13px;
 }
@@ -117,7 +113,6 @@
 .home .homeContent .cardDiv .searchOptions {
   position: absolute;
   background: var(--PrimaryColor);
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   bottom: -0.7rem;
@@ -157,7 +152,6 @@
   .home .homeContent .textDiv .homeTitle {
     position: relative;
     font-size: 2.3rem;
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }

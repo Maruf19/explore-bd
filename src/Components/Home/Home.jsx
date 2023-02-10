@@ -24,8 +24,8 @@ const Home = () => {
 
   return (
     <div>
-      <ScrollToTop/>
-      <Navbar/>
+      <ScrollToTop />
+      <Navbar />
       <section className="home" id="home">
         <video src={video} muted autoPlay loop type="video/mp4"></video>
         <div className="homeContent container">
@@ -36,8 +36,8 @@ const Home = () => {
             <h1 data-aos="fade-up" className="homeTitle my-6">
               Our Beautiful Bangladesh
             </h1>
-            <Link to="/Packages">
-              <button className="custom-btn flex"> Packages</button>
+            <Link to="/Book">
+              <button className="custom-btn flex"> Book Now</button>
             </Link>
           </div>
           <div data-aos="fade-up" className="homeFooterIcons flex">

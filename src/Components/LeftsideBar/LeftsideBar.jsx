@@ -5,7 +5,7 @@ const LeftsideBar = () => {
     const [categories, setCategories] = useState()
 
     useEffect(() => {
-        fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/categories")
+        fetch("http://localhost:5000/admin/categories")
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [categories])

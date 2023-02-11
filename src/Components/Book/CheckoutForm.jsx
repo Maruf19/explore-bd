@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './common.css'
 import './2-Card-Detailed.css';
@@ -28,7 +28,7 @@ const CARD_OPTIONS = {
   },
 };
 
-const CardField = ({onChange}) => (
+const CardField = ({ onChange }) => (
   <div className="FormRow">
     <CardElement options={CARD_OPTIONS} onChange={onChange} />
   </div>
@@ -61,7 +61,7 @@ const Field = ({
   </div>
 );
 
-const SubmitButton = ({processing, error, children, disabled}) => (
+const SubmitButton = ({ processing, error, children, disabled }) => (
   <button
     className={`SubmitButton ${error ? 'SubmitButton--error' : ''}`}
     type="submit"
@@ -71,7 +71,7 @@ const SubmitButton = ({processing, error, children, disabled}) => (
   </button>
 );
 
-const ErrorMessage = ({children}) => (
+const ErrorMessage = ({ children }) => (
   <div className="ErrorMessage" role="alert">
     <svg width="16" height="16" viewBox="0 0 17 17">
       <path
@@ -87,7 +87,7 @@ const ErrorMessage = ({children}) => (
   </div>
 );
 
-const ResetButton = ({onClick}) => (
+const ResetButton = ({ onClick }) => (
   <button type="button" className="ResetButton" onClick={onClick}>
     <svg width="32px" height="32px" viewBox="0 0 32 32">
       <path
@@ -98,26 +98,26 @@ const ResetButton = ({onClick}) => (
   </button>
 );
 
-const CheckoutForm = ({price}) => {
+const CheckoutForm = ({ price }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
-const [clientSecret, setClientSecret] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
 
-useEffect(() => {
-  fetch("http://localhost:5000/create-payment-intent", {
+  useEffect(() => {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ price }),
-  })
+    })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-}, [price])
+  }, [price])
 
   const [billingDetails, setBillingDetails] = useState({
     email: '',
@@ -165,43 +165,43 @@ useEffect(() => {
     const { paymentIntent, error } = await stripe.confirmCardPayment(
       clientSecret,
       {
-          payment_method: {
-              card: card,
-              billing_details: {
-                  name: 'rubayed',
-                  email: 'ahmed@gmail.com'
-              },
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: 'rubayed',
+            email: 'ahmed@gmail.com'
           },
+        },
       },
-  );
+    );
   };
 
-//   if (paymentIntent.status === "succeeded") {
-//     console.log('card info', card);
-//     // store payment info in the database
-//     const payment = {
-//         price,
-//         transactionId: paymentIntent.id,
-//         email,
-//         bookingId: _id
-//     }
-//     fetch('https://doctors-portal-server-rust.vercel.app/payments', {
-//         method: 'POST',
-//         headers: {
-//             'content-type': 'application/json',
-//             authorization: `bearer ${localStorage.getItem('accessToken')}`
-//         },
-//         body: JSON.stringify(payment)
-//     })
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data);
-//             if (data.insertedId) {
-//                 setSuccess('Congrats! your payment completed');
-//                 setTransactionId(paymentIntent.id);
-//             }
-//         })
-// }
+  //   if (paymentIntent.status === "succeeded") {
+  //     console.log('card info', card);
+  //     // store payment info in the database
+  //     const payment = {
+  //         price,
+  //         transactionId: paymentIntent.id,
+  //         email,
+  //         bookingId: _id
+  //     }
+  //     fetch('https://doctors-portal-server-rust.vercel.app/payments', {
+  //         method: 'POST',
+  //         headers: {
+  //             'content-type': 'application/json',
+  //             authorization: `bearer ${localStorage.getItem('accessToken')}`
+  //         },
+  //         body: JSON.stringify(payment)
+  //     })
+  //         .then(res => res.json())
+  //         .then(data => {
+  //             console.log(data);
+  //             if (data.insertedId) {
+  //                 setSuccess('Congrats! your payment completed');
+  //                 setTransactionId(paymentIntent.id);
+  //             }
+  //         })
+  // }
 
   const reset = () => {
     setError(null);
@@ -227,58 +227,58 @@ useEffect(() => {
     </div>
   ) : (
     <div className='h-screen absolute top-[20%]'>
-        <form className="Form mt-0" onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
-        <Field
-          label="Name"
-          id="name"
-          type="text"
-          placeholder="Jane Doe"
-          required
-          autoComplete="name"
-          value={billingDetails.name}
-          onChange={(e) => {
-            setBillingDetails({...billingDetails, name: e.target.value});
-          }}
-        />
-        <Field
-          label="Email"
-          id="email"
-          type="email"
-          placeholder="janedoe@gmail.com"
-          required
-          autoComplete="email"
-          value={billingDetails.email}
-          onChange={(e) => {
-            setBillingDetails({...billingDetails, email: e.target.value});
-          }}
-        />
-        <Field
-          label="Phone"
-          id="phone"
-          type="tel"
-          placeholder="(941) 555-0123"
-          required
-          autoComplete="tel"
-          value={billingDetails.phone}
-          onChange={(e) => {
-            setBillingDetails({...billingDetails, phone: e.target.value});
-          }}
-        />
-      </fieldset>
-      <fieldset className="FormGroup">
-        <CardField
-          onChange={(e) => {
-            setError(e.error);
-            setCardComplete(e.complete);
-          }}
-        />
-      </fieldset>
-      {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
-      </SubmitButton>
-    </form>
+      <form className="Form mt-0" onSubmit={handleSubmit}>
+        <fieldset className="FormGroup">
+          <Field
+            label="Name"
+            id="name"
+            type="text"
+            placeholder="Jane Doe"
+            required
+            autoComplete="name"
+            value={billingDetails.name}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, name: e.target.value });
+            }}
+          />
+          <Field
+            label="Email"
+            id="email"
+            type="email"
+            placeholder="janedoe@gmail.com"
+            required
+            autoComplete="email"
+            value={billingDetails.email}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, email: e.target.value });
+            }}
+          />
+          <Field
+            label="Phone"
+            id="phone"
+            type="tel"
+            placeholder="(941) 555-0123"
+            required
+            autoComplete="tel"
+            value={billingDetails.phone}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, phone: e.target.value });
+            }}
+          />
+        </fieldset>
+        <fieldset className="FormGroup">
+          <CardField
+            onChange={(e) => {
+              setError(e.error);
+              setCardComplete(e.complete);
+            }}
+          />
+        </fieldset>
+        {error && <ErrorMessage>{error.message}</ErrorMessage>}
+        <SubmitButton processing={processing} error={error} disabled={!stripe}>
+          Pay $25
+        </SubmitButton>
+      </form>
     </div>
   );
 };

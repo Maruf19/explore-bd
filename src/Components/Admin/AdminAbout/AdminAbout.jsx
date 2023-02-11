@@ -14,7 +14,7 @@ const AdminAbout = () => {
       desc,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/about", {
+    fetch("http://localhost:5000/admin/about", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const AdminAbout = () => {
   };
 
   const handleDeleteTeam = (about) => {
-    fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/team/${about._id}`, {
+    fetch(`http://localhost:5000/team/${about._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -44,7 +44,7 @@ const AdminAbout = () => {
   };
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/about")
+    fetch("http://localhost:5000/admin/about")
       .then((res) => res.json())
       .then((data) => setAboutDesc(data));
   }, [aboutDesc]);

@@ -22,13 +22,13 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/packages")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages")
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/tripPackage")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage")
       .then((res) => res.json())
       .then((data) => setpackages(data));
   }, [packages]);

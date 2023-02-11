@@ -21,20 +21,20 @@ const Snap = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/snap')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/snap')
       .then(res => res.json())
       .then(data => setSnapDesc(data))
   }, [snapDesc])
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/snapTrip')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/snapTrip')
       .then(res => res.json())
       .then(data => setSnap(data))
   }, [snap])
 
   return (
     <div>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Navbar></Navbar>
       <section className="snap container section">
         <div className="secTitle">

@@ -25,7 +25,7 @@ const Trip = () => {
             img: imgData.data.url,
           };
 
-          fetch("http://localhost:5000/admin/trips", {
+          fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/trips", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -45,14 +45,14 @@ const Trip = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/trips")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/trips")
       .then((res) => res.json())
       .then((data) => setTrips(data));
   }, [setTrips]);
 
   const handleDeleteTrip = (trip) => {
     trip.preventDefault();
-    fetch(`http://localhost:5000/team/${trip._id}`, {
+    fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/team/${trip._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

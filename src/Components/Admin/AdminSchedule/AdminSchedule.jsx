@@ -13,7 +13,7 @@ const AdminSchedule = () => {
             desc
         }
 
-        fetch('http://localhost:5000/admin/schedule', {
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -50,7 +50,7 @@ const AdminSchedule = () => {
                         location: data.location,
                     }
 
-                    fetch('http://localhost:5000/admin/scheduleTrip', {
+                    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/scheduleTrip', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

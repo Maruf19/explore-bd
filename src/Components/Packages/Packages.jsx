@@ -11,12 +11,12 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../ScrollToTop";
+import { toast } from "react-hot-toast";
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([]);
   const [packages, setpackages] = useState([]);
 
-  //create a react hook to add a scroll animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -32,6 +32,33 @@ const Packages = () => {
       .then((res) => res.json())
       .then((data) => setpackages(data));
   }, [packages]);
+
+  const {title, img, price, location } = packages;
+  console.log()
+
+  const handleAddToCart = () => {
+    const travelCart = {
+      title,
+       img, 
+       price, 
+       location
+    }
+    fetch("http://localhost:5000/userscart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(travelCart),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result)
+        if (result.acknowledged === true) {
+          toast.success("Added to cart successfully");
+        }
+      });
+  }
+
 
   return (
     <div>
@@ -98,9 +125,9 @@ const Packages = () => {
                       </Link>
                     </div>
                     <div className="flex gap-2">
-                      <Link to="/cart" className="custom-btn flex">
+                      <button  onClick={handleAddToCart} className="custom-btn flex">
                         Add to Cart
-                      </Link>
+                      </button>
                       <Link to="/contact" className="custom-btn flex">
                         FAQ
                       </Link>

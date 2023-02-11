@@ -1,6 +1,22 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 import Navbar from "../Navbar/Navbar";
 const Cart = () => {
+  const { user } = useContext(AuthContext);
+  const url = `http://localhost:5000/cartData?email=${user?.email}`;
+
+  const { data: cartDatas = [], isLoading, refetch } = useQuery({
+    queryKey: ["cartDatas", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  console.log(cartDatas)
+
   return (
     <section>
       <Navbar></Navbar>

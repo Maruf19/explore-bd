@@ -94,14 +94,30 @@ const Navbar = () => {
               <li>Contact</li>
             </NavLink>
 
-            <button className="custom-btn">
-              <Link to="/register"> Register </Link>
-            </button>
-
-            <button className="custom-btn">
-              <Link to="/login"> Login </Link>
-            </button>
-            <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
+            <div>
+              {" "}
+              {user?.uid ? (
+                <>
+                  <li>
+                    <Link to="/cart">Cart</Link>
+                  </li>
+                  <li>
+                    <Link to="/" onClick={handleLogOut}>
+                      Log Out
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <button className="custom-btn">
+                    <Link to="/register"> Register </Link>
+                  </button>
+                  <button className="custom-btn">
+                    <Link to="/login"> Login </Link>
+                  </button>{" "}
+                </>
+              )}
+            </div>
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">

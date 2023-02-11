@@ -18,6 +18,7 @@ import AdminSnap from "../../Components/Admin/AdminSnap/AdminSnap";
 import Feedback from "../../Components/Feedback/Feedback";
 import Login from "../../Components/Login/Login";
 import Cart from "../../Components/Cart/Cart";
+import Register from "../../Components/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 
   {

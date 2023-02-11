@@ -81,11 +81,11 @@ const Navbar = () => {
             </NavLink>
 
             <button className="custom-btn">
-              <Link> Register </Link>
+              <Link to="/register"> Register </Link>
             </button>
 
             <button className="custom-btn">
-              <Link> Sign Up </Link>
+              <Link to="/login"> Login </Link>
             </button>
           </ul>
 

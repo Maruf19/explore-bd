@@ -65,10 +65,10 @@ const Trip = () => {
 
   return (
     <section className="w-full ml-16">
-      <div className="w-3/5">
+      <div className="w-3/5 flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary">Add a Trip</h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card shadow-2xl p-8">
+          <div className="w-full card shadow-2xl p-8 flex justify-center">
             <form onSubmit={handleSubmit(handleAddTrip)}>
               <div className="grid grid-cols-1 gap-6">
                 <div className="form-control w-full max-w-xs">

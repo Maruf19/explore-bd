@@ -17,11 +17,16 @@ import AdminSchedule from "../../Components/Admin/AdminSchedule/AdminSchedule";
 import AdminSnap from "../../Components/Admin/AdminSnap/AdminSnap";
 import Feedback from "../../Components/Feedback/Feedback";
 import Login from "../../Components/Login/Login";
+import Cart from "../../Components/Cart/Cart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+  },
+  {
+    path: "/cart",
+    element: <Cart/>
   },
   {
     path: "/about",

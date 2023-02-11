@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './common.css'
 import './2-Card-Detailed.css';
@@ -98,13 +98,27 @@ const ResetButton = ({onClick}) => (
   </button>
 );
 
-const CheckoutForm = () => {
+const CheckoutForm = ({price}) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
+const [clientSecret, setClientSecret] = useState("");
+
+useEffect(() => {
+  fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ price }),
+  })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+}, [price])
+
   const [billingDetails, setBillingDetails] = useState({
     email: '',
     phone: '',
@@ -148,7 +162,46 @@ const CheckoutForm = () => {
     } else {
       setPaymentMethod(payload.paymentMethod);
     }
+    const { paymentIntent, error } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+          payment_method: {
+              card: card,
+              billing_details: {
+                  name: 'rubayed',
+                  email: 'ahmed@gmail.com'
+              },
+          },
+      },
+  );
   };
+
+//   if (paymentIntent.status === "succeeded") {
+//     console.log('card info', card);
+//     // store payment info in the database
+//     const payment = {
+//         price,
+//         transactionId: paymentIntent.id,
+//         email,
+//         bookingId: _id
+//     }
+//     fetch('https://doctors-portal-server-rust.vercel.app/payments', {
+//         method: 'POST',
+//         headers: {
+//             'content-type': 'application/json',
+//             authorization: `bearer ${localStorage.getItem('accessToken')}`
+//         },
+//         body: JSON.stringify(payment)
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data);
+//             if (data.insertedId) {
+//                 setSuccess('Congrats! your payment completed');
+//                 setTransactionId(paymentIntent.id);
+//             }
+//         })
+// }
 
   const reset = () => {
     setError(null);

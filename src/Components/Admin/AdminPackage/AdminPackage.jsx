@@ -11,7 +11,7 @@ const AdminPackage = () => {
             desc
         }
 
-        fetch('http://localhost:5000/admin/packages', {
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -50,7 +50,7 @@ const AdminPackage = () => {
                         packageDesc: data.packageDesc
                     }
 
-                    fetch('http://localhost:5000/admin/tripPackage', {
+                    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

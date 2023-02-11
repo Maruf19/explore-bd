@@ -98,8 +98,8 @@ const Packages = () => {
                       </Link>
                     </div>
                     <div className="flex gap-2">
-                      <Link to="/book" className="custom-btn flex">
-                        Book Now
+                      <Link to="/cart" className="custom-btn flex">
+                        Add to Cart
                       </Link>
                       <Link to="/contact" className="custom-btn flex">
                         FAQ

@@ -81,6 +81,10 @@ const Navbar = () => {
             </NavLink>
 
             <button className="custom-btn">
+              <Link> Register </Link>
+            </button>
+
+            <button className="custom-btn">
               <Link> Sign Up </Link>
             </button>
           </ul>

@@ -19,13 +19,13 @@ const About = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule")
+    fetch("http://localhost:5000/admin/schedule")
       .then((res) => res.json())
       .then((data) => setScheduleDesc(data));
   }, [scheduleDesc]);
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/scheduleTrip")
+    fetch("http://localhost:5000/admin/scheduleTrip")
       .then((res) => res.json())
       .then((data) => setSchedule(data));
   }, [schedule]);

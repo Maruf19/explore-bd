@@ -16,12 +16,10 @@ const Services = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/services')
+    fetch('http://localhost:5000/admin/services')
       .then(res => res.json())
       .then(data => setServices(data))
   }, [services])
-
-  console.log(services)
 
   return (
     <section className="services container section">

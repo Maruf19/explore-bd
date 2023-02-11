@@ -11,7 +11,7 @@ const AdminSnap = () => {
       desc,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snap", {
+    fetch("http://localhost:5000/admin/snap", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const AdminSnap = () => {
             location: data.location,
           };
 
-          fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snapTrip", {
+          fetch("http://localhost:5000/admin/snapTrip", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Home",
+    "to": "/admin/Home",
+    "icon": "https://i.ibb.co/L6YGHFR/home.png"
+  },
+  {
+    "name": "About",
+    "to": "/admin/about",
+    "icon": "https://i.ibb.co/3vjDH0S/about.png"
+  },
+  {
+    "name": "Trip",
+    "to": "/admin/trip",
+    "icon": "https://i.ibb.co/jvHHsYp/3615735-insurance-package-policy-postal-protection-icon.png"
+  },
+  {
+    "name": "who we are",
+    "to": "/admin/who",
+    "icon": "https://i.ibb.co/FhkHt2c/whoWeAre.png"
+  },
+  {
+    "name": "Team",
+    "to": "/admin/team",
+    "icon": "https://i.ibb.co/ynwwNYS/team-2.png"
+  },
+  {
+    "name": "packages",
+    "to": "/admin/packages",
+    "icon": "https://i.ibb.co/ygQ64Jt/package.png"
+  },
+  {
+    "name": "schedule",
+    "to": "/admin/schedule",
+    "icon": "https://i.ibb.co/bRJ4gW9/schedule.png"
+  },
+  {
+    "name": "snap",
+    "to": "/admin/snap",
+    "icon": "https://i.ibb.co/x15gqtz/snap.png"
+  }
+]

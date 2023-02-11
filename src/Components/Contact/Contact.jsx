@@ -11,6 +11,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 import Footer from "../Footer/Footer";
+import ScrollToTop from "../ScrollToTop"
 
 const Contact = () => {
   const form = useRef();
@@ -37,35 +38,36 @@ const Contact = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <section className="contact container section">
-        <div class="container">
-          <div class="form">
-            <div class="contact-info">
-              <h3 class="title">Let's get in touch</h3>
-              <p class="text">
+        <div className="container">
+          <div className="form">
+            <div className="contact-info">
+              <h3 className="title">Let's get in touch</h3>
+              <p className="text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 dolorum adipisci recusandae praesentium dicta!
               </p>
 
-              <div class="info">
-                <div class="information">
+              <div className="info">
+                <div className="information">
                   <HiOutlineLocationMarker className="icon" />
                   <p>92 Cherry Drive Uniondale, NY 11553</p>
                 </div>
-                <div class="information">
+                <div className="information">
                   <BiMailSend className="icon" />
                   <p>lorem@ipsum.com</p>
                 </div>
-                <div class="information">
+                <div className="information">
                   <BsPhone className="icon" />
                   <p>123-456-789</p>
                 </div>
               </div>
 
-              <div class="social-media">
+              <div className="social-media">
                 <p>Connect with us :</p>
-                <div class="social-icons">
+                <div className="social-icons">
                   <RiMessengerLine className="icon" />
                   <AiOutlineInstagram className="icon" />
                   <FaWhatsapp className="icon" />
@@ -74,31 +76,31 @@ const Contact = () => {
               </div>
             </div>
 
-            <div class="contact-form">
-              <span class="circle one"></span>
-              <span class="circle two"></span>
+            <div className="contact-form">
+              <span className="circle one"></span>
+              <span className="circle two"></span>
 
-              <form ref={form} onSubmit={sendEmail} class="learn">
-                <h3 class="title">Contact us</h3>
-                <div class="input-container">
+              <form ref={form} onSubmit={sendEmail} className="learn">
+                <h3 className="title">Contact us</h3>
+                <div className="input-container">
                   <label for="">Username</label>
-                  <input type="text" name="name" class="input" required />
+                  <input type="text" name="name" className="input" required />
                 </div>
 
-                <div class="input-container">
+                <div className="input-container">
                   <label for="">Email</label>
-                  <input type="email" name="email" class="input" required />
+                  <input type="email" name="email" className="input" required />
                 </div>
-                <div class="input-container">
+                <div className="input-container">
                   <label for="">Phone</label>
-                  <input type="tel" name="phone" class="input" required />
+                  <input type="tel" name="phone" className="input" required />
                 </div>
 
-                <div class="input-container textarea">
+                <div className="input-container textarea">
                   <label for="">Message</label>
-                  <textarea name="message" class="input" required></textarea>
+                  <textarea name="message" className="input" required></textarea>
                 </div>
-                <input type="submit" value="Send" class="send-btn" />
+                <input type="submit" value="Send" className="send-btn" />
               </form>
             </div>
           </div>

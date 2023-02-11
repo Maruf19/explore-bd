@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./navbar.css";
 import { MdTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
 import { MdPersonPin } from "react-icons/md";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Navigate } from "react-router-dom";
 import { useEffect } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
   const [navbar, setNavbar] = useState(false);
   const [color, changeColor] = useState("#111");
+  const { user, logOut } = useContext(AuthContext);
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -39,6 +42,17 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", changeBg);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign Out Successfully");
+        Navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <section className="navBarSection">
@@ -87,6 +101,7 @@ const Navbar = () => {
             <button className="custom-btn">
               <Link to="/login"> Login </Link>
             </button>
+            <li><Link to='/' onClick={handleLogOut}>Log Out</Link></li>
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">

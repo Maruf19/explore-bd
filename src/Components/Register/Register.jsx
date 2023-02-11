@@ -1,6 +1,62 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
+    const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+
+    const handleSignUp = (data) => {
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // toast.success("Successfully User Created");
+
+                const userInfo = {
+                    displayName: data.name,
+                }
+
+                updateUser(userInfo)
+                    .then(() => {
+                        savedUsertoDb(data.name, data.email, data.account);
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+                // navigate('/');
+            })
+            .catch(error => {
+                toast.error(error.message);
+            });
+    }
+
+    const savedUsertoDb = (name, email) => {
+        const user = {
+            name,
+            email
+        }
+
+        fetch('https://explore-bd-server-ahm-rubayed.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    navigate('/');
+                    toast.success("Successfully User Created");
+                    reset()
+                }
+            })
+
+    }
     return (
         <div className='container'>
             <div className="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
@@ -15,45 +71,56 @@ const Register = () => {
                                 <p>Enter your information to register</p>
                             </div>
                             <div>
-                                <div className="flex -mx-3">
-                                    <div className="w-1/2 px-3 mb-5">
-                                        <label for="" className="text-xs font-semibold px-1">First name</label>
-                                        <div className="flex">
-                                            <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                            <input type="text" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="John" />
+                                <form onSubmit={handleSubmit(handleSignUp)} className="w-full">
+                                    <div className="flex -mx-3">
+                                        <div className="w-1/2 px-3 mb-5">
+                                            <label for="" className="text-xs font-semibold px-1">First name</label>
+                                            <div className="flex">
+                                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                                                <input type="text" {...register("firstName", {
+                                                    required: "Please provided your name",
+                                                })} className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="First name" />
+                                            </div>
+                                        </div>
+                                        <div className="w-1/2 px-3 mb-5">
+                                            <label for="" className="text-xs font-semibold px-1">Last name</label>
+                                            <div className="flex">
+                                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                                                <input type="text" {...register("lastName", {
+                                                    required: "Please provided your name",
+                                                })} className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Last name" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="w-1/2 px-3 mb-5">
-                                        <label for="" className="text-xs font-semibold px-1">Last name</label>
-                                        <div className="flex">
-                                            <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                            <input type="text" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Smith" />
+                                    <div className="flex -mx-3">
+                                        <div className="w-full px-3 mb-5">
+                                            <label for="" className="text-xs font-semibold px-1">Email</label>
+                                            <div className="flex">
+                                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                                <input type="email"     {...register("email", {
+                                                    required: "Please provided your name",
+                                                })} className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="flex -mx-3">
-                                    <div className="w-full px-3 mb-5">
-                                        <label for="" className="text-xs font-semibold px-1">Email</label>
-                                        <div className="flex">
-                                            <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <input type="email" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com" />
+                                    <div className="flex -mx-3">
+                                        <div className="w-full px-3 mb-12">
+                                            <label for="" className="text-xs font-semibold px-1">Password</label>
+                                            <div className="flex">
+                                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                                                <input type="password"     {...register("password", {
+                                                    required: "Please provided your name",
+                                                })} className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="flex -mx-3">
-                                    <div className="w-full px-3 mb-12">
-                                        <label for="" className="text-xs font-semibold px-1">Password</label>
-                                        <div className="flex">
-                                            <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                                            <input type="password" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************" />
+                                    <div className="flex -mx-3">
+                                        <div className="w-full px-3 mb-5">
+                                            <input type="submit" value="Register" className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" />
                                         </div>
                                     </div>
-                                </div>
-                                <div className="flex -mx-3">
-                                    <div className="w-full px-3 mb-5">
-                                        <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
-                                    </div>
-                                </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>

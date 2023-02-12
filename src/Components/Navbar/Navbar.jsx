@@ -94,18 +94,23 @@ const Navbar = () => {
               <li>Contact</li>
             </NavLink>
 
-            <div>
+            
               {" "}
               {user?.uid ? (
                 <>
+                 <NavLink className="navItem">
                   <li>
                     <Link to="/cart">Cart</Link>
                   </li>
+                  </NavLink>
+
+                  <NavLink className="navItem">
                   <li>
                     <Link to="/" onClick={handleLogOut}>
                       Log Out
                     </Link>
                   </li>
+                  </NavLink>
                 </>
               ) : (
                 <>
@@ -117,7 +122,7 @@ const Navbar = () => {
                   </button>{" "}
                 </>
               )}
-            </div>
+            
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">

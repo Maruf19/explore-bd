@@ -36,6 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/packages",
     element: <Packages></Packages>,
+    loader: () => fetch('http://localhost:5000/admin/tripPackage')
   },
   {
     path: "/schedule",

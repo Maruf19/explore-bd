@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./packages.css";
 
 //import icons
@@ -9,13 +9,17 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ScrollToTop from "../ScrollToTop";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState([]);
-  const [packages, setpackages] = useState([]);
+  const [packages, setpackages] = useState(null)
+  
+  const data = useLoaderData()
+  const { user} = useContext(AuthContext);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -27,23 +31,21 @@ const Packages = () => {
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/admin/tripPackage")
-      .then((res) => res.json())
-      .then((data) => setpackages(data));
-  }, [packages]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/admin/tripPackage")
+  //     .then((res) => res.json())
+  //     .then((data) => setpackages(data));
+  // }, [packages]);
 
-  const {title, img, price, location } = packages;
-  console.log()
+  // const {title, img, price, location } = data;
+  // console.log(data)
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (travel) => {
     const travelCart = {
-      title,
-       img, 
-       price, 
-       location
+      email: user?.email,
+      travel
     }
-    fetch("http://localhost:5000/userscart", {
+    fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,13 +54,12 @@ const Packages = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result, travelCart)
         if (result.acknowledged === true) {
           toast.success("Added to cart successfully");
         }
       });
   }
-
 
   return (
     <div>
@@ -83,33 +84,33 @@ const Packages = () => {
         </div>
 
         <div className="secContent grid">
-          {packages.map(
-            ({ _id, img, title, location, grade, price, packageDesc }) => {
+          {data.map((travel) => {
+            // { _id, img, title, location, grade, price, packageDesc }
               return (
-                <div key={_id} data-aos="fade-up" className="singleDestination">
+                <div key={travel._id} data-aos="fade-up" className="singleDestination">
                   {/* Returning single id from the map array */}
 
                   <div className="imageDiv">
-                    <img src={img} alt={title} />
+                    <img src={travel.img} alt={travel.title} />
                   </div>
 
                   <div className="cardInfo">
-                    <h4 className="destTitle"> {title}</h4>
+                    <h4 className="destTitle"> {travel.title}</h4>
                     <span className="continent flex">
                       <HiOutlineLocationMarker className="icon" />
-                      <span className="name">{location}</span>
+                      <span className="name">{travel.location}</span>
                     </span>
 
                     <div className="fees flex">
                       <div className="grade">
                         <span>
                           {" "}
-                          {grade}
+                          {travel.grade}
                           <h2>Per Person Package</h2>
                         </span>
                       </div>
                       <div className="price">
-                        <h5>$ {price}</h5>
+                        <h5>$ {travel.price}</h5>
                       </div>
                     </div>
 
@@ -125,7 +126,7 @@ const Packages = () => {
                       </Link>
                     </div>
                     <div className="flex gap-2">
-                      <button  onClick={handleAddToCart} className="custom-btn flex">
+                      <button  onClick={() => handleAddToCart(travel)} className="custom-btn flex">
                         Add to Cart
                       </button>
                       <Link to="/contact" className="custom-btn flex">

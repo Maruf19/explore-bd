@@ -6,21 +6,33 @@ const Cart = () => {
   const { user } = useContext(AuthContext);
 
   const {
-    data: cartDatas = [],
-    isLoading,
-    refetch,
+    data: cartDatas = [],isLoading, refetch,
   } = useQuery({
     queryKey: ["carts", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `http://localhost:5000/cart?email=${user?.email}`
-      );
+      const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`);
       const data = await res.json();
-      console.log(data);
       return data;
     },
   });
-  console.log(cartDatas);
+ 
+  const handleRemove = (id) => {
+    const proceed = window.confirm(
+        "Are you sure, you want to remove this order?"
+    );
+    if (proceed) {
+        fetch(`http://localhost:5000/cart/${id}`, {
+        method: "DELETE",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+            }
+        });
+    }
+};
+
   return (
     <section>
       <Navbar></Navbar>
@@ -68,21 +80,8 @@ const Cart = () => {
                       </span>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <p className="text-sm">{cartData?.travel.price}</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <p className="text-lg text-[#0073a8] font-bold">$ {cartData?.travel.price}</p>
+                      <button onClick={() => handleRemove(cartData?.travel._id)}>Delete</button>
                     </div>
                   </div>
                 </div>

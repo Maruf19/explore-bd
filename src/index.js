@@ -17,11 +17,11 @@ root.render(
   <QueryClientProvider client={queryClient}>
         <AuthProvider>
     <App />
+    </AuthProvider>
     <Toaster
   position="top-center"
   reverseOrder={false}
 />
-    </AuthProvider>
   </QueryClientProvider>
 
   // </React.StrictMode>

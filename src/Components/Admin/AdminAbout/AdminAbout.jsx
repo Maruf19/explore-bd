@@ -81,8 +81,8 @@ const AdminAbout = () => {
           </div>
         </div>
       </div>
-      <div>
-        {/* <div className="pr-12 my-16">
+     {/*  <div>
+        <div className="pr-12 my-16">
           <div className="flex flex-col">
             <div className="overflow-x-auto shadow-md sm:rounded-lg">
               <div className="inline-block min-w-full align-middle">
@@ -153,8 +153,9 @@ const AdminAbout = () => {
               </div>
             </div>
           </div>
-        </div> */}
-
+        </div> 
+        </div>*/}
+ 
         <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
           <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead class="bg-gray-50">
@@ -221,8 +222,8 @@ const AdminAbout = () => {
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
+        </div> 
+      
     </section>
   );
 };

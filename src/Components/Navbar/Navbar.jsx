@@ -73,56 +73,49 @@ const Navbar = () => {
             <NavLink className="navItem" exact to="/">
               <li>Home</li>
             </NavLink>
-
             <NavLink className="navItem" exact to="/About">
               <li>About</li>
             </NavLink>
-
             <NavLink className="navItem" exact to="/Packages">
               <li>Packages</li>
             </NavLink>
-
             <NavLink className="navItem" exact to="/Schedule">
               <li>Schedule</li>
             </NavLink>
-
             <NavLink className="navItem" exact to="/Snap">
               <li>Snap</li>
             </NavLink>
-
             <NavLink className="navItem" exact to="/Contact">
               <li>Contact</li>
-            </NavLink>
-
-            
-              {" "}
-              {user?.uid ? (
-                <>
-                 <NavLink className="navItem">
+            </NavLink>{" "}
+            {user?.uid ? (
+              <>
+                <NavLink className="navItem" exact to="/cart">
                   <li>
-                    <Link to="/cart">Cart</Link>
+                    <Link to="/cart" className="custom-btn">
+                      Cart
+                    </Link>
                   </li>
-                  </NavLink>
+                </NavLink>
 
-                  <NavLink className="navItem">
+                <NavLink className="navItem">
                   <li>
-                    <Link to="/" onClick={handleLogOut}>
+                    <Link to="/" onClick={handleLogOut} className="custom-btn">
                       Log Out
                     </Link>
                   </li>
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <button className="custom-btn">
-                    <Link to="/register"> Register </Link>
-                  </button>
-                  <button className="custom-btn">
-                    <Link to="/login"> Login </Link>
-                  </button>{" "}
-                </>
-              )}
-            
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <button className="custom-btn">
+                  <Link to="/register"> Register </Link>
+                </button>
+                <button className="custom-btn">
+                  <Link to="/login"> Login </Link>
+                </button>{" "}
+              </>
+            )}
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">

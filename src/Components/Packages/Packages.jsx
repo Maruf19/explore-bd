@@ -54,9 +54,8 @@ const Packages = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result, travelCart)
         if (result.acknowledged === true) {
-          toast.success("Added to cart successfully");
+          alert("Added to cart successfully");
         }
       });
   }

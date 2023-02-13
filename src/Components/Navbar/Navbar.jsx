@@ -92,7 +92,7 @@ const Navbar = () => {
               <>
                 <NavLink className="navItem" exact to="/cart">
                   <li>
-                    <Link to="/cart" className="custom-btn">
+                    <Link to="/cart">
                       Cart
                     </Link>
                   </li>

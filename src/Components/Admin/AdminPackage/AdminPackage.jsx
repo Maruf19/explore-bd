@@ -68,6 +68,24 @@ const AdminPackage = () => {
       });
   };
 
+  const handleRemove = (id) => {
+    const proceed = window.confirm(
+        "Are you sure, you want to remove this order?"
+    );
+    console.log(proceed)
+    if (proceed) {
+        fetch(`http://localhost:5000/packageDesc/${id}`, {
+        method: "DELETE",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+            }
+        });
+    }
+};
+
   return (
     <section className="w-full ml-16">
       <div className="w-3/5 flex flex-col justify-center  ml-32">
@@ -102,6 +120,7 @@ const AdminPackage = () => {
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50"></thead>
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+           
             <tr class="hover:bg-gray-50">
               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                 <div class="text-sm">
@@ -229,6 +248,7 @@ const AdminPackage = () => {
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50"></thead>
+          
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
             <tr class="hover:bg-gray-50 ">
               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">

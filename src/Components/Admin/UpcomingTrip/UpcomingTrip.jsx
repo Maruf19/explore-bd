@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const UpcomingTrip = () => {
-  const [scheduleTrip, setScheduleTrip] = useState([]);
+  const [trip, setTrip] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
   const handleAddTrip = (data) => {
@@ -35,7 +35,7 @@ const UpcomingTrip = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged) {
-                alert("Team member placed successfully");
+                alert("Schedule placed successfully");
                 reset();
               }
             })
@@ -47,13 +47,13 @@ const UpcomingTrip = () => {
   useEffect(() => {
     fetch("http://localhost:5000/admin/scheduleTrip")
       .then((res) => res.json())
-      .then((data) => setScheduleTrip(scheduleTrip));
-  }, [scheduleTrip]);
+      .then((data) => setTrip(trip));
+  }, [trip]);
 
   return (
     <section className="w-full ml-16">
       <div className="w-3/5 my-20 flex flex-col justify-center  ml-32">
-        <h2 className="mt-8 text-3xl font-bold text-primary">
+        <h2 className="mt-8 text-3xl font-bold text-primary capitalize">
           Add a Schedule Trip
         </h2>
         <div className="my-6 flex justify-center items-center">
@@ -106,38 +106,28 @@ const UpcomingTrip = () => {
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50"></thead>
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-            {scheduleTrip?.map((scheduleTrip) => (
+            {trip?.map((trip) => (
               <tr class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div class="relative h-10 w-10">
                     <img
                       class="h-full w-full rounded-full object-cover object-center"
-                      src={scheduleTrip?.img}
+                      src={trip?.img}
                       alt=""
                     />
                     <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
                   </div>
                 </th>
-                <td class="px-6 py-4">{scheduleTrip?.title}</td>
-              </tr>
-            ))}
-            {/* 
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                </th>
 
-                <td class="px-6 py-4">yujyu</td>
+                <td class="px-6 py-4">{trip?.title}</td>
                 <td class="px-6 py-4">Date</td>
-                <td class="px-6 py-4">yrtyrty</td>
+                <td class="px-6 py-4">{trip?.location}</td>
 
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-4">
                     <button
                       x-data="{ tooltip: 'Delete' }"
-                    
+                     
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -155,9 +145,8 @@ const UpcomingTrip = () => {
                         />
                       </svg>
                     </button>
-                    {/* <button onClick={() => handleRemove
-                (desc._id)}>X</button> */}
-            {/* <a x-data="{ tooltip: 'Edite' }" href="/">
+              
+                    <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -176,7 +165,8 @@ const UpcomingTrip = () => {
                     </a>
                   </div>
                 </td>
-              </tr> */}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

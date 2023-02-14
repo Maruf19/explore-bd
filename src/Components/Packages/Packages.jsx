@@ -15,10 +15,10 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Packages = () => {
-  const [packageDesc, setPackageDesc] = useState([]);
-  const [packages, setpackages] = useState(null)
+  const [packageDesc, setPackageDesc] = useState();
+  // const [packages, setpackages] = useState(null)
   
-  const data = useLoaderData()
+  const packages = useLoaderData()
   const { user} = useContext(AuthContext);
 
   useEffect(() => {
@@ -30,6 +30,8 @@ const Packages = () => {
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
+
+  console.log(packages)
 
   // useEffect(() => {
   //   fetch("http://localhost:5000/admin/tripPackage")
@@ -83,11 +85,9 @@ const Packages = () => {
         </div>
 
         <div className="secContent grid">
-          {data.map((travel) => {
-            // { _id, img, title, location, grade, price, packageDesc }
+          {packages.map((travel) => {
               return (
                 <div key={travel._id} data-aos="fade-up" className="singleDestination">
-                  {/* Returning single id from the map array */}
 
                   <div className="imageDiv">
                     <img src={travel.img} alt={travel.title} />
@@ -114,7 +114,7 @@ const Packages = () => {
                     </div>
 
                     <div className="desc">
-                      <p>{packageDesc}</p>
+                      <p>{travel?.packageDesc}</p>
                     </div>
                     <div className="flex gap-1">
                       <Link to="/schedule" className="custom-btn flex">
@@ -134,6 +134,7 @@ const Packages = () => {
                     </div>
                   </div>
                 </div>
+                // <div></div>
               );
             }
           )}

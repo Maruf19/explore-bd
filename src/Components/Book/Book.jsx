@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./book.css";
 import img from "../../Assets/payment.png";
 import Navbar from "../Navbar/Navbar";
@@ -7,9 +7,12 @@ import ScrollToTop from "../ScrollToTop";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { useQuery } from "@tanstack/react-query";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Book = () => {
   const stripePromise = loadStripe('pk_test_51M7I5sJSKxqvc4gJS7CUAgUbJp5mVUKBs4bSQX9WBLC4LrJrtNWR6rk1TB0veqC3JqD9il0CkV57LRM3Qpg3ytdz00lQ1lvbLr');
+  const {user , loading} = useContext(AuthContext);
 
   const ELEMENTS_OPTIONS = {
     fonts: [
@@ -18,6 +21,28 @@ const Book = () => {
       },
     ],
   };
+
+  const {
+    data: checkoutItems = [],isLoading, refetch,
+  } = useQuery({
+    queryKey: ["carts", user?.email],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`);
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  let total = 1;
+
+  for(const singleItem of checkoutItems){
+    total = total + parseFloat(singleItem.travel.price);
+  }
+
+
+  let totalAmount = total;
+
+  console.log(totalAmount)
 
   return (
     <div>
@@ -147,7 +172,7 @@ const Book = () => {
       </section> */}
       <div>
       <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-        <CheckoutForm />
+        <CheckoutForm total={totalAmount} />
       </Elements>
       </div>
       {/* <Footer></Footer> */}

@@ -75,10 +75,13 @@ const Trip = () => {
       <div className="w-3/5 flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary">Add a Trip</h2>
         <div className="my-6 flex justify-center items-center">
-          <div className=" card shadow-2xl p-8 flex justify-center w-[400]">
-            <form onSubmit={handleSubmit(handleAddTrip)}>
-              <div className="grid grid-cols-1 gap-6">
-                <div className="form-control w-full max-w-xs">
+          <div className=" card p-8 flex justify-center w-[400">
+            <form
+              onSubmit={handleSubmit(handleAddTrip)}
+              className="bg-slate-500 h-[400px]"
+            >
+              <div className="grid grid-cols-1 gap-6 mt-10">
+                <div className="form-control w-full ml-40">
                   <input
                     {...register("image", {
                       required: "Image is required",
@@ -89,7 +92,7 @@ const Trip = () => {
                   />
                 </div>
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full ml-40">
                   <input
                     {...register("title")}
                     type="text"
@@ -98,7 +101,7 @@ const Trip = () => {
                   />
                 </div>
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full ml-40">
                   <input
                     {...register("location", {
                       required: "Please provided trip location",
@@ -111,7 +114,7 @@ const Trip = () => {
               </div>
 
               <input
-                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full ml-40"
                 type="submit"
                 value="Add Trip"
               />

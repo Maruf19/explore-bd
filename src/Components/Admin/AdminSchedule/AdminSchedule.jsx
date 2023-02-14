@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 // import About from "../../About/About";
 
 const AdminSchedule = () => {
-  const [scheduleDesc,  setScheduleDesc] = useState([]);
+  const [scheduleDesc, setScheduleDesc] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -63,24 +63,28 @@ const AdminSchedule = () => {
           Add a description in schedule
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card shadow-2xl p-8 flex justify-center">
-            <form onSubmit={handleSubmit(handleAddDesc)} className=" w-[500px]">
-              <div className="grid grid-cols-1 gap-6">
+          <div className="w-full card p-8 flex justify-center">
+            <form
+              onSubmit={handleSubmit(handleAddDesc)}
+              className="bg-slate-500 "
+            >
+              <div className="grid grid-cols-1 gap-6 ml-16">
                 <div className="form-control w-[400px]">
                   <textarea
                     {...register("desc", {
                       required: "Please provided description",
                     })}
                     type="text"
-                    className="input input-bordered w-full  p-2 rounded-lg border bg-gray-200 text-black "
-                    placeholder="About Description"
+                    className="input w-full  p-2 mt-10"
+                    placeholder="Schedule Description"
                     cols={10}
+                    rows={10}
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Description"
               />
@@ -125,8 +129,7 @@ const AdminSchedule = () => {
                         />
                       </svg>
                     </button>
-                    {/* <button onClick={() => handleRemove
-                (desc._id)}>X</button> */}
+
                     <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -152,33 +155,6 @@ const AdminSchedule = () => {
         </table>
       </div>
     </section>
-
-    // <div className='form-field custom-flex'>
-    //     <div>
-    //         <h3 className="title">
-    //             Add Your Schedule description here
-    //         </h3>
-    //         <form onSubmit={handleScheduleDesc}>
-    //             <textarea name="desc" placeholder='Package Description' rows={10}></textarea>
-    //             <input type="submit" value="Submit" className='submit' />
-    //         </form>
-    //     </div>
-
-    //     {/* Add package */}
-    //     <div className='mt-5'>
-    //         <h3 className="title">
-    //             Add Your Schedule trip here
-    //         </h3>
-    //         <form onSubmit={handleSubmit(handleAddSchedule)}>
-    //             <input type="file"    {...register("image", {
-    //                 required: "Image is required"
-    //             })} />
-    //             <input type="text" placeholder='Title' {...register("title")} />
-    //             <input name="location" placeholder='Location' {...register("location")} />
-    //             <input type="submit" value="Add Trip" className='submit' />
-    //         </form>
-    //     </div>
-    // </div>
   );
 };
 

@@ -19,7 +19,9 @@ import Feedback from "../../Components/Feedback/Feedback";
 import Login from "../../Components/Login/Login";
 import Cart from "../../Components/Cart/Cart";
 import Register from "../../Components/Register/Register";
-
+import AdminContact from "../../Components/Admin/AdminContact/AdminContact";
+import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
+import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
   {
     path: "/packages",
     element: <Packages></Packages>,
-    loader: () => fetch('http://localhost:5000/admin/tripPackage')
+    loader: () => fetch("http://localhost:5000/admin/tripPackage"),
   },
   {
     path: "/schedule",
@@ -108,7 +110,16 @@ const router = createBrowserRouter([
 
       {
         path: "/admin/contact",
-        element: <adminContact />,
+        element: <AdminContact />,
+      },
+      {
+        path: "/admin/upcomingTrip",
+        element: <UpcomingTrip />,
+      },
+
+      {
+        path: "/admin/snapPhotos",
+        element: <SnapPhotos />,
       },
     ],
   },

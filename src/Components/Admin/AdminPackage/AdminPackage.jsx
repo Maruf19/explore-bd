@@ -70,21 +70,21 @@ const AdminPackage = () => {
 
   const handleRemove = (id) => {
     const proceed = window.confirm(
-        "Are you sure, you want to remove this order?"
+      "Are you sure, you want to remove this order?"
     );
-    console.log(proceed)
+    console.log(proceed);
     if (proceed) {
-        fetch(`http://localhost:5000/packageDesc/${id}`, {
+      fetch(`http://localhost:5000/packageDesc/${id}`, {
         method: "DELETE",
-        })
+      })
         .then((res) => res.json())
         .then((data) => {
-            if (data.deletedCount > 0) {
+          if (data.deletedCount > 0) {
             alert("Removed Order Successfully");
-            }
+          }
         });
     }
-};
+  };
 
   return (
     <section className="w-full ml-16">
@@ -93,21 +93,26 @@ const AdminPackage = () => {
           Add Package Description
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card shadow-2xl p-8 flex justify-center">
-            <form onSubmit={handleSubmit(handleAddDesc)}>
+          <div className="w-full card p-8 flex justify-center">
+            <form
+              onSubmit={handleSubmit(handleAddDesc)}
+              className="bg-slate-500 h-[450px] w-[700px]"
+            >
               <div className="grid grid-cols-1 gap-6">
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control  w-[400px]">
                   <textarea
                     {...register("desc")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input w-full  p-2 ml-16 mt-10"
                     placeholder="Package Description"
+                    cols={10}
+                    rows={10}
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-32 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Trip"
               />
@@ -120,7 +125,6 @@ const AdminPackage = () => {
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50"></thead>
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-           
             <tr class="hover:bg-gray-50">
               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                 <div class="text-sm">
@@ -187,8 +191,11 @@ const AdminPackage = () => {
           Add a package trip
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card shadow-2xl p-8 flex justify-center">
-            <form onSubmit={handleSubmit(handleAddPackages)}>
+          <div className="w-full card  p-8 flex justify-center">
+            <form
+              onSubmit={handleSubmit(handleAddPackages)}
+              className="bg-slate-500 w-[500]"
+            >
               <div className="grid grid-cols-1 gap-6">
                 <div className="form-control w-full max-w-xs">
                   <input
@@ -196,7 +203,7 @@ const AdminPackage = () => {
                       required: "Image is required",
                     })}
                     type="file"
-                    className="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full ml-24"
                     placeholder="Upload a Snap Image"
                   />
                 </div>
@@ -205,7 +212,7 @@ const AdminPackage = () => {
                   <input
                     {...register("title")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full ml-24 p-2 rounded-lg"
                     placeholder="Snap Title"
                   />
                 </div>
@@ -213,7 +220,7 @@ const AdminPackage = () => {
                   <input
                     {...register("location")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full ml-24 p-2 rounded-lg"
                     placeholder="Snap Location"
                   />
                 </div>
@@ -221,7 +228,7 @@ const AdminPackage = () => {
                   <input
                     {...register("price")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full ml-24 p-2 rounded-lg"
                     placeholder="Price"
                   />
                 </div>
@@ -229,14 +236,14 @@ const AdminPackage = () => {
                   <textarea
                     {...register("packageDesc")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="input input-bordered w-full ml-24 p-2 rounded-lg"
                     placeholder="Description"
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-32 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Snap"
               />
@@ -248,7 +255,7 @@ const AdminPackage = () => {
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50"></thead>
-          
+
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
             <tr class="hover:bg-gray-50 ">
               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">

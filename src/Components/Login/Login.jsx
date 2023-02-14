@@ -308,8 +308,10 @@ const Login = () => {
                         />
                       </div>
                     </div>
+                    <div className="text-center capitalize text-[#0073a8] font-bold">
+                      <span  > forgot password?</span>
+                    </div>
                     <div className="text-center ">
-                      {" "}
                       <span>
                         Don't Have An Account?{" "}
                         <Link

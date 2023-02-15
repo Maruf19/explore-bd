@@ -8,12 +8,14 @@ import { NavLink, Link, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-hot-toast";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
   const [navbar, setNavbar] = useState(false);
   const [color, changeColor] = useState("#111");
   const { user, logOut } = useContext(AuthContext);
+  const [isRole] = useAdmin(user?.email)
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -54,6 +56,8 @@ const Navbar = () => {
       });
   };
 
+  console.log(isRole)
+
   return (
     <section className="navBarSection">
       <header className={navbar ? "header active flex" : "header flex"}>
@@ -88,6 +92,16 @@ const Navbar = () => {
             <NavLink className="navItem" exact to="/Contact">
               <li>Contact</li>
             </NavLink>{" "}
+            {
+                  isRole === true && 
+                  <NavLink className="navItem" exact to="/cart">
+                  <li>
+                    <Link to="/admin">
+                      Dashboard
+                    </Link>
+                    </li>
+                </NavLink>
+                }
             {user?.uid ? (
               <>
                 <NavLink className="navItem" exact to="/cart">

@@ -47,8 +47,10 @@ const UpcomingTrip = () => {
   useEffect(() => {
     fetch("http://localhost:5000/admin/scheduleTrip")
       .then((res) => res.json())
-      .then((data) => setTrip(trip));
+      .then((data) => setTrip(data));
   }, [trip]);
+
+  console.log(trip)
 
   return (
     <section className="w-full ml-16">

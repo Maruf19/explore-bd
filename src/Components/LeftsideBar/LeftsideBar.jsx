@@ -56,7 +56,7 @@ const LeftsideBar = () => {
         //     </div>
 
         // </div>
-        <div className="flex flex-col h-screen p-3 bg-white shadow basis-1/5">
+        <div className="flex flex-col p-3 bg-white shadow basis-1/5 h-screen">
             <div className="space-y-3">
                 <div className="">
                     <h2 className="text-xl font-bold text-center my-3 block">Admin Dashboard</h2>

@@ -3,10 +3,12 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 const CheckoutForm = ({ total }) => {
   const { user, loading } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -79,6 +81,7 @@ const CheckoutForm = ({ total }) => {
           singleItem?.location
         );
       });
+      navigate('/booked')
     }
     setProcessing(false);
   };

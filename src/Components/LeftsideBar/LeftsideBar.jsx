@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const LeftsideBar = () => {
-    const [categories, setCategories] = useState()
+    const [categories, setCategories] = useState();
+    const {user} = useContext(AuthContext)
 
     useEffect(() => {
         fetch("https://explore-bd-server.vercel.app/admin/categories")
@@ -16,7 +19,7 @@ const LeftsideBar = () => {
             <div className="space-y-3">
                 <div className="">
                     <h2 className="text-xl font-bold text-center my-3 block">Admin Dashboard</h2>
-                    <h4 className="text-lg text-center">Explore BD</h4>
+                    <h4 className="text-lg text-center">{user?.displayName}</h4>
                 </div>
                 <div className="flex-1">
                     <ul className="pt-2 pb-4 space-y-1 text-sm">

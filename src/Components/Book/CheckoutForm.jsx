@@ -24,10 +24,10 @@ const CheckoutForm = ({ total }) => {
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [total]);
-  // console.log(total);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     // || !elements
     if (!stripe || !elements) {
       return;
@@ -89,12 +89,11 @@ const CheckoutForm = ({ total }) => {
   } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-      fetch(`http://localhost:5000/cart?email=${user?.email}`).then((res) =>
-        res.json()
-      ),
+      fetch(`http://localhost:5000/cart?email=${user?.email}`)
+      .then((res) => res.json()),
   });
 
-  console.log(checkoutItems);
+  console.log(checkoutItems)
 
   const handleAddData = (title, img, location) => {
     const data = {
@@ -112,16 +111,6 @@ const CheckoutForm = ({ total }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        //   if (data.acknowledged) {
-        //     checkoutItems?.map(singleItem => {
-        //     // setSingleData(items)
-        //     const {picture , title , tutor , lectures , hours, instructorEmail , price} = singleItem;
-        //     handleAddData(singleItem?.picture, singleItem?.title, singleItem?.tutor, singleItem?.lectures, singleItem?.hours);
-        //     handlePurchasedData(instructorEmail, picture, title, price)
-        //     toast.success("Course purchased Successfully");
-        //   })
-
-        // }
       });
   };
 
@@ -139,7 +128,7 @@ const CheckoutForm = ({ total }) => {
         <h2 className="mt-20 text-center font-bold text-xl text-white">Make Your Payment</h2>
         <div className="form-control w-full max-w-xs ml-24">
           <input
-            name="title"
+            name="names"
             type="text"
             className="mb-5 mt-20 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="Card Holder Name"
@@ -147,7 +136,7 @@ const CheckoutForm = ({ total }) => {
         </div>
         <div className="form-control w-full max-w-xs  ml-24">
           <input
-            name="title"
+            name="email"
             type="text"
             className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="Email"
@@ -156,7 +145,7 @@ const CheckoutForm = ({ total }) => {
 
         <div className="form-control w-full max-w-xs  ml-24">
           <input
-            name=""
+            name="passport"
             type="text"
             className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="NID/Passport No"

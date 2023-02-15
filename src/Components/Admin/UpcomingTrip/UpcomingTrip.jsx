@@ -50,7 +50,25 @@ const UpcomingTrip = () => {
       .then((data) => setTrip(data));
   }, [trip]);
 
-  console.log(trip)
+  // console.log(trip)
+
+  const handleRemove = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to remove this order?"
+    );
+    console.log(proceed);
+    if (proceed) {
+      fetch(`http://localhost:5000/scheduleTrip/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+          }
+        });
+    }
+  };
 
   return (
     <section className="w-full ml-16">
@@ -129,7 +147,7 @@ const UpcomingTrip = () => {
                   <div className="flex justify-end gap-4">
                     <button
                       x-data="{ tooltip: 'Delete' }"
-                     
+                      onClick={() => handleRemove(trip._id)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +165,7 @@ const UpcomingTrip = () => {
                         />
                       </svg>
                     </button>
-              
+
                     <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

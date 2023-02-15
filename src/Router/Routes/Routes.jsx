@@ -22,6 +22,8 @@ import Register from "../../Components/Register/Register";
 import AdminContact from "../../Components/Admin/AdminContact/AdminContact";
 import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
 import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
+import PackageTrip from "../../Components/Admin/PackageTrip/PackageTrip";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -120,6 +122,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/snapPhotos",
         element: <SnapPhotos />,
+      },
+      {
+        path: "/admin/packageTrip",
+        element: <PackageTrip />,
       },
     ],
   },

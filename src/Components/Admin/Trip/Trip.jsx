@@ -166,8 +166,7 @@ const Trip = () => {
                         />
                       </svg>
                     </button>
-                    {/* <button onClick={() => handleRemove
-                (desc._id)}>X</button> */}
+                  
                     <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
@@ -23,7 +22,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("Successfully logged in");
+        alert("Successfully logged in");
         event.target.reset();
 
         // fetch(`https://nerd-academy-server.vercel.app/jwt?email=${data.email}`)
@@ -36,7 +35,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        toast.error(error.message);
+        alert(error.message);
       });
   };
 

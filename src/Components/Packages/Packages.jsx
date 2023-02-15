@@ -11,7 +11,6 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { Link, useLoaderData } from "react-router-dom";
 import ScrollToTop from "../ScrollToTop";
-import { toast } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Packages = () => {

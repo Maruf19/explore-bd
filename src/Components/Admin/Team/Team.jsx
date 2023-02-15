@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 
 const Team = () => {
   const [team, setTeams] = useState([]);
@@ -35,7 +34,7 @@ const Team = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged) {
-                toast.success("Team member placed successfully");
+                alert("Team member placed successfully");
                 reset();
               }
             })

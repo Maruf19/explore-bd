@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
@@ -21,7 +20,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // toast.success("Successfully User Created");
+        alert("Successfully User Created");
 
         const userInfo = {
           displayName: data.name,
@@ -37,7 +36,7 @@ const Register = () => {
         // navigate('/');
       })
       .catch((error) => {
-        toast.error(error.message);
+     alert(error.message);
       });
   };
 
@@ -58,7 +57,7 @@ const Register = () => {
       .then((data) => {
         if (data.acknowledged) {
           navigate("/");
-          toast.success("Successfully User Created");
+          alert("Successfully register");
           reset();
         }
       });

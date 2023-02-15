@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Toaster from "react-hot-toast"
 import "./index.css";
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from "./contexts/AuthProvider";
@@ -18,10 +17,15 @@ root.render(
         <AuthProvider>
     <App />
     </AuthProvider>
-    <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"/>
   </QueryClientProvider>
 
   // </React.StrictMode>

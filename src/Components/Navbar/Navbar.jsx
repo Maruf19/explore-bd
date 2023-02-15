@@ -3,11 +3,9 @@ import "./navbar.css";
 import { MdTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
-import { MdPersonPin } from "react-icons/md";
 import { NavLink, Link, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { toast } from "react-hot-toast";
 import useAdmin from "../../Hooks/useAdmin";
 
 const Navbar = () => {
@@ -48,11 +46,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        toast.success("Sign Out Successfully");
+        alert("Sign Out Successfully");
         Navigate("/");
       })
       .catch((error) => {
-        toast.error(error.message);
+        alert(error.message);
       });
   };
 
@@ -93,15 +91,15 @@ const Navbar = () => {
               <li>Contact</li>
             </NavLink>{" "}
             {
-                  isRole === true && 
-                  <NavLink className="navItem" exact to="/cart">
-                  <li>
-                    <Link to="/admin">
-                      Dashboard
-                    </Link>
-                    </li>
-                </NavLink>
-                }
+              isRole === true &&
+              <NavLink className="navItem" exact to="/cart">
+                <li>
+                  <Link to="/admin">
+                    Dashboard
+                  </Link>
+                </li>
+              </NavLink>
+            }
             {user?.uid ? (
               <>
                 <NavLink className="navItem" exact to="/cart">

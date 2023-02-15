@@ -25,7 +25,7 @@ const Cart = () => {
   let total = 0;
 
   for (const singledata of cartDatas) {
-    total = total + parseFloat(singledata.travel.price);
+    total = total + parseFloat(singledata.travel.price * quantity);
   }
 
   const handleRemove = (id) => {
@@ -56,6 +56,8 @@ const Cart = () => {
       setQuantity((prevCount) => prevCount + 1);
     }
   };
+
+  console.log(total);
   return (
     <section>
       <Navbar></Navbar>

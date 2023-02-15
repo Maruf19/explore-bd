@@ -3,15 +3,15 @@ import { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 
 const Booked = () => {
-  const [booked, setBooked] = useState()
+  const [booked, setBooked] = useState();
 
   useEffect(() => {
-       fetch('http://localhost:5000/admin/booked')
-      .then(res => res.json())
-      .then(data => setBooked(data))
-  }, [booked])
+    fetch("http://localhost:5000/booked")
+      .then((res) => res.json())
+      .then((data) => setBooked(data));
+  }, [booked]);
 
-console.log(booked)
+  console.log(booked);
   return (
     <div>
       <Navbar></Navbar>
@@ -21,7 +21,6 @@ console.log(booked)
             Who Join With Us
           </h1>
 
-            
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -43,23 +42,22 @@ console.log(booked)
               </tr>
             </thead>
             <tbody>
-              
-            {booked?.map(({ name, date, packages,number}) => {
-              return(
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
-                >
-                  {name}
-                </th>
-                <td>{date}</td>
-                <td className="px-4 py-4">{packages}</td>
-                <td className="px-12 py-4">{number}</td>
-                <td className="px-12 py-4">Accepted</td>
-              </tr>
-              );
-            })}
+              {booked?.map(({ name, date, packages, number }) => {
+                return (
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
+                    >
+                      {name}
+                    </th>
+                    <td>{date}</td>
+                    <td className="px-4 py-4">{packages}</td>
+                    <td className="px-12 py-4">{number}</td>
+                    <td className="px-12 py-4">Accepted</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

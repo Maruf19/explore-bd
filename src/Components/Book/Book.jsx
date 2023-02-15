@@ -170,7 +170,7 @@ const Book = () => {
           ></input>
         </form>
       </section> */}
-      <div>
+      <div className="pt-32">
       <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
         <CheckoutForm total={totalAmount} />
       </Elements>

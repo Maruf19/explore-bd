@@ -132,12 +132,11 @@ const CheckoutForm = ({ total }) => {
   };
 
   return (
-    <>
+    <div>
       <form
         onSubmit={handleSubmit}
-        className="h-[500px] w-[500px] ml-[450px] mt-0 justify-center bg-green-400"
-      >
-        <h2 className="mt-20 text-center font-bold">Make Your Payment</h2>
+        className="h-[500px] w-[500px] ml-[450px] mt-0 justify-center bg-green-400">
+        <h2 className="mt-20 text-center font-bold text-xl text-white">Make Your Payment</h2>
         <div className="form-control w-full max-w-xs ml-24">
           <input
             name="title"
@@ -163,7 +162,7 @@ const CheckoutForm = ({ total }) => {
             placeholder="NID/Passport No"
           />
         </div>
-        <CardElement
+        <CardElement className="px-24 mt-6"
           options={{
             style: {
               base: {
@@ -179,16 +178,17 @@ const CheckoutForm = ({ total }) => {
             },
           }}
         />
+        <div className="px-24">
         <button
           className="btn btn-sm mt-5 bg-[#0073a8] px-8 py-1 rounded text-white hover:bg-[#0073a8] hover:text-white"
           type="submit"
-          disabled={!stripe || !clientSecret || processing}
-        >
-          Pay <span className="font-bold">{total}</span>
+          disabled={!stripe || !clientSecret || processing}>
+          Pay 
         </button>
+        </div>
       </form>
       <p className="text-red-500">{cardError}</p>
-    </>
+    </div>
   );
 };
 

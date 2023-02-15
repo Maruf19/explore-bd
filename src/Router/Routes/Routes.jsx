@@ -23,8 +23,9 @@ import AdminContact from "../../Components/Admin/AdminContact/AdminContact";
 import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
 import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
 import PackageTrip from "../../Components/Admin/PackageTrip/PackageTrip";
-
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "../AdminRoute/AdminRoute"
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,53 +77,53 @@ const router = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: <AdminRoute><AdminLayout /></AdminRoute>,
     children: [
       {
         path: "/admin/home",
-        element: <Admin />,
+        element: <AdminRoute><Admin /></AdminRoute>,
       },
       {
         path: "/admin/services",
-        element: <AdminSerivces />,
+        element: <AdminRoute><AdminSerivces/></AdminRoute>,
       },
       {
         path: "/admin/trip",
-        element: <Trip />,
+        element: <AdminRoute><Trip /></AdminRoute>,
       },
       {
         path: "/admin/about",
-        element: <AdminAbout />,
+        element: <AdminRoute><AdminAbout /></AdminRoute>,
       },
       {
         path: "/admin/team",
-        element: <Team />,
+        element: <AdminRoute> <Team /></AdminRoute>,
       },
       {
         path: "/admin/packages",
-        element: <AdminPackage />,
+        element: <AdminRoute><AdminPackage /></AdminRoute>,
       },
       {
         path: "/admin/schedule",
-        element: <AdminSchedule />,
+        element: <AdminRoute><AdminSchedule /></AdminRoute>,
       },
       {
         path: "/admin/snap",
-        element: <AdminSnap />,
+        element: <AdminRoute><AdminSnap /></AdminRoute>,
       },
 
       {
         path: "/admin/contact",
-        element: <AdminContact />,
+        element: <AdminRoute><AdminContact /></AdminRoute>,
       },
       {
         path: "/admin/upcomingTrip",
-        element: <UpcomingTrip />,
+        element: <AdminRoute><UpcomingTrip /></AdminRoute>,
       },
 
       {
         path: "/admin/snapPhotos",
-        element: <SnapPhotos />,
+        element: <AdminRoute><SnapPhotos /></AdminRoute>,
       },
       {
         path: "/admin/packageTrip",

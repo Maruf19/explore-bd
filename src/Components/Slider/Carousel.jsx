@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./carousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -6,15 +6,24 @@ import { Carousel } from "react-responsive-carousel";
 import img from "../../Assets/img.jpg";
 import { useEffect } from "react";
 import { useState } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Slider = () => {
   const [feedback, setFeedback] = useState([]);
+  const [users, setUsers] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:5000/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, [feedback]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [users]);
 
   return (
     <div>
@@ -40,7 +49,7 @@ const Slider = () => {
                 <div className="myCarousel">
                   <p>{f.feedback}</p>
                   <br></br>
-                  <h1>-{Name}</h1>
+                  <h1>- </h1>
                 </div>
               </div>
             </>

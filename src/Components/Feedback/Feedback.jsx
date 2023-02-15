@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./Feedback.css";
 
 const Feedback = () => {
+  const {user} = useContext(AuthContext)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,10 +13,11 @@ const Feedback = () => {
     const feedback = event.target.feedback.value;
     const feedbackData = {
       feedback,
-      
+      name: user?.displayName
+
     };
 
-    fetch("http://localhost:5000/feedback", {
+    fetch("https://explore-bd-server.vercel.app/feedback", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -30,6 +33,7 @@ const Feedback = () => {
       })
       .catch((err) => console.error(err));
   };
+
   return (
     <section>
       <Navbar />
@@ -49,7 +53,7 @@ const Feedback = () => {
               rows="10"
               placeholder="Give your valuable feedback"
             ></textarea>
-          
+
           </div>
           <button type="submit" value="Send" class="send-btn">
             {" "}

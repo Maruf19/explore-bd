@@ -6,21 +6,19 @@ import { Carousel } from "react-responsive-carousel";
 import img from "../../Assets/img.jpg";
 import { useEffect } from "react";
 import { useState } from "react";
-import { AuthContext } from "../../contexts/AuthProvider";
 
 const Slider = () => {
   const [feedback, setFeedback] = useState([]);
   const [users, setUsers] = useState([]);
 
-
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://explore-bd-server.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, [feedback]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://explore-bd-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);
@@ -49,7 +47,7 @@ const Slider = () => {
                 <div className="myCarousel">
                   <p>{f.feedback}</p>
                   <br></br>
-                  <h1>- </h1>
+                  <h1>- {f?.name}</h1>
                 </div>
               </div>
             </>

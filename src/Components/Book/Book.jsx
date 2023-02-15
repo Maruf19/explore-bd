@@ -12,7 +12,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const Book = () => {
   const stripePromise = loadStripe('pk_test_51M7I5sJSKxqvc4gJS7CUAgUbJp5mVUKBs4bSQX9WBLC4LrJrtNWR6rk1TB0veqC3JqD9il0CkV57LRM3Qpg3ytdz00lQ1lvbLr');
-  const {user , loading} = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
 
   const ELEMENTS_OPTIONS = {
     fonts: [
@@ -23,11 +23,11 @@ const Book = () => {
   };
 
   const {
-    data: checkoutItems = [],isLoading, refetch,
+    data: checkoutItems = [], isLoading, refetch,
   } = useQuery({
     queryKey: ["carts", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`);
+      const res = await fetch(`https://explore-bd-server.vercel.app/cart?email=${user?.email}`);
       const data = await res.json();
       return data;
     },
@@ -35,7 +35,7 @@ const Book = () => {
 
   let total = 1;
 
-  for(const singleItem of checkoutItems){
+  for (const singleItem of checkoutItems) {
     total = total + parseFloat(singleItem.travel.price);
   }
 
@@ -171,9 +171,9 @@ const Book = () => {
         </form>
       </section> */}
       <div className="pt-32">
-      <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-        <CheckoutForm total={totalAmount} />
-      </Elements>
+        <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
+          <CheckoutForm total={totalAmount} />
+        </Elements>
       </div>
       {/* <Footer></Footer> */}
     </div>

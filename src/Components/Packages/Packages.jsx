@@ -17,16 +17,16 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const Packages = () => {
   const [packageDesc, setPackageDesc] = useState();
   // const [packages, setpackages] = useState(null)
-  
+
   const packages = useLoaderData()
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/packages")
+    fetch("https://explore-bd-server.vercel.app/admin/packages")
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
@@ -34,7 +34,7 @@ const Packages = () => {
   console.log(packages)
 
   // useEffect(() => {
-  //   fetch("http://localhost:5000/admin/tripPackage")
+  //   fetch("https://explore-bd-server.vercel.app/admin/tripPackage")
   //     .then((res) => res.json())
   //     .then((data) => setpackages(data));
   // }, [packages]);
@@ -47,7 +47,7 @@ const Packages = () => {
       email: user?.email,
       travel
     }
-    fetch("http://localhost:5000/cart", {
+    fetch("https://explore-bd-server.vercel.app/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -86,57 +86,57 @@ const Packages = () => {
 
         <div className="secContent grid">
           {packages.map((travel) => {
-              return (
-                <div key={travel._id} data-aos="fade-up" className="singleDestination">
+            return (
+              <div key={travel._id} data-aos="fade-up" className="singleDestination">
 
-                  <div className="imageDiv">
-                    <img src={travel.img} alt={travel.title} />
+                <div className="imageDiv">
+                  <img src={travel.img} alt={travel.title} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle"> {travel.title}</h4>
+                  <span className="continent flex">
+                    <HiOutlineLocationMarker className="icon" />
+                    <span className="name">{travel.location}</span>
+                  </span>
+
+                  <div className="fees flex">
+                    <div className="grade">
+                      <span>
+                        {" "}
+                        {travel.grade}
+                        <h2>Per Person Package</h2>
+                      </span>
+                    </div>
+                    <div className="price">
+                      <h5>$ {travel.price}</h5>
+                    </div>
                   </div>
 
-                  <div className="cardInfo">
-                    <h4 className="destTitle"> {travel.title}</h4>
-                    <span className="continent flex">
-                      <HiOutlineLocationMarker className="icon" />
-                      <span className="name">{travel.location}</span>
-                    </span>
-
-                    <div className="fees flex">
-                      <div className="grade">
-                        <span>
-                          {" "}
-                          {travel.grade}
-                          <h2>Per Person Package</h2>
-                        </span>
-                      </div>
-                      <div className="price">
-                        <h5>$ {travel.price}</h5>
-                      </div>
-                    </div>
-
-                    <div className="desc">
-                      <p>{travel?.packageDesc}</p>
-                    </div>
-                    <div className="flex gap-1">
-                      <Link to="/schedule" className="custom-btn flex">
-                        Details <HiOutlineClipboardCheck className="icon" />
-                      </Link>
-                      <Link to="/feedback" className="custom-btn flex">
-                        Reviews <HiOutlineClipboardCheck className="icon" />
-                      </Link>
-                    </div>
-                    <div className="flex gap-2">
-                      <button  onClick={() => handleAddToCart(travel)} className="custom-btn flex">
-                        Add to Cart
-                      </button>
-                      <Link to="/contact" className="custom-btn flex">
-                        FAQ
-                      </Link>
-                    </div>
+                  <div className="desc">
+                    <p>{travel?.packageDesc}</p>
+                  </div>
+                  <div className="flex gap-1">
+                    <Link to="/schedule" className="custom-btn flex">
+                      Details <HiOutlineClipboardCheck className="icon" />
+                    </Link>
+                    <Link to="/feedback" className="custom-btn flex">
+                      Reviews <HiOutlineClipboardCheck className="icon" />
+                    </Link>
+                  </div>
+                  <div className="flex gap-2">
+                    <button onClick={() => handleAddToCart(travel)} className="custom-btn flex">
+                      Add to Cart
+                    </button>
+                    <Link to="/contact" className="custom-btn flex">
+                      FAQ
+                    </Link>
                   </div>
                 </div>
-                // <div></div>
-              );
-            }
+              </div>
+              // <div></div>
+            );
+          }
           )}
         </div>
       </section>

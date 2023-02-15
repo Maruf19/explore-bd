@@ -21,13 +21,13 @@ const Snap = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/snap')
+    fetch('https://explore-bd-server.vercel.app/admin/snap')
       .then(res => res.json())
       .then(data => setSnapDesc(data))
   }, [snapDesc])
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/snapTrip')
+    fetch('https://explore-bd-server.vercel.app/admin/snapTrip')
       .then(res => res.json())
       .then(data => setSnap(data))
   }, [snap])

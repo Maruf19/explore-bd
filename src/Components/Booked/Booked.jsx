@@ -6,7 +6,7 @@ const Booked = () => {
   const [booked, setBooked] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/booked")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked")
       .then((res) => res.json())
       .then((data) => setBooked(data));
   }, [booked]);

@@ -3,10 +3,12 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 const CheckoutForm = ({ total }) => {
   const { user, loading } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -17,7 +19,7 @@ const CheckoutForm = ({ total }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://explore-bd-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
@@ -79,6 +81,7 @@ const CheckoutForm = ({ total }) => {
           singleItem?.location
         );
       });
+      navigate('/booked')
     }
     setProcessing(false);
   };
@@ -90,8 +93,8 @@ const CheckoutForm = ({ total }) => {
   } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-      fetch(`http://localhost:5000/cart?email=${user?.email}`)
-      .then((res) => res.json()),
+      fetch(`https://explore-bd-server.vercel.app/cart?email=${user?.email}`)
+        .then((res) => res.json()),
   });
 
   console.log(user)
@@ -105,7 +108,7 @@ const CheckoutForm = ({ total }) => {
       buyerEmail: user?.email,
     };
 
-    fetch("http://localhost:5000/purchased-course", {
+    fetch("https://explore-bd-server.vercel.app/purchased-course", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -117,7 +120,7 @@ const CheckoutForm = ({ total }) => {
   };
 
   const handleDeleteCartData = () => {
-    fetch(`http://localhost:5000/cart/${user?.email}`, {
+    fetch(`https://explore-bd-server.vercel.app/cart/${user?.email}`, {
       method: "DELETE",
     });
   };
@@ -173,12 +176,12 @@ const CheckoutForm = ({ total }) => {
           }}
         />
         <div className="px-24">
-        <button
-          className="btn btn-sm mt-5 bg-[#0073a8] px-8 py-1 rounded text-white hover:bg-[#0073a8] hover:text-white"
-          type="submit"
-          disabled={!stripe || !clientSecret || processing}>
-          Pay 
-        </button>
+          <button
+            className="btn btn-sm mt-5 bg-[#0073a8] px-8 py-1 rounded text-white hover:bg-[#0073a8] hover:text-white"
+            type="submit"
+            disabled={!stripe || !clientSecret || processing}>
+            Pay
+          </button>
         </div>
       </form>
       <p className="text-red-500">{cardError}</p>

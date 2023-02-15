@@ -7,7 +7,7 @@ const AdminBooked = () => {
   const { reset } = useForm();
 
   useEffect(() => {
-    fetch("http://localhost:5000/booked")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked")
       .then((res) => res.json())
       .then((data) => setBooked(data));
   }, [booked]);
@@ -25,7 +25,7 @@ const AdminBooked = () => {
       number,
     };
 
-    fetch("http://localhost:5000/booked", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,7 @@ const AdminBooked = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/booked/${id}`, {
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/booked/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

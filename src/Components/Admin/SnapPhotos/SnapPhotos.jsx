@@ -25,7 +25,7 @@ const SnapPhotos = () => {
             img: imgData.data.url,
           };
 
-          fetch("http://localhost:5000/admin/snapTrip", {
+          fetch("https://explore-bd-server.vercel.app/admin/snapTrip", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -45,7 +45,7 @@ const SnapPhotos = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/snapTrip")
+    fetch("https://explore-bd-server.vercel.app/admin/snapTrip")
       .then((res) => res.json())
       .then((data) => setSnap(data));
   }, [snap]);
@@ -56,7 +56,7 @@ const SnapPhotos = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/snapTrip/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/snapTrip/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -81,7 +81,7 @@ const SnapPhotos = () => {
               className="bg-slate-500  h-[400px]"
             >
               <div className="grid grid-cols-1 gap-6">
-                
+
                 <div className="form-control w-full max-w-xs mt-10">
                   <input
                     {...register("image", {
@@ -127,7 +127,7 @@ const SnapPhotos = () => {
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {snap?.map((snap) => (
               <tr className="hover:bg-gray-50">
-               <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div class="relative h-10 w-10">
                     <img
                       class="h-full w-full rounded-full object-cover object-center"

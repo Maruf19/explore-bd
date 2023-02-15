@@ -30,18 +30,8 @@
   width: max-content;
   color: var(--textColor);
   margin: 1rem 0;
+  padding-bottom: 5px;
   z-index: 2;
-}
-.about .secTitle .title::after {
-  position: absolute;
-  content: "";
-  background: var(--SecondaryColor);
-  height: 5px;
-  width: 120px;
-  right: 0;
-  left: 0;
-  bottom: 0px;
-  z-index: -1;
 }
 .about .secTitle .shortDesc {
   font-size: 1rem;

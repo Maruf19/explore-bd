@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 
+
 const CheckoutForm = ({ total }) => {
   const { user, loading } = useContext(AuthContext);
 
@@ -93,13 +94,14 @@ const CheckoutForm = ({ total }) => {
         .then((res) => res.json()),
   });
 
-  console.log(checkoutItems)
+  console.log(user)
 
   const handleAddData = (title, img, location) => {
     const data = {
       title,
       img,
       location,
+      buyerName: user?.name,
       buyerEmail: user?.email,
     };
 
@@ -132,6 +134,7 @@ const CheckoutForm = ({ total }) => {
             type="text"
             className="mb-5 mt-20 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="Card Holder Name"
+            required
           />
         </div>
         <div className="form-control w-full max-w-xs  ml-24">
@@ -140,6 +143,7 @@ const CheckoutForm = ({ total }) => {
             type="text"
             className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="Email"
+            required
           />
         </div>
 
@@ -149,6 +153,7 @@ const CheckoutForm = ({ total }) => {
             type="text"
             className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
             placeholder="NID/Passport No"
+            required
           />
         </div>
         <CardElement className="px-24 mt-6"

@@ -29,16 +29,6 @@
   margin: 1rem 0;
   z-index: 2;
 }
-.services .secTitle .title::after {
-  position: absolute;
-  content: "";
-  background: var(--SecondaryColor);
-  height: 5px;
-  width: 120px;
-  right: 0;
-  bottom: 0px;
-  z-index: -1;
-}
 .services .secContent {
   justify-content: center;
   gap: 1.5rem;

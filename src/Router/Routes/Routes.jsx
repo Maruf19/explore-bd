@@ -24,7 +24,9 @@ import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
 import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
 import PackageTrip from "../../Components/Admin/PackageTrip/PackageTrip";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import AdminRoute from "../AdminRoute/AdminRoute"
+import AdminRoute from "../AdminRoute/AdminRoute";
+import Booked from "../../Components/Booked/Booked";
+import AdminBooked from "../../Components/Admin/AdminBooked/AdminBooked";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <PrivateRoute><Cart /></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Cart />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/about",
@@ -74,60 +80,118 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/booked",
+    element: <Booked />,
+  },
 
   {
     path: "/admin",
-    element: <AdminRoute><AdminLayout /></AdminRoute>,
+    element: (
+      <AdminRoute>
+        <AdminLayout />
+      </AdminRoute>
+    ),
     children: [
       {
         path: "/admin/home",
-        element: <AdminRoute><Admin /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <Admin />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/services",
-        element: <AdminRoute><AdminSerivces /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminSerivces />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/trip",
-        element: <AdminRoute><Trip /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <Trip />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/about",
-        element: <AdminRoute><AdminAbout /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminAbout />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/team",
-        element: <AdminRoute> <Team /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <Team />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/packages",
-        element: <AdminRoute><AdminPackage /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminPackage />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/schedule",
-        element: <AdminRoute><AdminSchedule /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminSchedule />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/snap",
-        element: <AdminRoute><AdminSnap /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminSnap />
+          </AdminRoute>
+        ),
       },
 
       {
         path: "/admin/contact",
-        element: <AdminRoute><AdminContact /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AdminContact />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/upcomingTrip",
-        element: <AdminRoute><UpcomingTrip /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <UpcomingTrip />
+          </AdminRoute>
+        ),
       },
 
       {
         path: "/admin/snapPhotos",
-        element: <AdminRoute><SnapPhotos /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <SnapPhotos />
+          </AdminRoute>
+        ),
       },
       {
         path: "/admin/packageTrip",
         element: <PackageTrip />,
+      },
+
+      {
+        path: "/admin/booked",
+        element: <AdminBooked/>,
       },
     ],
   },

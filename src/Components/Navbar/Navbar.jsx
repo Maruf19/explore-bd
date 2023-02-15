@@ -15,7 +15,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [color, changeColor] = useState("#111");
   const { user, logOut } = useContext(AuthContext);
-  const [isRole] = useAdmin(user?.email)
+  const [isRole] = useAdmin(user?.email);
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -56,7 +56,7 @@ const Navbar = () => {
       });
   };
 
-  console.log(isRole)
+  console.log(isRole);
 
   return (
     <section className="navBarSection">
@@ -92,23 +92,21 @@ const Navbar = () => {
             <NavLink className="navItem" exact to="/Contact">
               <li>Contact</li>
             </NavLink>{" "}
-            {
-                  isRole === true && 
-                  <NavLink className="navItem" exact to="/cart">
-                  <li>
-                    <Link to="/admin">
-                      Dashboard
-                    </Link>
-                    </li>
-                </NavLink>
-                }
+            <NavLink className="navItem" exact to="/booked">
+              <li>Booked</li>
+            </NavLink>{" "}
+            {isRole === true && (
+              <NavLink className="navItem" exact to="/cart">
+                <li>
+                  <Link to="/admin">Dashboard</Link>
+                </li>
+              </NavLink>
+            )}
             {user?.uid ? (
               <>
                 <NavLink className="navItem" exact to="/cart">
                   <li>
-                    <Link to="/cart">
-                      Cart
-                    </Link>
+                    <Link to="/cart">Cart</Link>
                   </li>
                 </NavLink>
 

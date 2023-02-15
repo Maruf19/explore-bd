@@ -7,7 +7,7 @@ const AdminSerivces = () => {
   const [service, setService] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/services")
+    fetch("https://explore-bd-server.vercel.app/admin/services")
       .then((res) => res.json())
       .then((data) => setService(data));
   }, [service]);
@@ -21,7 +21,7 @@ const AdminSerivces = () => {
       desc,
     };
 
-    fetch("http://localhost:5000/admin/services", {
+    fetch("https://explore-bd-server.vercel.app/admin/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const AdminSerivces = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/services/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/services/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

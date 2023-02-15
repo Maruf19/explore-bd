@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 const Register = () => {
-  const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -47,7 +47,7 @@ const Register = () => {
       email,
     };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://explore-bd-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

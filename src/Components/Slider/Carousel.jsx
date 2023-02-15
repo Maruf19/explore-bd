@@ -14,13 +14,13 @@ const Slider = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://explore-bd-server.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, [feedback]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://explore-bd-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);

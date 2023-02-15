@@ -11,10 +11,10 @@ const Feedback = () => {
     const feedback = event.target.feedback.value;
     const feedbackData = {
       feedback,
-      
+
     };
 
-    fetch("http://localhost:5000/feedback", {
+    fetch("https://explore-bd-server.vercel.app/feedback", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,7 +49,7 @@ const Feedback = () => {
               rows="10"
               placeholder="Give your valuable feedback"
             ></textarea>
-          
+
           </div>
           <button type="submit" value="Send" class="send-btn">
             {" "}

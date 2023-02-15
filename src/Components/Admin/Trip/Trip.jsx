@@ -27,7 +27,7 @@ const Trip = () => {
             img: imgData.data.url,
           };
 
-          fetch("http://localhost:5000/admin/trips", {
+          fetch("https://explore-bd-server.vercel.app/admin/trips", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -52,7 +52,7 @@ const Trip = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/trip/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/trip/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -65,7 +65,7 @@ const Trip = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/trips")
+    fetch("https://explore-bd-server.vercel.app/admin/trips")
       .then((res) => res.json())
       .then((data) => setTrips(data));
   }, [setTrips]);
@@ -166,7 +166,7 @@ const Trip = () => {
                         />
                       </svg>
                     </button>
-                  
+
                     <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

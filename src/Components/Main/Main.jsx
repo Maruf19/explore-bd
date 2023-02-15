@@ -17,7 +17,7 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/trips")
+    fetch("https://explore-bd-server.vercel.app/admin/trips")
       .then((res) => res.json())
       .then((data) => setTrips(data));
   }, [trips]);

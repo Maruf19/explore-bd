@@ -9,7 +9,7 @@ const AdminAbout = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/about")
+    fetch("https://explore-bd-server.vercel.app/admin/about")
       .then((res) => res.json())
       .then((data) => setAboutDesc(data));
   }, [aboutDesc]);
@@ -21,7 +21,7 @@ const AdminAbout = () => {
       desc,
     };
 
-    fetch("http://localhost:5000/admin/about", {
+    fetch("https://explore-bd-server.vercel.app/admin/about", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,7 @@ const AdminAbout = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/aboutDesc/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/aboutDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -85,8 +85,8 @@ const AdminAbout = () => {
               </div>
 
               <input
-               className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
-               type="submit"
+                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                type="submit"
                 value="Add Description"
               />
             </form>

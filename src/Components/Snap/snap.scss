@@ -26,9 +26,10 @@
     padding-top: 2.5rem;
     .title {
       position: relative;
-      width: max-content;
+      width:  fit-content;
       color: var(--textColor);
       margin: 1rem 0;
+      padding-bottom: 5px;
       z-index: 2;
 
       &::after {
@@ -36,7 +37,7 @@
         content: "";
         background: var(--SecondaryColor);
         height: 5px;
-        width: 120px;
+        width: 100%;
         right: 0;
         left: 0;
         bottom: 0px;

@@ -26,10 +26,11 @@
 }
 .snap .secTitle .title {
   position: relative;
-  width: -moz-max-content;
-  width: max-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: var(--textColor);
   margin: 1rem 0;
+  padding-bottom: 5px;
   z-index: 2;
 }
 .snap .secTitle .title::after {
@@ -37,7 +38,7 @@
   content: "";
   background: var(--SecondaryColor);
   height: 5px;
-  width: 120px;
+  width: 100%;
   right: 0;
   left: 0;
   bottom: 0px;

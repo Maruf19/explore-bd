@@ -50,7 +50,6 @@ const SnapPhotos = () => {
       .then((data) => setSnap(data));
   }, [snap]);
 
-<<<<<<< HEAD
   const handleRemove = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
@@ -68,27 +67,6 @@ const SnapPhotos = () => {
         });
     }
   };
-=======
-  console.log(snap)
-
-  //   const handleRemove = (id) => {
-  //     const proceed = window.confirm(
-  //       "Are you sure, you want to remove this order?"
-  //     );
-  //     console.log(proceed);
-  //     if (proceed) {
-  //       fetch(`http://localhost:5000/snapTrip/${id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           if (data.deletedCount > 0) {
-  //             alert("Removed Order Successfully");
-  //           }
-  //         });
-  //     }
-  //   };
->>>>>>> d8870d9f52fc3c74355a0ef47392fd9c394f1591
 
   return (
     <section className="w-full ml-16">

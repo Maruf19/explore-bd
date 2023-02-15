@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ total }) => {
   const { user, loading } = useContext(AuthContext);
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
   const navigate = useNavigate()
 
   const [cardError, setCardError] = useState("");
@@ -97,18 +101,19 @@ const CheckoutForm = ({ total }) => {
         .then((res) => res.json()),
   });
 
-  console.log(user)
+  console.log(checkoutItems)
 
   const handleAddData = (title, img, location) => {
     const data = {
       title,
       img,
       location,
-      buyerName: user?.name,
+      buyerName: user?.displayName,
       buyerEmail: user?.email,
+      postingDate: `${date}.${month}.${year}`,
     };
 
-    fetch("https://explore-bd-server.vercel.app/purchased-course", {
+    fetch("https://explore-bd-server.vercel.app/booked", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

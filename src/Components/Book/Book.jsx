@@ -12,7 +12,8 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const Book = () => {
   const stripePromise = loadStripe('pk_test_51M7I5sJSKxqvc4gJS7CUAgUbJp5mVUKBs4bSQX9WBLC4LrJrtNWR6rk1TB0veqC3JqD9il0CkV57LRM3Qpg3ytdz00lQ1lvbLr');
-  const { user, loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+
 
   const ELEMENTS_OPTIONS = {
     fonts: [
@@ -42,7 +43,6 @@ const Book = () => {
 
   let totalAmount = total;
 
-  console.log(totalAmount)
 
   return (
     <div>

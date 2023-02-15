@@ -57,7 +57,6 @@ const Cart = () => {
     }
   };
 
-  console.log(total);
   return (
     <section>
       <Navbar></Navbar>

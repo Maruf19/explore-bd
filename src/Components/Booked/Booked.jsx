@@ -11,7 +11,7 @@ const Booked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
-  console.log(booked);
+
   return (
     <div>
       <Navbar></Navbar>
@@ -21,39 +21,42 @@ const Booked = () => {
             Who Join With Us
           </h1>
 
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3 text-sm flex justify-center">
+                <th scope="col" className="px-6 py-3 text-sm flex justify-center">
                   Name
                 </th>
-                <th scope="col" class="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  justify-center">
                   Date
                 </th>
-                <th scope="col" class="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  justify-center">
                   Package Name
                 </th>
-                <th scope="col" class="px-6 py-3 text-sm  justify-center">
-                  Total Member
+                <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                  Total Email
                 </th>
-                <th scope="col" class="px-6 py-3 text-sm  justify-center">
+                {/* <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                  Total Member
+                </th> */}
+                <th scope="col" className="px-6 py-3 text-sm  justify-center">
                   Payment Status
                 </th>
               </tr>
             </thead>
             <tbody>
-              {booked?.map(({ name, date, packages, number }) => {
+              {booked?.map(({ buyerName, buyerEmail, postingDate, location }) => {
                 return (
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td
                       scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
                     >
-                      {name}
-                    </th>
-                    <td>{date}</td>
-                    <td className="px-4 py-4">{packages}</td>
-                    <td className="px-12 py-4">{number}</td>
+                      {buyerName}
+                    </td>
+                    <td className="px-12 py-4">{postingDate}</td>
+                    <td>{location}</td>
+                    <td className="px-4 py-4">{buyerEmail}</td>
                     <td className="px-12 py-4">Accepted</td>
                   </tr>
                 );

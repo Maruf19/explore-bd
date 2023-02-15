@@ -11,6 +11,7 @@ const Feedback = () => {
     const feedback = event.target.feedback.value;
     const feedbackData = {
       feedback,
+      
     };
 
     fetch("http://localhost:5000/feedback", {
@@ -48,13 +49,7 @@ const Feedback = () => {
               rows="10"
               placeholder="Give your valuable feedback"
             ></textarea>
-            <h2 className="client-title">Your Name</h2>
-            <input
-              className="client_name"
-              type="text"
-              placeholder="Input Your Name"
-              required
-            />
+          
           </div>
           <button type="submit" value="Send" class="send-btn">
             {" "}

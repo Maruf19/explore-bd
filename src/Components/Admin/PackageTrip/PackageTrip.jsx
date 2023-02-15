@@ -52,7 +52,7 @@ const PackageTrip = () => {
       .then((data) => setPackages(data));
   }, [packages]);
 
-  // console.log(trip)
+  console.log(packages);
 
   const handleRemove = (id) => {
     const proceed = window.confirm(

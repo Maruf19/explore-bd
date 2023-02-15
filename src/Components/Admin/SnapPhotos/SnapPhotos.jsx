@@ -47,8 +47,10 @@ const SnapPhotos = () => {
   useEffect(() => {
     fetch("http://localhost:5000/admin/snapTrip")
       .then((res) => res.json())
-      .then((data) => setSnap(snap));
+      .then((data) => setSnap(data));
   }, [snap]);
+
+  console.log(snap)
 
   //   const handleRemove = (id) => {
   //     const proceed = window.confirm(

@@ -22,6 +22,7 @@ import Register from "../../Components/Register/Register";
 import AdminContact from "../../Components/Admin/AdminContact/AdminContact";
 import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
 import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: <PrivateRoute><Cart /></PrivateRoute>,
   },
   {
     path: "/about",

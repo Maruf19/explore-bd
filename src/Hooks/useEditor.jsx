@@ -6,7 +6,7 @@ const useEditor = email => {
 
     useEffect(() => {
         if(email) {
-            fetch(`https://explore-bd-server.vercel.app/users/editor/${email}`)
+            fetch(`http://localhost:5000/users/editor/${email}`)
             .then(res => res.json())
             .then(data => {
                 setisEditor(data.isEditor);

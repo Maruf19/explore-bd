@@ -81,10 +81,10 @@ const MakeAdmin = () => {
   return (
     <div>
       <div className="container">
-        <div className="min-w-screen pt-36 flex items-center justify-center px-5 py-5">
+        <div className=" pt-24  px-48">
           <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
             <div className=" w-full">
-              <div className="w-full  py-10 px-5 md:px-10">
+              <div>
                 <div className="text-center mb-10">
                   <h1 className="font-bold text-3xl  text-[#0073a8]">
                     REGISTER

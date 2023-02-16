@@ -53,47 +53,7 @@ const AdminPackage = () => {
     }
   };
 
-  // const handleAddPackages = (data) => {
-  //   const image = data.image[0];
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-  //   const url = `https://api.imgbb.com/1/upload?key=0622eee91f18d4103329c8947242f849`;
-  //   fetch(url, {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((imgData) => {
-  //       console.log(imgData);
-  //       if (imgData.success) {
-  //         const addPackage = {
-  //           img: imgData.data.url,
-  //           title: data.title,
-  //           location: data.location,
-  //           price: data.price,
-  //           packageDesc: data.packageDesc,
-  //         };
-
-  //         fetch("https://explore-bd-server.vercel.app/admin/tripPackage", {
-  //           method: "POST",
-  //           headers: {
-  //             "content-type": "application/json",
-  //           },
-  //           body: JSON.stringify(addPackage),
-  //         })
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             if (data.acknowledged) {
-  //               alert("Package placed successfully");
-  //               reset();
-  //             }
-  //           })
-  //           .catch((err) => console.error(err));
-  //       }
-  //     });
-  // };
-
-
+ 
 
   return (
     <section className="w-full ml-16 ">

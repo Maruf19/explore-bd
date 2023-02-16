@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-up" className="footerParagraph">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            Legally, we cannot advise on policy-specific details. You will need to direct all questions and clarifications to the insurance plan directly. This is not a recommendation to use RoamRight, Travel Safe, Travel Insured or any specific travel insurer over another. We may receive a commission if you purchase a travel insurance policy through our links at no additional cost to you. 
             </div>
 
             <div data-aos="fade-up" className="footerSocials flex">

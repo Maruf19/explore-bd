@@ -27,7 +27,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Booked from "../../Components/Booked/Booked";
 import AdminBooked from "../../Components/Admin/AdminBooked/AdminBooked";
-
+import MakeAdmin from "../../Components/Admin/MakeAdmin/MakeAdmin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -181,6 +181,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <SnapPhotos />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/MakeAdmin",
+        element: (
+          <AdminRoute>
+            <MakeAdmin />
           </AdminRoute>
         ),
       },

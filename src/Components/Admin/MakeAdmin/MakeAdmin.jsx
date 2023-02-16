@@ -44,13 +44,11 @@ const MakeAdmin = () => {
       name,
       email,
       role,
-
     };
     console.log(user);
 
-    
-    if(role === "admin") {
-      fetch("http://localhost:5000/makeAdmin", {
+    if (role === "admin") {
+      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/makeAdmin", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -60,29 +58,25 @@ const MakeAdmin = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          return
+          return;
         });
-      }
+    }
 
-        if(role === "editor") {
-          fetch("http://localhost:5000/editor", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(user),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              return
-            });
-    
-          }  
-            
+    if (role === "editor") {
+      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/editor", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          return;
+        });
+    }
   };
-
-
 
   return (
     <div>
@@ -90,7 +84,6 @@ const MakeAdmin = () => {
         <div className="min-w-screen pt-36 flex items-center justify-center px-5 py-5">
           <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
             <div className=" w-full">
-             
               <div className="w-full  py-10 px-5 md:px-10">
                 <div className="text-center mb-10">
                   <h1 className="font-bold text-3xl  text-[#0073a8]">
@@ -180,12 +173,18 @@ const MakeAdmin = () => {
                           />
                         </div>
                         <div>
-                          <select className=" mt-5 w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                           {...register("role", {
-  required: true
-          })}>
-                            <option selected value='admin'>Admin </option>
-                            <option selected value='editor'>Editor </option>
+                          <select
+                            className=" mt-5 w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            {...register("role", {
+                              required: true,
+                            })}
+                          >
+                            <option selected value="admin">
+                              Admin{" "}
+                            </option>
+                            <option selected value="editor">
+                              Editor{" "}
+                            </option>
                           </select>
                         </div>
                       </div>

@@ -19,7 +19,6 @@ import Feedback from "../../Components/Feedback/Feedback";
 import Login from "../../Components/Login/Login";
 import Cart from "../../Components/Cart/Cart";
 import Register from "../../Components/Register/Register";
-import AdminContact from "../../Components/Admin/AdminContact/AdminContact";
 import UpcomingTrip from "../../Components/Admin/UpcomingTrip/UpcomingTrip";
 import SnapPhotos from "../../Components/Admin/SnapPhotos/SnapPhotos";
 import PackageTrip from "../../Components/Admin/PackageTrip/PackageTrip";
@@ -29,7 +28,22 @@ import Booked from "../../Components/Booked/Booked";
 import AdminBooked from "../../Components/Admin/AdminBooked/AdminBooked";
 import MakeAdmin from "../../Components/Admin/MakeAdmin/MakeAdmin";
 import SuperAdmin from "../../Components/Admin/SuperAdmin/SuperAdmin";
+
 import Editor from "../../Components/Admin/Editor/Editor";
+import EditorLayout from "../../Components/Editor/EditorLayout/EditorLayout";
+import EditorAbout from "../../Components/Editor/EditorAbout/EditorAbout";
+import EditorBooked from "../../Components/Editor/EditorBooked/EditorBooked";
+import EditorPackage from "../../Components/Editor/EditorPackage/EditorPackage";
+import EditorPackageTrip from "../../Components/Editor/EditorPackageTrip/EditorPackageTrip";
+import EditorTrip from "../../Components/Editor/EditorTrip/EditorTrip";
+import EditorTeam from "../../Components/Editor/EditorTeam/EditorTeam";
+import EditorSchedule from "../../Components/Editor/EditorSchedule/EditorSchedule";
+import EditorServices from "../../Components/Editor/EditorServices/EditorSerivces";
+import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos"
+import EditorUpcomingTrip from "../../Components/Editor/EditorUpcomingTrip/EditorUpcomingTrip"
+
+
+
 
 
 const router = createBrowserRouter([
@@ -52,7 +66,8 @@ const router = createBrowserRouter([
   {
     path: "/packages",
     element: <Packages></Packages>,
-    loader: () => fetch("https://explore-bd-server.vercel.app/admin/tripPackage"),
+    loader: () =>
+      fetch("https://explore-bd-server.vercel.app/admin/tripPackage"),
   },
   {
     path: "/schedule",
@@ -72,7 +87,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/feedback",
-    element: <PrivateRoute><Feedback /></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Feedback />
+      </PrivateRoute>
+    ),
   },
 
   {
@@ -133,7 +152,6 @@ const router = createBrowserRouter([
         path: "/admin/team",
         element: (
           <AdminRoute>
-            {" "}
             <Team />
           </AdminRoute>
         ),
@@ -163,14 +181,7 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "/admin/contact",
-        element: (
-          <AdminRoute>
-            <AdminContact />
-          </AdminRoute>
-        ),
-      },
+   
       {
         path: "/admin/upcomingTrip",
         element: (
@@ -204,7 +215,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-       {
+      {
         path: "/admin/MakeAdmin",
         element: (
           <AdminRoute>
@@ -213,7 +224,6 @@ const router = createBrowserRouter([
         ),
       },
 
-      
       {
         path: "/admin/packageTrip",
         element: <PackageTrip />,
@@ -221,17 +231,134 @@ const router = createBrowserRouter([
 
       {
         path: "/admin/booked",
-        element: <AdminBooked/>,
+        element: <AdminBooked />,
       },
-      
-      // {
-      //   path: "/admin/superAdmin",
-      //   element: <SuperAdmin/>,
-      // },
- {
+
+      {
+        path: "/admin/superAdmin",
+        element: <SuperAdmin />,
+      },
+      {
         path: "/admin/editor",
-         element: <Editor/>,
+        element: <Editor />,
       },
+    ],
+  },
+
+  {
+    path: "/editor",
+    element: (
+      <AdminRoute>
+        <EditorLayout />
+      </AdminRoute>
+    ),
+    children: [
+      {
+        path: "/editor/home",
+        element: (
+          <AdminRoute>
+            <Editor />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/about",
+        element: (
+          <AdminRoute>
+            <EditorAbout />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/booked",
+        element: (
+          <AdminRoute>
+            <EditorBooked />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/package",
+        element: (
+          <AdminRoute>
+            <EditorPackage />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/packageTrip",
+        element: (
+          <AdminRoute>
+            <EditorPackageTrip />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/schedule",
+        element: (
+          <AdminRoute>
+            <EditorSchedule />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/services",
+        element: (
+          <AdminRoute>
+            <EditorServices />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/editor/snapPhotos",
+        element: (
+          <AdminRoute>
+            <EditorSnapPhotos />
+          </AdminRoute>
+        ),
+      },
+
+
+      {
+        path: "/editor/team",
+        element: (
+          <AdminRoute>
+            <EditorTeam />
+          </AdminRoute>
+        ),
+      },
+
+
+      {
+        path: "/editor/trip",
+        element: (
+          <AdminRoute>
+            <EditorTrip />
+          </AdminRoute>
+        ),
+      },
+
+
+
+      {
+        path: "/editor/editorUpcomingTrip",
+        element: (
+          <AdminRoute>
+            <EditorUpcomingTrip />
+          </AdminRoute>
+        ),
+      },
+
+
+
+
     ],
   },
 ]);

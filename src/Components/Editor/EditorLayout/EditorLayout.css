@@ -1,0 +1,12 @@
+.admin {
+  display: flex;
+  gap: 10px;
+}
+
+.leftsidebar {
+  flex-basis: 20%;
+}
+
+.rightsidebar {
+  flex-basis: 80%;
+}

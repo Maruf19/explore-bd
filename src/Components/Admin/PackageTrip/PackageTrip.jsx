@@ -74,15 +74,15 @@ const PackageTrip = () => {
 
   return (
     <section className="w-full ml-16">
-      <div className="w-3/5 my-20 flex flex-col justify-center  ml-32">
+      <div className="w-3/5 flex flex-col justify-center ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary capitalize">
           Add package details
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card p-8 flex justify-center">
+          <div className="w-full flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddPackage)}
-              className="bg-slate-500  h-[550px]"
+              className="bg-transparent border shadow-2xl rounded ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6">
                 <div className="form-control w-full max-w-xs">
@@ -91,7 +91,7 @@ const PackageTrip = () => {
                       required: "Image is required",
                     })}
                     type="file"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28 mt-10"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36 mt-10"
                     placeholder="Upload a Snap Image"
                   />
                 </div>
@@ -100,7 +100,7 @@ const PackageTrip = () => {
                   <input
                     {...register("title")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
                     placeholder="Snap Title"
                   />
                 </div>
@@ -108,7 +108,7 @@ const PackageTrip = () => {
                   <input
                     {...register("location")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
                     placeholder="Snap Location"
                   />
                 </div>
@@ -117,7 +117,7 @@ const PackageTrip = () => {
                   <input
                     {...register("price")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
                     placeholder="Per Person Package"
                   />
                 </div>
@@ -126,14 +126,14 @@ const PackageTrip = () => {
                   <input
                     {...register("packageDesc")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
                     placeholder="Description"
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-40 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Snap"
               />

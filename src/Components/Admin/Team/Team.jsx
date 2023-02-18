@@ -71,10 +71,10 @@ const Team = () => {
       <div className="w-3/5 flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary">Add a Team</h2>
         <div className="my-6 flex justify-center items-center">
-          <div className=" card p-8 flex justify-center w-[300]">
+          <div className=" card flex justify-center w-[300]">
             <form
               onSubmit={handleSubmit(handleAddTeam)}
-              className=" shadow-2xl bg-slate-500 h-[400px]"
+              className="bg-transparent border shadow-2xl rounded ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6 mt-5">
                 <div className="form-control w-full max-w-xs">
@@ -83,7 +83,7 @@ const Team = () => {
                       required: "Image is required",
                     })}
                     type="file"
-                    className="input input-bordered w-full ml-40"
+                    className="text-black input input-bordered border border-black input input-bordered w-full ml-40"
                     placeholder="Upload a Image"
                   />
                 </div>
@@ -92,7 +92,7 @@ const Team = () => {
                   <input
                     {...register("name")}
                     type="text"
-                    className="input input-bordered w-full ml-40 p-2 rounded-lg"
+                    className="text-black input input-bordered border border-black input-bordered w-full ml-40 p-2 rounded-lg"
                     placeholder="Name"
                   />
                 </div>
@@ -103,14 +103,14 @@ const Team = () => {
                       required: "Please provided course title",
                     })}
                     type="text"
-                    className="input input-bordered w-full ml-40 p-2 rounded-lg"
+                    className="text-black input input-bordered border border-black input-bordered w-full ml-40 p-2 rounded-lg"
                     placeholder="Team Description"
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 ml-40 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="mb-5 w-1/2 ml-40 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Team"
               />

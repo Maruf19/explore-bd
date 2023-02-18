@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 
-const CheckoutForm = ({ total }) => {
+const CheckoutForm = ({ total, email }) => {
   const { user } = useContext(AuthContext);
   let newDate = new Date();
   let date = newDate.getDate();
@@ -18,6 +18,7 @@ const CheckoutForm = ({ total }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [processing, setProcessing] = useState(false);
+  console.log(transactionId)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -44,7 +45,7 @@ const CheckoutForm = ({ total }) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -61,7 +62,7 @@ const CheckoutForm = ({ total }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: user?.displayName,
+            name: user?.name,
             email: user?.email,
           },
         },
@@ -73,9 +74,10 @@ const CheckoutForm = ({ total }) => {
     }
     // setPayment(paymentIntent)
     if (paymentIntent.status === "succeeded") {
-      alert("Course purchased Successfully");
+      alert("Booking has Successful");
+      // handleDeleteCartData()
+      navigate("/booked")
       // setTransactionId(paymentIntent.id);
-      handleDeleteCartData();
       checkoutItems?.map((singleItem) => {
         handleAddData(
           singleItem?.travel._id,
@@ -83,7 +85,6 @@ const CheckoutForm = ({ total }) => {
           singleItem?.travel.title,
           singleItem?.location,
           paymentIntent.id
-
         );
       });
     }
@@ -99,15 +100,19 @@ const CheckoutForm = ({ total }) => {
         .then((res) => res.json()),
   });
 
-  const handleAddData = (title, img, location) => {
+  const handleAddData = (id, img, title, location, transactionId) => {
     const data = {
-      title,
+      id,
       img,
+      title,
       location,
+      transactionId,
       buyerName: user?.displayName,
       buyerEmail: user?.email,
-      postingDate: `${date}.${month}.${year}`,
+      postingDate: `${date}.${month}.${year}`
     };
+
+    console.log(data)
 
     fetch("http://localhost:5000/booked", {
       method: "POST",
@@ -116,14 +121,15 @@ const CheckoutForm = ({ total }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
       });
   };
 
-  const handleDeleteCartData = () => {
-    fetch(`http://localhost:5000/cart/${user?.email}`, {
-      method: "DELETE",
-    });
-  };
+  // const handleDeleteCartData = () => {
+  //   fetch(`http://localhost:5000/cart/${user?.email}`, {
+  //   method: 'DELETE',
+  // });
+  // }
 
   return (
     <div>

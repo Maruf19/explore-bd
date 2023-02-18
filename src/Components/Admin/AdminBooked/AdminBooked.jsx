@@ -58,47 +58,51 @@ const AdminBooked = () => {
   };
 
   return (
-    <div class="relative">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Name
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
+              Email
+            </th>
+            <th scope="col" className="px-6 py-3 text-center">
               Date
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Package
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
-              Total Traveler
+            <th scope="col" className="px-6 py-3 text-center">
+            Transaction ID
             </th>
 
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Action
             </th>
           </tr>
         </thead>
         <tbody>
-          {booked?.map((booked) => (
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                {booked?.name}
-              </th>
-              <td class="px-6 py-4 text-center">{booked?.date}</td>
-              <td class="px-6 py-4 text-center">{booked?.packages}</td>
-              <td class="px-6 py-4 text-center">{booked?.number}</td>
+          {booked?.map((book) => (
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <td
+                className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {book?.buyerName}
+              </td>
+              <td
+                className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {book?.buyerEmail}
+              </td>
+              <td className="px-6 py-4 text-center">{book?.postingDate}</td>
+              <td className="px-6 py-4 text-center">{book?.title}</td>
+              <td className="px-6 py-4 text-center">{book?.transactionId}</td>
 
               <td className="px-6 py-4">
                 <div className="flex justify-end gap-4">
                   <button
                     x-data="{ tooltip: 'Delete' }"
-                    onClick={() => handleRemove(booked._id)}
-                  >
+                    onClick={() => handleRemove(book._id)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

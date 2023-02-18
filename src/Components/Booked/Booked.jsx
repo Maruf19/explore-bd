@@ -11,6 +11,8 @@ const Booked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
+  console.log(booked)
+
   return (
     <section>
       <Navbar></Navbar>
@@ -33,7 +35,7 @@ const Booked = () => {
                   Package Name
                 </th>
                 <th scope="col" className="px-6 py-3 text-sm  text-center">
-                  Total Email
+                  Email
                 </th>
                 {/* <th scope="col" className="px-6 py-3 text-sm  justify-center">
                   Total Member

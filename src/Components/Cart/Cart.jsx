@@ -20,6 +20,7 @@ const Cart = () => {
     },
   });
 
+  console.log(cartDatas)
 
   let total = 0;
 

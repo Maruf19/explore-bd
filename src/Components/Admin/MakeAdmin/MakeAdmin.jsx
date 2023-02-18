@@ -4,7 +4,6 @@ import {  useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MakeAdmin = () => {
-  const navigate = useNavigate();
 
   const { createUser, updateUser } = useContext(AuthContext);
   const {
@@ -53,7 +52,6 @@ const MakeAdmin = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            navigate("/");
             alert("Successfully created new admin");
             reset();
           }
@@ -71,7 +69,6 @@ const MakeAdmin = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            navigate("/");
             alert("Successfully created new editor");
             reset();
           }

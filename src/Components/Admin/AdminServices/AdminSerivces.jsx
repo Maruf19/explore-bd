@@ -157,16 +157,7 @@ const AdminSerivces = () => {
         </table>
       </div>
     </section>
-    // <div className='form-field'>
-    //     <h3 className="title">
-    //         Add Your services here
-    //     </h3>
-    //     <form onSubmit={handleSubmit}>
-    //         <input type="text" name='title' placeholder='Title' />
-    //         <textarea name="desc" placeholder='Description'></textarea>
-    //         <input type="submit" value="Submit" className='submit' />
-    //     </form>
-    // </div>
+   
   );
 };
 

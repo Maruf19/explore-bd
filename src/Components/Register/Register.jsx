@@ -43,7 +43,7 @@ const Register = () => {
       email,
     };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -18,13 +18,13 @@ const About = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/about')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/about')
       .then(res => res.json())
       .then(data => setAbout(data))
   }, [about])
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin/teams')
+    fetch('https://explore-bd-server-ahm-rubayed.vercel.app/admin/teams')
       .then(res => res.json())
       .then(data => setTeams(data))
   }, [teams])

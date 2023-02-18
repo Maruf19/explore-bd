@@ -24,11 +24,11 @@ const CheckoutForm = ({ total, email }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
-      })
+    })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [total]);
@@ -96,7 +96,7 @@ const CheckoutForm = ({ total, email }) => {
   } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-      fetch(`http://localhost:5000/cart?email=${user?.email}`)
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`)
         .then((res) => res.json()),
   });
 
@@ -114,7 +114,7 @@ const CheckoutForm = ({ total, email }) => {
 
     console.log(data)
 
-    fetch("http://localhost:5000/booked", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -126,7 +126,7 @@ const CheckoutForm = ({ total, email }) => {
   };
 
   // const handleDeleteCartData = () => {
-  //   fetch(`http://localhost:5000/cart/${user?.email}`, {
+  //   fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart/${user?.email}`, {
   //   method: 'DELETE',
   // });
   // }

@@ -26,7 +26,7 @@ const PackageTrip = () => {
             packageDesc: data.packageDesc,
           };
 
-          fetch("http://localhost:5000/admin/tripPackage", {
+          fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -46,7 +46,7 @@ const PackageTrip = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/tripPackage")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage")
       .then((res) => res.json())
       .then((data) => setPackages(data));
   }, [packages]);
@@ -57,7 +57,7 @@ const PackageTrip = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/tripPackage/${id}`, {
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/tripPackage/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

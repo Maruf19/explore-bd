@@ -17,7 +17,7 @@ const SnapPhotos = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-  
+
         if (imgData.success) {
           const addTrip = {
             title: data.title,
@@ -25,7 +25,7 @@ const SnapPhotos = () => {
             img: imgData.data.url,
           };
 
-          fetch("http://localhost:5000/admin/snapTrip", {
+          fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snapTrip", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -45,7 +45,7 @@ const SnapPhotos = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/snapTrip")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snapTrip")
       .then((res) => res.json())
       .then((data) => setSnap(data));
   }, [snap]);
@@ -56,7 +56,7 @@ const SnapPhotos = () => {
     );
 
     if (proceed) {
-      fetch(`http://localhost:5000/snapTrip/${id}`, {
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/snapTrip/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

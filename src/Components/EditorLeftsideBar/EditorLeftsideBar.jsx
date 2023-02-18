@@ -8,7 +8,7 @@ const LeftsideBar = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/editor/editorCategories")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/editor/editorCategories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, [categories]);

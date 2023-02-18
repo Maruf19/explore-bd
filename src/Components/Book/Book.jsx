@@ -17,7 +17,7 @@ const Book = () => {
   } = useQuery({
     queryKey: ["carts", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`);
+      const res = await fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`);
       const data = await res.json();
       return data;
     },
@@ -39,7 +39,7 @@ const Book = () => {
       <Navbar></Navbar>
       <div className="pt-32">
         <Elements stripe={stripePromise} >
-          <CheckoutForm total={totalAmount} user={user?.name} email={user?.email} checkoutItems={checkoutItems}/>
+          <CheckoutForm total={totalAmount} user={user?.name} email={user?.email} checkoutItems={checkoutItems} />
         </Elements>
       </div>
     </div>

@@ -8,7 +8,7 @@ const LeftsideBar = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/categories")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, [categories]);
@@ -35,7 +35,7 @@ const LeftsideBar = () => {
                 </Link>
               </li>
             ))}
-            
+
           </ul>
         </div>
       </div>

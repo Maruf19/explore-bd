@@ -1,4 +1,4 @@
-import React, {  } from "react";
+import React, { } from "react";
 import "./carousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -12,13 +12,13 @@ const Slider = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, [feedback]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);

@@ -5,7 +5,7 @@ const SuperAdmin = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);
@@ -104,7 +104,7 @@ const SuperAdmin = () => {
           </tr>
         </thead>
         <tbody>
-        {
+          {
             users.map(user => user.role === "editor" &&
               <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td
@@ -167,7 +167,7 @@ const SuperAdmin = () => {
           </tr>
         </thead>
         <tbody>
-        {
+          {
             users.map(user => user.role === undefined &&
               <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td

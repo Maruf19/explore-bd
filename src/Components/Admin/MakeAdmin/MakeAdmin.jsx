@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MakeAdmin = () => {
@@ -42,7 +42,7 @@ const MakeAdmin = () => {
     };
 
     if (role === "admin") {
-      fetch("http://localhost:5000/users", {
+      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -59,7 +59,7 @@ const MakeAdmin = () => {
     }
 
     if (role === "editor") {
-      fetch("http://localhost:5000/users", {
+      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

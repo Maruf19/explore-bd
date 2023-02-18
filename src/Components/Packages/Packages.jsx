@@ -25,7 +25,7 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/packages")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages")
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
@@ -35,7 +35,7 @@ const Packages = () => {
       email: user?.email,
       travel
     }
-    fetch("http://localhost:5000/cart", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

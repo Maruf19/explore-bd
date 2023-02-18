@@ -70,15 +70,15 @@ const SnapPhotos = () => {
 
   return (
     <section className="w-full ml-16">
-      <div className="w-3/5 my-20 flex flex-col justify-center  ml-32">
+      <div className="w-3/5  flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary">
           Add a snap trip
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card p-8 flex justify-center">
+          <div className="w-full card flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddSnap)}
-              className="bg-slate-500  h-[400px]"
+              className="bg-transparent border shadow-2xl rounded ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6">
 
@@ -88,7 +88,7 @@ const SnapPhotos = () => {
                       required: "Image is required",
                     })}
                     type="file"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
                     placeholder="Upload a Snap Image"
                   />
                 </div>
@@ -97,7 +97,7 @@ const SnapPhotos = () => {
                   <input
                     {...register("title")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
                     placeholder="Snap Title"
                   />
                 </div>
@@ -105,7 +105,7 @@ const SnapPhotos = () => {
                   <input
                     {...register("location")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
                     placeholder="Snap Location"
                   />
                 </div>

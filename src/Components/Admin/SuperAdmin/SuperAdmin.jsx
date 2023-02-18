@@ -11,6 +11,24 @@ const SuperAdmin = () => {
   }, [users]);
 
 
+  const handleRemove = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to remove this order?"
+    );
+
+    if (proceed) {
+      fetch(`http://localhost:5000/users/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Removed Order Successfully");
+          }
+        });
+    }
+  };
+
   return (
     <div className="relative">
       <div>
@@ -54,7 +72,8 @@ const SuperAdmin = () => {
 
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-4">
-                    <button x-data="{ tooltip: 'Delete' }">
+                    <button x-data="{ tooltip: 'Delete' }"
+                     onClick={() => handleRemove(user._id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -117,7 +136,8 @@ const SuperAdmin = () => {
 
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-4">
-                    <button x-data="{ tooltip: 'Delete' }">
+                    <button x-data="{ tooltip: 'Delete' }"
+                     onClick={() => handleRemove(user._id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -180,7 +200,8 @@ const SuperAdmin = () => {
 
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-4">
-                    <button x-data="{ tooltip: 'Delete' }">
+                    <button x-data="{ tooltip: 'Delete' }"
+                     onClick={() => handleRemove(user._id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

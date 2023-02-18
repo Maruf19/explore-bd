@@ -5,14 +5,18 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 
 const CheckoutForm = ({ total, email }) => {
+=======
+const CheckoutForm = ({ total }) => {
+>>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   const { user } = useContext(AuthContext);
   let newDate = new Date();
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -91,13 +95,17 @@ const CheckoutForm = ({ total, email }) => {
     setProcessing(false);
   };
 
-  const {
-    data: checkoutItems = [],
-  } = useQuery({
+  const { data: checkoutItems = [] } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
+<<<<<<< HEAD
       fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`)
         .then((res) => res.json()),
+=======
+      fetch(`http://localhost:5000/cart?email=${user?.email}`).then((res) =>
+        res.json()
+      ),
+>>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   });
 
   const handleAddData = (id, img, title, location, transactionId) => {
@@ -120,9 +128,13 @@ const CheckoutForm = ({ total, email }) => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
+<<<<<<< HEAD
       .then((data) => {
         console.log(data)
       });
+=======
+      .then((data) => {});
+>>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   };
 
   // const handleDeleteCartData = () => {
@@ -135,13 +147,16 @@ const CheckoutForm = ({ total, email }) => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="h-[500px] w-[500px] ml-[450px] mt-0 justify-center bg-green-400">
-        <h2 className="mt-20 text-center font-bold text-xl text-white">Make Your Payment</h2>
+        className=" w-[550px] ml-[450px] mt-0 justify-center bg-transparent border shadow-2xl rounded"
+      >
+        <h2 className="mt-20 text-center font-bold text-xl text-black">
+          Make Your Payment
+        </h2>
         <div className="form-control w-full max-w-xs ml-24">
           <input
             name="names"
             type="text"
-            className="mb-5 mt-20 px-8 py-1 rounded text-black  hover:text-white"
+            className="text-black input input-bordered border border-black mb-5 mt-20 px-8 py-1 rounded "
             placeholder="Card Holder Name"
             required
           />
@@ -150,7 +165,7 @@ const CheckoutForm = ({ total, email }) => {
           <input
             name="email"
             type="text"
-            className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
+            className="mb-5 px-8 py-1 rounded text-black input input-bordered border border-black"
             placeholder="Email"
             required
           />
@@ -160,19 +175,20 @@ const CheckoutForm = ({ total, email }) => {
           <input
             name="passport"
             type="text"
-            className="mb-5 px-8 py-1 rounded text-black  hover:text-white"
+            className="mb-5 px-8 py-1 rounded text-black input input-bordered border border-black"
             placeholder="NID/Passport No"
             required
           />
         </div>
-        <CardElement className="px-24 mt-6"
+        <CardElement
+          className="px-24 mt-6 "
           options={{
             style: {
               base: {
                 fontSize: "16px",
                 color: "#424770",
                 "::placeholder": {
-                  color: "white",
+                  color: "black",
                 },
               },
               invalid: {
@@ -183,9 +199,10 @@ const CheckoutForm = ({ total, email }) => {
         />
         <div className="px-24">
           <button
-            className="btn btn-sm mt-5 bg-[#0073a8] px-8 py-1 rounded text-white hover:bg-[#0073a8] hover:text-white"
+            className="btn btn-sm mb-5 mt-5 bg-[#0073a8] px-8 py-1 rounded text-white hover:bg-[#0073a8] hover:text-white"
             type="submit"
-            disabled={!stripe || !clientSecret || processing}>
+            disabled={!stripe || !clientSecret || processing}
+          >
             Pay
           </button>
         </div>

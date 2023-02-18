@@ -41,6 +41,8 @@ import EditorSchedule from "../../Components/Editor/EditorSchedule/EditorSchedul
 import EditorServices from "../../Components/Editor/EditorServices/EditorSerivces";
 import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos";
 import EditorRoute from "../EditorRoute/EditorRoute";
+import EditorSnap from "../../Components/Editor/EditorSnap/EditorSnap";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,8 +63,12 @@ const router = createBrowserRouter([
   {
     path: "/packages",
     element: <Packages></Packages>,
+<<<<<<< HEAD
     loader: () =>
       fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage"),
+=======
+    loader: () => fetch("http://localhost:5000/admin/tripPackage"),
+>>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   },
   {
     path: "/schedule",
@@ -112,7 +118,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/admin",
+        path: "/admin/home",
         element: (
           <AdminRoute>
             <Admin />
@@ -218,7 +224,6 @@ const router = createBrowserRouter([
         ),
       },
 
-
       {
         path: "/admin/packageTrip",
         element: <PackageTrip />,
@@ -320,14 +325,14 @@ const router = createBrowserRouter([
         ),
       },
 
-      // {
-      //   path: "/editor/snap",
-      //   element: (
-      //     <EditorRoute>
-      //       <EditorSnap/>
-      //     </EditorRoute>
-      //   ),
-      // },
+      {
+        path: "/editor/snap",
+        element: (
+          <EditorRoute>
+            <EditorSnap />
+          </EditorRoute>
+        ),
+      },
 
       {
         path: "/editor/team",

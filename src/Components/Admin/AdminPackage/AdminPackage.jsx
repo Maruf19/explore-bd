@@ -7,7 +7,7 @@ const AdminPackage = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages")
+    fetch("http://localhost:5000/admin/packages")
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
@@ -19,7 +19,7 @@ const AdminPackage = () => {
       desc,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages", {
+    fetch("http://localhost:5000/admin/packages", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const AdminPackage = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/packageDesc/${id}`, {
+      fetch(`http://localhost:5000/packageDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

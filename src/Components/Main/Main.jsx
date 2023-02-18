@@ -17,7 +17,7 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/trips")
+    fetch("http://localhost:5000/admin/trips")
       .then((res) => res.json())
       .then((data) => setTrips(data));
   }, [trips]);

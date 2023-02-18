@@ -49,7 +49,7 @@ const MakeAdmin = () => {
     console.log(user);
 
     if (role === "admin") {
-      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users", {
+      fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -67,7 +67,7 @@ const MakeAdmin = () => {
     }
 
     if (role === "editor") {
-      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/users", {
+      fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

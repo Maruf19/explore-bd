@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const CheckoutForm = ({ total }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   let newDate = new Date();
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
@@ -23,11 +23,11 @@ const CheckoutForm = ({ total }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
-    })
+      })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [total]);
@@ -75,29 +75,28 @@ const CheckoutForm = ({ total }) => {
     // setPayment(paymentIntent)
     if (paymentIntent.status === "succeeded") {
       alert("Course purchased Successfully");
-      setTransactionId(paymentIntent.id);
+      // setTransactionId(paymentIntent.id);
       handleDeleteCartData();
       checkoutItems?.map((singleItem) => {
         handleAddData(
           singleItem?.travel._id,
           singleItem?.travel.img,
           singleItem?.travel.title,
-          singleItem?.location
+          singleItem?.location,
+          paymentIntent.id
+
         );
       });
-      navigate('/booked')
     }
     setProcessing(false);
   };
 
   const {
     data: checkoutItems = [],
-    isLoading,
-    refetch,
   } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`)
+      fetch(`http://localhost:5000/cart?email=${user?.email}`)
         .then((res) => res.json()),
   });
 
@@ -113,7 +112,7 @@ const CheckoutForm = ({ total }) => {
       postingDate: `${date}.${month}.${year}`,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked", {
+    fetch("http://localhost:5000/booked", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -125,10 +124,12 @@ const CheckoutForm = ({ total }) => {
   };
 
   const handleDeleteCartData = () => {
-    fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart/${user?.email}`, {
+    fetch(`http://localhost:5000/cart/${user?.email}`, {
       method: "DELETE",
     });
   };
+
+  console.log(user.email)
 
   return (
     <div>

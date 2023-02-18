@@ -25,7 +25,7 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/packages")
+    fetch("http://localhost:5000/admin/packages")
       .then((res) => res.json())
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
@@ -33,7 +33,7 @@ const Packages = () => {
   console.log(packages)
 
   // useEffect(() => {
-  //   fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage")
+  //   fetch("http://localhost:5000/admin/tripPackage")
   //     .then((res) => res.json())
   //     .then((data) => setpackages(data));
   // }, [packages]);
@@ -46,7 +46,7 @@ const Packages = () => {
       email: user?.email,
       travel
     }
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/cart", {
+    fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

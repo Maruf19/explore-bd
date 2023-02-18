@@ -7,7 +7,7 @@ const AdminSnap = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snap")
+    fetch("http://localhost:5000/admin/snap")
       .then((res) => res.json())
       .then((data) => setSnapDesc(data));
   }, [snapDesc]);
@@ -19,7 +19,7 @@ const AdminSnap = () => {
       desc,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/snap", {
+    fetch("http://localhost:5000/admin/snap", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const AdminSnap = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/snapDesc/${id}`, {
+      fetch(`http://localhost:5000/snapDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

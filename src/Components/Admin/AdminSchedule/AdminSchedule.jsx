@@ -9,7 +9,7 @@ const AdminSchedule = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/schedule")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule")
       .then((res) => res.json())
       .then((data) => setScheduleDesc(data));
   }, [scheduleDesc]);
@@ -21,7 +21,7 @@ const AdminSchedule = () => {
       desc,
     };
 
-    fetch("http://localhost:5000/admin/schedule", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const AdminSchedule = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/scheduleDesc/${id}`, {
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/scheduleDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

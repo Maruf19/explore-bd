@@ -7,7 +7,7 @@ const useEditor = (email) => {
   useEffect(() => {
     if (email) {
       fetch(
-        `http://localhost:5000/users/editor/${email}`
+        `https://explore-bd-server-ahm-rubayed.vercel.app/users/editor/${email}`
       )
         .then((res) => res.json())
         .then((data) => {

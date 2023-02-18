@@ -7,13 +7,17 @@ import { NavLink, Link, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAdmin from "../../Hooks/useAdmin";
+import useEditor from "../../Hooks/useEditor";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
   const [navbar, setNavbar] = useState(false);
   const [color, changeColor] = useState("#111");
   const { user, logOut } = useContext(AuthContext);
-  const [isRole] = useAdmin(user?.email);
+  const [isAdmin] = useAdmin(user?.email);
+  const [isEditor] = useEditor(user?.email)
+
+  console.log(isAdmin, isEditor)
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -91,12 +95,17 @@ const Navbar = () => {
             <NavLink className="navItem" exact to="/booked">
               <li>Booked</li>
             </NavLink>{" "}
-            {isRole === true && (
+            {isAdmin === true && (
               <NavLink className="navItem" exact to="/cart">
                 <li>
                   <Link to="/admin">Dashboard</Link>
                 </li>
               </NavLink>
+            )}
+                    {isEditor === true && (
+                <li>
+                  <Link to="/editor">Dashboard</Link>
+                </li>
             )}
             {user?.uid ? (
               <>

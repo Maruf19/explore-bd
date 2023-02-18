@@ -54,10 +54,6 @@ const AdminSchedule = () => {
     }
   };
 
-  const handleEdit = () => {
-    
-  }
-
   return (
     <section className="w-full ml-16 ">
       <div className="w-3/5 flex flex-col justify-center  ml-32">

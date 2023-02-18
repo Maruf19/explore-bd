@@ -8,10 +8,12 @@ const LeftsideBar = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/categories")
+    fetch("http://localhost:5000/editor/editorCategories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, [categories]);
+
+  console.log(categories);
 
   return (
     <div className="flex flex-col p-3 bg-white shadow basis-1/5 h-screen h-[700px]">
@@ -35,7 +37,6 @@ const LeftsideBar = () => {
                 </Link>
               </li>
             ))}
-
           </ul>
         </div>
       </div>

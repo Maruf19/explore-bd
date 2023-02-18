@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const SuperAdmin = () => {
+
+  const [user, setUser] = useState([]);
+  const { reset } = useForm();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUser(data));
+  }, [user]);
+
+   console.log (user)
+
   return (
     <div class="relative">
       <div>
-        <h1> Admin </h1>
+        <h1 className="flex justify-center ml-[280px] text-bold font-weight-600 mt-5 mb-5 text-2xl border-bottom">
+          {" "}
+          Admin{" "}
+        </h1>
       </div>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400  ml-36">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3 text-center">
@@ -65,9 +82,9 @@ const SuperAdmin = () => {
       </table>
 
       <div>
-        <h1> Editor </h1>
+      <h1 className="flex justify-center ml-[280px] text-bold font-weight-600 mt-5 mb-5 text-2xl border-bottom"> Editor </h1>
       </div>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ml-36">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3 text-center">
@@ -126,9 +143,9 @@ const SuperAdmin = () => {
       </table>
 
       <div>
-        <h1>User</h1>
+      <h1 className="flex justify-center ml-[280px] text-bold font-weight-600 mt-5 mb-5 text-2xl border-bottom">User</h1>
       </div>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ml-36">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3 text-center">

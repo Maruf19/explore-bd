@@ -27,7 +27,7 @@ const PackageTrip = () => {
             packageDesc: data.packageDesc,
           };
 
-          fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage", {
+          fetch("http://localhost:5000/admin/tripPackage", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -47,7 +47,7 @@ const PackageTrip = () => {
   };
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage")
+    fetch("http://localhost:5000/admin/tripPackage")
       .then((res) => res.json())
       .then((data) => setPackages(data));
   }, [packages]);
@@ -60,7 +60,7 @@ const PackageTrip = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/tripPackage/${id}`, {
+      fetch(`http://localhost:5000/tripPackage/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

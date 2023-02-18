@@ -8,7 +8,7 @@ const AdminAbout = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/about")
+    fetch("http://localhost:5000/admin/about")
       .then((res) => res.json())
       .then((data) => setAboutDesc(data));
   }, [aboutDesc]);
@@ -20,7 +20,7 @@ const AdminAbout = () => {
       desc,
     };
 
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/about", {
+    fetch("http://localhost:5000/admin/about", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const AdminAbout = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/aboutDesc/${id}`, {
+      fetch(`http://localhost:5000/aboutDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

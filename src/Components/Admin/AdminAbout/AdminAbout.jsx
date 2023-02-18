@@ -67,7 +67,7 @@ const AdminAbout = () => {
           <div className="w-full card flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddDesc)}
-              className="bg-slate-500 ml-26"
+              className="bg-slate-500 ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6 ml-16">
                 <div className="form-control w-[400px]  ">

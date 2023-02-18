@@ -40,9 +40,7 @@ import EditorTeam from "../../Components/Editor/EditorTeam/EditorTeam";
 import EditorSchedule from "../../Components/Editor/EditorSchedule/EditorSchedule";
 import EditorServices from "../../Components/Editor/EditorServices/EditorSerivces";
 import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos";
-import EditorUpcomingTrip from "../../Components/Editor/EditorUpcomingTrip/EditorUpcomingTrip";
 import EditorRoute from "../EditorRoute/EditorRoute";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -322,6 +320,15 @@ const router = createBrowserRouter([
         ),
       },
 
+      // {
+      //   path: "/editor/snap",
+      //   element: (
+      //     <EditorRoute>
+      //       <EditorSnap/>
+      //     </EditorRoute>
+      //   ),
+      // },
+
       {
         path: "/editor/team",
         element: (
@@ -341,10 +348,10 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/editor/editorUpcomingTrip",
+        path: "/editor/upcomingTrip",
         element: (
           <EditorRoute>
-            <EditorUpcomingTrip />
+            <UpcomingTrip />
           </EditorRoute>
         ),
       },

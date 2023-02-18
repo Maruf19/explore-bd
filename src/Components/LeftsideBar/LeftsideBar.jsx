@@ -35,14 +35,7 @@ const LeftsideBar = () => {
                 </Link>
               </li>
             ))}
-            <div>
-              <Link exact to="/admin/SuperAdmin">
-                Super Admin
-              </Link>
-            </div>
-            <Link exact to="/admin/editor">
-              Editor
-            </Link>
+            
           </ul>
         </div>
       </div>

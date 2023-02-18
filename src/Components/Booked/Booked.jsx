@@ -11,7 +11,7 @@ const Booked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
-
+  console.log(booked);
   return (
     <section>
       <Navbar></Navbar>
@@ -45,22 +45,24 @@ const Booked = () => {
               </tr>
             </thead>
             <tbody>
-              {booked?.map(({ buyerName, buyerEmail, postingDate, location }) => {
-                return (
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <td
-                      scope="row"
-                      className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
-                    >
-                      {buyerName}
-                    </td>
-                    <td className="px-12 py-4 text-center">{postingDate}</td>
-                    <td>{location}</td>
-                    <td className="px-4 py-4 text-center">{buyerEmail}</td>
-                    <td className="px-12 py-4 text-center">Accepted</td>
-                  </tr>
-                );
-              })}
+              {booked?.map(
+                ({ buyerName, buyerEmail, postingDate, location }) => {
+                  return (
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <td
+                        scope="row"
+                        className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
+                      >
+                        {buyerName}
+                      </td>
+                      <td className="px-12 py-4 text-center">{postingDate}</td>
+                      <td>{location}</td>
+                      <td className="px-4 py-4 text-center">{buyerEmail}</td>
+                      <td className="px-12 py-4 text-center">Accepted</td>
+                    </tr>
+                  );
+                }
+              )}
             </tbody>
           </table>
         </div>

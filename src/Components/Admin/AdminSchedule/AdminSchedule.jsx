@@ -41,9 +41,12 @@ const AdminSchedule = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/scheduleDesc/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://explore-bd-server-ahm-rubayed.vercel.app/scheduleDesc/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
@@ -81,7 +84,7 @@ const AdminSchedule = () => {
               </div>
 
               <input
-                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white  text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 mb-5 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white  text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Description"
               />

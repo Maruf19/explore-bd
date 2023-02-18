@@ -75,10 +75,10 @@ const Trip = () => {
       <div className="w-3/5 flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary">Add a Trip</h2>
         <div className="my-6 flex justify-center items-center">
-          <div className=" card p-8 flex justify-center w-[400">
+          <div className=" card flex justify-center w-[400">
             <form
               onSubmit={handleSubmit(handleAddTrip)}
-              className="bg-slate-500 h-[400px]"
+              className="bg-transparent border shadow-2xl rounded ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6 mt-10">
                 <div className="form-control w-full ml-40">
@@ -87,7 +87,7 @@ const Trip = () => {
                       required: "Image is required",
                     })}
                     type="file"
-                    className="input input-bordered w-full max-w-xs"
+                    className="text-black input input-bordered border border-black input input-bordered input-bordered w-full max-w-xs"
                     placeholder="Upload a Image"
                   />
                 </div>
@@ -96,7 +96,7 @@ const Trip = () => {
                   <input
                     {...register("title")}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="text-black input input-bordered border border-black input input-bordered input-bordered w-full max-w-xs p-2 rounded-lg"
                     placeholder="Title"
                   />
                 </div>
@@ -107,14 +107,14 @@ const Trip = () => {
                       required: "Please provided trip location",
                     })}
                     type="text"
-                    className="input input-bordered w-full max-w-xs p-2 rounded-lg"
+                    className="text-black input input-bordered border border-black input input-bordered input-bordered w-full max-w-xs p-2 rounded-lg"
                     placeholder="Trip location"
                   />
                 </div>
               </div>
 
               <input
-                className="w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full ml-40"
+                className="mb-5 w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full ml-40"
                 type="submit"
                 value="Add Trip"
               />

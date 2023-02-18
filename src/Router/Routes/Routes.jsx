@@ -41,7 +41,7 @@ import EditorSchedule from "../../Components/Editor/EditorSchedule/EditorSchedul
 import EditorServices from "../../Components/Editor/EditorServices/EditorSerivces";
 import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos";
 import EditorUpcomingTrip from "../../Components/Editor/EditorUpcomingTrip/EditorUpcomingTrip";
-import EditorRoute from "../AdminRoute/EditorRoute";
+import EditorRoute from "../EditorRoute/EditorRoute";
 
 const router = createBrowserRouter([
   {
@@ -220,6 +220,7 @@ const router = createBrowserRouter([
         ),
       },
 
+              
       {
         path: "/admin/packageTrip",
         element: <PackageTrip />,

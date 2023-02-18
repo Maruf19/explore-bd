@@ -50,7 +50,6 @@ const CheckoutForm = ({ total }) => {
     });
 
     if (error) {
-      console.log(error);
       setCardError(error.message);
     } else {
       setCardError("");
@@ -100,8 +99,6 @@ const CheckoutForm = ({ total }) => {
         .then((res) => res.json()),
   });
 
-  console.log(checkoutItems)
-
   const handleAddData = (title, img, location) => {
     const data = {
       title,
@@ -119,7 +116,6 @@ const CheckoutForm = ({ total }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
       });
   };
 
@@ -128,8 +124,6 @@ const CheckoutForm = ({ total }) => {
       method: "DELETE",
     });
   };
-
-  console.log(user.email)
 
   return (
     <div>

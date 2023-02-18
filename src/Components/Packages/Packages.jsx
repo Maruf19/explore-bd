@@ -30,17 +30,6 @@ const Packages = () => {
       .then((data) => setPackageDesc(data));
   }, [packageDesc]);
 
-  console.log(packages)
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/admin/tripPackage")
-  //     .then((res) => res.json())
-  //     .then((data) => setpackages(data));
-  // }, [packages]);
-
-  // const {title, img, price, location } = data;
-  // console.log(data)
-
   const handleAddToCart = (travel) => {
     const travelCart = {
       email: user?.email,

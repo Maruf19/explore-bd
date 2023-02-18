@@ -19,18 +19,8 @@ const Login = () => {
   const handleLogin = (data, event) => {
     signIn(data.email, data.password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         alert("Successfully logged in");
         event.target.reset();
-
-        // fetch(`https://nerd-academy-server.vercel.app/jwt?email=${data.email}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.accessToken) {
-        //             localStorage.setItem('accessToken', data.accessToken);
-        //         }
-        //     })
         navigate(from, { replace: true });
       })
       .catch((error) => {

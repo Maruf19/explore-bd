@@ -19,7 +19,7 @@ const Trip = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log(imgData);
+
         if (imgData.success) {
           const addTrip = {
             title: data.title,
@@ -50,7 +50,7 @@ const Trip = () => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
+  
     if (proceed) {
       fetch(`http://localhost:5000/trip/${id}`, {
         method: "DELETE",

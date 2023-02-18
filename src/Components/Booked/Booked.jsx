@@ -11,7 +11,6 @@ const Booked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
-  console.log(booked);
   return (
     <section>
       <Navbar></Navbar>
@@ -50,7 +49,6 @@ const Booked = () => {
                   return (
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <td
-                        scope="row"
                         className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
                       >
                         {buyerName}

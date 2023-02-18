@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -54,7 +53,6 @@ const AdminAbout = () => {
     }
   };
 
-  // console.log(aboutDesc)
 
   return (
     <div className="w-3/5 flex flex-col justify-center  ml-32">

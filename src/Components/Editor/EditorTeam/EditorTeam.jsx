@@ -16,7 +16,7 @@ const Team = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log(imgData);
+     
         if (imgData.success) {
           const addTrip = {
             name: data.name,
@@ -53,7 +53,7 @@ const Team = () => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
+
     if (proceed) {
       fetch(`http://localhost:5000/teams/${id}`, {
         method: "DELETE",

@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 const AdminBooked = () => {
   const [booked, setBooked] = useState([]);
-  const { reset } = useForm();
 
   useEffect(() => {
     fetch("http://localhost:5000/booked")
@@ -12,41 +10,40 @@ const AdminBooked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
-  const handleAddBooked = (data) => {
-    const name = data.name;
-    const date = data.date;
-    const packages = data.packages;
-    const number = data.number;
+  // const handleAddBooked = (data) => {
+  //   const name = data.name;
+  //   const date = data.date;
+  //   const packages = data.packages;
+  //   const number = data.number;
 
-    const bookedData = {
-      name,
-      date,
-      packages,
-      number,
-    };
+  //   const bookedData = {
+  //     name,
+  //     date,
+  //     packages,
+  //     number,
+  //   };
 
-    fetch("http://localhost:5000/booked", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookedData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          alert("Booked placed successfully");
-          reset();
-        }
-      })
-      .catch((err) => console.error(err));
-  };
+  //   fetch("http://localhost:5000/booked", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(bookedData),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.acknowledged) {
+  //         alert("Booked placed successfully");
+  //         reset();
+  //       }
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
 
   const handleRemove = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
     if (proceed) {
       fetch(`http://localhost:5000/booked/${id}`, {
         method: "DELETE",

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";

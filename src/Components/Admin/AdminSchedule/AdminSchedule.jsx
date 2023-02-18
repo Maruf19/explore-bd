@@ -40,7 +40,6 @@ const AdminSchedule = () => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
     if (proceed) {
       fetch(
         `https://explore-bd-server-ahm-rubayed.vercel.app/scheduleDesc/${id}`,

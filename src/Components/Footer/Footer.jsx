@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import './footer.css'
 import video2 from '../../Assets/video2.mp4'
-import { FiSend } from 'react-icons/fi'
 import { MdOutlineTravelExplore } from 'react-icons/md'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { AiFillYoutube } from 'react-icons/ai'
@@ -40,7 +39,7 @@ const Footer = () => {
         <div className="footerCard flex">
           <div className="footerIntro flex">
             <div className="logoDiv">
-              <a href="#" className='logo flex'>
+              <a href="/" className='logo flex'>
                 <MdOutlineTravelExplore className='icon' />  Travel.
               </a>
             </div>

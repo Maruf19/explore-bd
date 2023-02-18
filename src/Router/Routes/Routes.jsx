@@ -63,12 +63,8 @@ const router = createBrowserRouter([
   {
     path: "/packages",
     element: <Packages></Packages>,
-<<<<<<< HEAD
     loader: () =>
       fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage"),
-=======
-    loader: () => fetch("http://localhost:5000/admin/tripPackage"),
->>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   },
   {
     path: "/schedule",

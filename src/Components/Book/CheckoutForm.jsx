@@ -5,12 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-<<<<<<< HEAD
 
 const CheckoutForm = ({ total, email }) => {
-=======
-const CheckoutForm = ({ total }) => {
->>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   const { user } = useContext(AuthContext);
   let newDate = new Date();
   let date = newDate.getDate();
@@ -98,14 +94,8 @@ const CheckoutForm = ({ total }) => {
   const { data: checkoutItems = [] } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-<<<<<<< HEAD
       fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`)
         .then((res) => res.json()),
-=======
-      fetch(`http://localhost:5000/cart?email=${user?.email}`).then((res) =>
-        res.json()
-      ),
->>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   });
 
   const handleAddData = (id, img, title, location, transactionId) => {
@@ -128,13 +118,9 @@ const CheckoutForm = ({ total }) => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-<<<<<<< HEAD
       .then((data) => {
         console.log(data)
       });
-=======
-      .then((data) => {});
->>>>>>> 78743c77f27dbe97439fab127aa546de4ce22996
   };
 
   // const handleDeleteCartData = () => {

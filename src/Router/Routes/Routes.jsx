@@ -39,12 +39,9 @@ import EditorTrip from "../../Components/Editor/EditorTrip/EditorTrip";
 import EditorTeam from "../../Components/Editor/EditorTeam/EditorTeam";
 import EditorSchedule from "../../Components/Editor/EditorSchedule/EditorSchedule";
 import EditorServices from "../../Components/Editor/EditorServices/EditorSerivces";
-import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos"
-import EditorUpcomingTrip from "../../Components/Editor/EditorUpcomingTrip/EditorUpcomingTrip"
-
-
-
-
+import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos";
+import EditorUpcomingTrip from "../../Components/Editor/EditorUpcomingTrip/EditorUpcomingTrip";
+import EditorRoute from "../AdminRoute/EditorRoute";
 
 const router = createBrowserRouter([
   {
@@ -181,7 +178,6 @@ const router = createBrowserRouter([
         ),
       },
 
-   
       {
         path: "/admin/upcomingTrip",
         element: (
@@ -248,117 +244,109 @@ const router = createBrowserRouter([
   {
     path: "/editor",
     element: (
-      <AdminRoute>
+      <EditorRoute>
         <EditorLayout />
-      </AdminRoute>
+      </EditorRoute>
     ),
     children: [
       {
         path: "/editor/home",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <Editor />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/about",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorAbout />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/booked",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorBooked />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/package",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorPackage />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/packageTrip",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorPackageTrip />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/schedule",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorSchedule />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/services",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorServices />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
 
       {
         path: "/editor/snapPhotos",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorSnapPhotos />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
-
 
       {
         path: "/editor/team",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorTeam />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
-
 
       {
         path: "/editor/trip",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorTrip />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
-
-
 
       {
         path: "/editor/editorUpcomingTrip",
         element: (
-          <AdminRoute>
+          <EditorRoute>
             <EditorUpcomingTrip />
-          </AdminRoute>
+          </EditorRoute>
         ),
       },
-
-
-
-
     ],
   },
 ]);

@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import "./Feedback.css";
 
 const Feedback = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ const Feedback = () => {
 
     };
 
-    fetch("https://explore-bd-server.vercel.app/feedback", {
+    fetch("http://localhost:5000/feedback", {
       method: "POST",
       headers: {
         "content-type": "application/json",

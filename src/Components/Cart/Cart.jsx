@@ -15,7 +15,7 @@ const Cart = () => {
     queryKey: ["carts", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://explore-bd-server-ahm-rubayed.vercel.app/cart?email=${user?.email}`
+        `http://localhost:5000/cart?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -33,7 +33,7 @@ const Cart = () => {
       "Are you sure, you want to remove this order?"
     );
     if (proceed) {
-      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart/${id}`, {
+      fetch(`http://localhost:5000/cart/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -24,7 +24,7 @@ const Team = () => {
             img: imgData.data.url,
           };
 
-          fetch("https://explore-bd-server.vercel.app/admin/teams", {
+          fetch("http://localhost:5000/admin/teams", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -44,7 +44,7 @@ const Team = () => {
   };
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/admin/teams")
+    fetch("http://localhost:5000/admin/teams")
       .then((res) => res.json())
       .then((data) => setTeams(data));
   }, [team]);
@@ -55,7 +55,7 @@ const Team = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server.vercel.app/teams/${id}`, {
+      fetch(`http://localhost:5000/teams/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

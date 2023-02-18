@@ -25,7 +25,7 @@ const UpcomingTrip = () => {
             img: imgData.data.url,
           };
 
-          fetch("https://explore-bd-server.vercel.app/admin/scheduleTrip", {
+          fetch("http://localhost:5000/admin/scheduleTrip", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -45,7 +45,7 @@ const UpcomingTrip = () => {
   };
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/admin/scheduleTrip")
+    fetch("http://localhost:5000/admin/scheduleTrip")
       .then((res) => res.json())
       .then((data) => setTrip(data));
   }, [trip]);
@@ -58,7 +58,7 @@ const UpcomingTrip = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server.vercel.app/scheduleTrip/${id}`, {
+      fetch(`http://localhost:5000/scheduleTrip/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

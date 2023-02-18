@@ -18,8 +18,6 @@ const Register = () => {
   const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         alert("Successfully User Created");
 
         const userInfo = {
@@ -36,7 +34,7 @@ const Register = () => {
         // navigate('/');
       })
       .catch((error) => {
-     alert(error.message);
+        alert(error.message);
       });
   };
 
@@ -46,7 +44,7 @@ const Register = () => {
       email,
     };
 
-    fetch("https://explore-bd-server.vercel.app/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,7 +74,6 @@ const Register = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   width="100%"
                   height="auto"
-                  viewBox="0 0 744.84799 747.07702"
                 >
                   <path
                     id="fa3b9e12-7275-481e-bee9-64fd9595a50d"
@@ -364,6 +361,7 @@ const Register = () => {
                         </div>
                       </div>
                     </div>
+
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-5">
                         <input

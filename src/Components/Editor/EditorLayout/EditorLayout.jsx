@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import LeftsideBar from "../../LeftsideBar/LeftsideBar";
+import EditorLeftsideBar from "../../EditorLeftsideBar/EditorLeftsideBar";
 import "./EditorLayout.css";
 
 const AdminLayout = () => {
   return (
     <div className="admin">
-      <LeftsideBar className="leftsidebar"></LeftsideBar>
+      <EditorLeftsideBar className="leftsidebar"></EditorLeftsideBar>
       <Outlet className="rightsidebar"></Outlet>
     </div>
   );

@@ -12,13 +12,13 @@ const Slider = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/feedback")
+    fetch("http://localhost:5000/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, [feedback]);
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);

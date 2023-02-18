@@ -23,7 +23,7 @@ const CheckoutForm = ({ total }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ total }),
@@ -97,7 +97,7 @@ const CheckoutForm = ({ total }) => {
   } = useQuery({
     queryKey: ["checkoutItems"],
     queryFn: () =>
-      fetch(`https://explore-bd-server.vercel.app/cart?email=${user?.email}`)
+      fetch(`http://localhost:5000/cart?email=${user?.email}`)
         .then((res) => res.json()),
   });
 
@@ -113,7 +113,7 @@ const CheckoutForm = ({ total }) => {
       postingDate: `${date}.${month}.${year}`,
     };
 
-    fetch("https://explore-bd-server.vercel.app/booked", {
+    fetch("http://localhost:5000/booked", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -125,7 +125,7 @@ const CheckoutForm = ({ total }) => {
   };
 
   const handleDeleteCartData = () => {
-    fetch(`https://explore-bd-server.vercel.app/cart/${user?.email}`, {
+    fetch(`http://localhost:5000/cart/${user?.email}`, {
       method: "DELETE",
     });
   };

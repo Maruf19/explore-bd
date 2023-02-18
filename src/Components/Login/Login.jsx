@@ -6,11 +6,10 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const {
     register,
-    handleSubmit,
-    formState: { errors },
+    handleSubmit
   } = useForm();
 
   const location = useLocation();

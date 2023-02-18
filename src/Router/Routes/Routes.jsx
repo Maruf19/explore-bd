@@ -64,7 +64,7 @@ const router = createBrowserRouter([
     path: "/packages",
     element: <Packages></Packages>,
     loader: () =>
-      fetch("https://explore-bd-server.vercel.app/admin/tripPackage"),
+      fetch("http://localhost:5000/admin/tripPackage"),
   },
   {
     path: "/schedule",

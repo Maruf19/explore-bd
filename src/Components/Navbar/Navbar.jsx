@@ -54,8 +54,6 @@ const Navbar = () => {
       });
   };
 
-  console.log(isRole);
-
   return (
     <section className="navBarSection">
       <header className={navbar ? "header active flex" : "header flex"}>

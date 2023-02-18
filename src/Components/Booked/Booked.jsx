@@ -6,7 +6,7 @@ const Booked = () => {
   const [booked, setBooked] = useState();
 
   useEffect(() => {
-    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/booked")
+    fetch("http://localhost:5000/booked")
       .then((res) => res.json())
       .then((data) => setBooked(data));
   }, [booked]);
@@ -14,7 +14,7 @@ const Booked = () => {
 
   return (
     <section>
-     <Navbar></Navbar>
+      <Navbar></Navbar>
       <div className="packages container section">
         <div className="relative overflow-x-auto">
           <h1 className="flex justify-center font font-bold text-2xl pb-10">

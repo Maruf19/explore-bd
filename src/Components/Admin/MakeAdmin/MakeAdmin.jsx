@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../contexts/AuthProvider";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MakeAdmin = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const { createUser, updateUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    reset
   } = useForm();
-  const navigate = useNavigate();
 
   const handleSignUp = (data) => {
     createUser(data.email, data.password, data.role)
@@ -32,7 +34,6 @@ const MakeAdmin = () => {
           .catch((error) => {
             console.log(error.message);
           });
-        // navigate('/');
       })
       .catch((error) => {
         alert(error.message);
@@ -48,7 +49,7 @@ const MakeAdmin = () => {
     console.log(user);
 
     if (role === "admin") {
-      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/makeAdmin", {
+      fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -57,13 +58,16 @@ const MakeAdmin = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          return;
+          if (data.acknowledged) {
+            navigate("/");
+            alert("Successfully created new admin");
+            reset();
+          }
         });
     }
 
     if (role === "editor") {
-      fetch("https://explore-bd-server-ahm-rubayed.vercel.app/editor", {
+      fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -72,8 +76,11 @@ const MakeAdmin = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          return;
+          if (data.acknowledged) {
+            navigate("/");
+            alert("Successfully created new editor");
+            reset();
+          }
         });
     }
   };
@@ -154,6 +161,7 @@ const MakeAdmin = () => {
                         </div>
                       </div>
                     </div>
+
                     <div className="flex -mx-3">
                       <div className="w-full px-3 mb-12">
                         <label for="" className="text-xs font-semibold px-1">
@@ -172,6 +180,7 @@ const MakeAdmin = () => {
                             placeholder="************"
                           />
                         </div>
+
                         <div>
                           <select
                             className=" mt-5 w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"

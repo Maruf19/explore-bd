@@ -61,10 +61,10 @@ const AdminSchedule = () => {
           Add a description in schedule
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card p-8 flex justify-center">
+          <div className="w-full card  flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddDesc)}
-              className="bg-slate-500 "
+              className="bg-transparent border shadow-2xl rounded ml-26 mt-0"
             >
               <div className="grid grid-cols-1 gap-6 ml-16">
                 <div className="form-control w-[400px]">
@@ -73,7 +73,7 @@ const AdminSchedule = () => {
                       required: "Please provided description",
                     })}
                     type="text"
-                    className="input w-full  p-2 mt-10"
+                    className="text-black input input-bordered border border-black w-full  p-2 ml-8 mt-10"
                     placeholder="Schedule Description"
                     cols={10}
                     rows={10}
@@ -82,7 +82,7 @@ const AdminSchedule = () => {
               </div>
 
               <input
-                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white  text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Description"
               />

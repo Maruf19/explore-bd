@@ -24,22 +24,22 @@ const Booked = () => {
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3 text-sm flex justify-center">
+                <th scope="col" className="px-6 py-3 text-sm text-center">
                   Name
                 </th>
-                <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Date
                 </th>
-                <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Package Name
                 </th>
-                <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Total Email
                 </th>
                 {/* <th scope="col" className="px-6 py-3 text-sm  justify-center">
                   Total Member
                 </th> */}
-                <th scope="col" className="px-6 py-3 text-sm  justify-center">
+                <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Payment Status
                 </th>
               </tr>
@@ -49,14 +49,15 @@ const Booked = () => {
                 return (
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
+                      scope="row"
+                      className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
                     >
                       {buyerName}
                     </td>
-                    <td className="px-12 py-4">{postingDate}</td>
+                    <td className="px-12 py-4 text-center">{postingDate}</td>
                     <td>{location}</td>
-                    <td className="px-4 py-4">{buyerEmail}</td>
-                    <td className="px-12 py-4">Accepted</td>
+                    <td className="px-4 py-4 text-center">{buyerEmail}</td>
+                    <td className="px-12 py-4 text-center">Accepted</td>
                   </tr>
                 );
               })}

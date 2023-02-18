@@ -1,35 +1,35 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 
-const AdminPackage = () => {
-  const [packageDesc, setPackageDesc] = useState([]);
+const AdminSnap = () => {
+  const [snapDesc, setSnapDesc] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/admin/packages")
+    fetch("https://explore-bd-server.vercel.app/admin/snap")
       .then((res) => res.json())
-      .then((data) => setPackageDesc(data));
-  }, [packageDesc]);
+      .then((data) => setSnapDesc(data));
+  }, [snapDesc]);
 
   const handleAddDesc = (data) => {
     const desc = data.desc;
 
-    const packageDesc = {
+    const snapDesc = {
       desc,
     };
 
-    fetch("https://explore-bd-server.vercel.app/admin/packages", {
+    fetch("https://explore-bd-server.vercel.app/admin/snap", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(packageDesc),
+      body: JSON.stringify(snapDesc),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Package description placed successfully");
+          alert("Snap description placed successfully");
           reset();
         }
       })
@@ -40,8 +40,9 @@ const AdminPackage = () => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
+    console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server.vercel.app/packageDesc/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/snapDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -53,29 +54,27 @@ const AdminPackage = () => {
     }
   };
 
- 
-
   return (
-    <section className="w-full ml-16 ">
+    <section className="w-full ml-16">
       <div className="w-3/5 flex flex-col justify-center  ml-32">
         <h2 className="mt-8 text-3xl font-bold text-primary capitalize">
-          Add a description in Package
+          Add a description in snap
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card flex justify-center">
+          <div className="w-full card  p-8 flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddDesc)}
               className="bg-slate-500 ml-26"
             >
-              <div className="grid grid-cols-1 gap-6 ml-16">
-                <div className="form-control w-[400px]  ">
+              <div className="grid grid-cols-1 gap-6">
+                <div className="form-control w-[400px]">
                   <textarea
                     {...register("desc", {
                       required: "Please provided description",
                     })}
                     type="text"
                     className="input w-full  p-2 ml-12 mt-10"
-                    placeholder="Package Description"
+                    placeholder="snap Description"
                     cols={10}
                     rows={10}
                   />
@@ -83,7 +82,7 @@ const AdminPackage = () => {
               </div>
 
               <input
-                className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
+                className="w-1/2 ml-32 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
                 value="Add Description"
               />
@@ -96,7 +95,7 @@ const AdminPackage = () => {
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50"></thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-            {packageDesc?.map((desc) => (
+            {snapDesc?.map((desc) => (
               <tr className="hover:bg-gray-50">
                 <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div className="text-sm">
@@ -128,7 +127,8 @@ const AdminPackage = () => {
                         />
                       </svg>
                     </button>
-
+                    {/* <button onClick={() => handleRemove
+                  (desc._id)}>X</button> */}
                     <a x-data="{ tooltip: 'Edite' }" href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -157,4 +157,4 @@ const AdminPackage = () => {
   );
 };
 
-export default AdminPackage;
+export default AdminSnap;

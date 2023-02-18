@@ -1,47 +1,62 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 
-const AdminPackage = () => {
-  const [packageDesc, setPackageDesc] = useState([]);
+const SnapPhotos = () => {
+  const [snap, setSnap] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
-  useEffect(() => {
-    fetch("https://explore-bd-server.vercel.app/admin/packages")
-      .then((res) => res.json())
-      .then((data) => setPackageDesc(data));
-  }, [packageDesc]);
-
-  const handleAddDesc = (data) => {
-    const desc = data.desc;
-
-    const packageDesc = {
-      desc,
-    };
-
-    fetch("https://explore-bd-server.vercel.app/admin/packages", {
+  const handleAddSnap = (data) => {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=0622eee91f18d4103329c8947242f849`;
+    fetch(url, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(packageDesc),
+      body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          alert("Package description placed successfully");
-          reset();
+      .then((imgData) => {
+        console.log(imgData);
+        if (imgData.success) {
+          const addTrip = {
+            title: data.title,
+            location: data.location,
+            img: imgData.data.url,
+          };
+
+          fetch("https://explore-bd-server.vercel.app/admin/snapTrip", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(addTrip),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged) {
+                alert("Team member placed successfully");
+                reset();
+              }
+            })
+            .catch((err) => console.error(err));
         }
-      })
-      .catch((err) => console.error(err));
+      });
   };
+
+  useEffect(() => {
+    fetch("https://explore-bd-server.vercel.app/admin/snapTrip")
+      .then((res) => res.json())
+      .then((data) => setSnap(data));
+  }, [snap]);
 
   const handleRemove = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
+    console.log(proceed);
     if (proceed) {
-      fetch(`https://explore-bd-server.vercel.app/packageDesc/${id}`, {
+      fetch(`https://explore-bd-server.vercel.app/snapTrip/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -53,31 +68,45 @@ const AdminPackage = () => {
     }
   };
 
- 
-
   return (
-    <section className="w-full ml-16 ">
-      <div className="w-3/5 flex flex-col justify-center  ml-32">
-        <h2 className="mt-8 text-3xl font-bold text-primary capitalize">
-          Add a description in Package
+    <section className="w-full ml-16">
+      <div className="w-3/5 my-20 flex flex-col justify-center  ml-32">
+        <h2 className="mt-8 text-3xl font-bold text-primary">
+          Add a snap trip
         </h2>
         <div className="my-6 flex justify-center items-center">
-          <div className="w-full card flex justify-center">
+          <div className="w-full card p-8 flex justify-center">
             <form
-              onSubmit={handleSubmit(handleAddDesc)}
-              className="bg-slate-500 ml-26"
+              onSubmit={handleSubmit(handleAddSnap)}
+              className="bg-slate-500  h-[400px]"
             >
-              <div className="grid grid-cols-1 gap-6 ml-16">
-                <div className="form-control w-[400px]  ">
-                  <textarea
-                    {...register("desc", {
-                      required: "Please provided description",
+              <div className="grid grid-cols-1 gap-6">
+
+                <div className="form-control w-full max-w-xs mt-10">
+                  <input
+                    {...register("image", {
+                      required: "Image is required",
                     })}
+                    type="file"
+                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Upload a Snap Image"
+                  />
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("title")}
                     type="text"
-                    className="input w-full  p-2 ml-12 mt-10"
-                    placeholder="Package Description"
-                    cols={10}
-                    rows={10}
+                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Snap Title"
+                  />
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("location")}
+                    type="text"
+                    className="input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Snap Location"
                   />
                 </div>
               </div>
@@ -85,7 +114,7 @@ const AdminPackage = () => {
               <input
                 className="w-1/2 ml-36 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-6 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full"
                 type="submit"
-                value="Add Description"
+                value="Add Snap"
               />
             </form>
           </div>
@@ -96,21 +125,27 @@ const AdminPackage = () => {
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50"></thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-            {packageDesc?.map((desc) => (
+            {snap?.map((snap) => (
               <tr className="hover:bg-gray-50">
-                <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div className="text-sm">
-                    <div className="font-medium text-gray-700 ">
-                      {desc?.desc}
-                    </div>
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src={snap?.img}
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
                   </div>
                 </th>
 
+                <td class="px-6 py-4">{snap?.title}</td>
+                <td class="px-6 py-4">Designation</td>
+                <td class="px-6 py-4">{snap?.location}</td>
                 <td className="px-6 py-4">
                   <div className="flex justify-end gap-4">
                     <button
                       x-data="{ tooltip: 'Delete' }"
-                      onClick={() => handleRemove(desc._id)}
+                      onClick={() => handleRemove(snap._id)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -157,4 +192,4 @@ const AdminPackage = () => {
   );
 };
 
-export default AdminPackage;
+export default SnapPhotos;

@@ -59,12 +59,14 @@ const AdminSerivces = () => {
   return (
     <section className="w-full ml-16">
       <div className="w-3/5 flex flex-col justify-center  ml-32">
-        <h2 className="mt-8 text-3xl font-bold text-primary">Add Services</h2>
+        <h2 className="mt-8 text-3xl font-bold text-primary capitalize">
+          Add Services
+        </h2>
         <div className="my-6 flex justify-center items-center">
           <div className="w-full car p-8 flex justify-center">
             <form
               onSubmit={handleSubmit(handleAddService)}
-              className="bg-slate-500 h-[400px]"
+              className="bg-transparent border border-black rounded h-[400px]"
             >
               <div className="grid grid-cols-1 gap-6">
                 <div className="form-control w-full max-w-xs">

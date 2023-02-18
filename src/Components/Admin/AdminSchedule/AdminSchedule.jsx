@@ -1,15 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// import About from "../../About/About";
 
 const AdminSchedule = () => {
   const [scheduleDesc, setScheduleDesc] = useState([]);
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin/schedule")
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule")
       .then((res) => res.json())
       .then((data) => setScheduleDesc(data));
   }, [scheduleDesc]);
@@ -21,7 +19,7 @@ const AdminSchedule = () => {
       desc,
     };
 
-    fetch("http://localhost:5000/admin/schedule", {
+    fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/schedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +42,7 @@ const AdminSchedule = () => {
     );
     console.log(proceed);
     if (proceed) {
-      fetch(`http://localhost:5000/scheduleDesc/${id}`, {
+      fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/scheduleDesc/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -55,6 +53,10 @@ const AdminSchedule = () => {
         });
     }
   };
+
+  const handleEdit = () => {
+    
+  }
 
   return (
     <section className="w-full ml-16 ">

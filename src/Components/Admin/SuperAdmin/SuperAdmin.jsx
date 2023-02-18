@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 const SuperAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +10,6 @@ const SuperAdmin = () => {
       .then((data) => setUsers(data));
   }, [users]);
 
-  console.log(users)
 
   return (
     <div className="relative">

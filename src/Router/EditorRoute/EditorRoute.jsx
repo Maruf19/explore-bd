@@ -7,7 +7,6 @@ import Spinner from '../../Spinner/Spinner'
 const EditorRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const [isEditor, isEditorLoading] = useEditor(user?.email);
-    console.log(isEditor, isEditorLoading)
     const location = useLocation();
 
     if (loading || isEditorLoading) {

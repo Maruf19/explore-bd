@@ -17,8 +17,6 @@ const Navbar = () => {
   const [isAdmin] = useAdmin(user?.email);
   const [isEditor] = useEditor(user?.email)
 
-  console.log(isAdmin, isEditor)
-
   useEffect(() => {
     if (window.location.pathname === "/") {
       changeColor("#fff");

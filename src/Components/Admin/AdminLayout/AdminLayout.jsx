@@ -1,6 +1,5 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import DashboardLayout from '../../Dashboard/DashboardLayout/DashboardLayout';
 import LeftsideBar from '../../LeftsideBar/LeftsideBar';
 import "./AdminLayout.css"
 

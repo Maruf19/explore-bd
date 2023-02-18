@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 const AdminBooked = () => {
   const [booked, setBooked] = useState([]);
-  const { reset } = useForm();
 
   useEffect(() => {
     fetch("http://localhost:5000/booked")
@@ -12,41 +10,41 @@ const AdminBooked = () => {
       .then((data) => setBooked(data));
   }, [booked]);
 
-  const handleAddBooked = (data) => {
-    const name = data.name;
-    const date = data.date;
-    const packages = data.packages;
-    const number = data.number;
+  // const handleAddBooked = (data) => {
+  //   const name = data.name;
+  //   const date = data.date;
+  //   const packages = data.packages;
+  //   const number = data.number;
 
-    const bookedData = {
-      name,
-      date,
-      packages,
-      number,
-    };
+  //   const bookedData = {
+  //     name,
+  //     date,
+  //     packages,
+  //     number,
+  //   };
 
-    fetch("http://localhost:5000/booked", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookedData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          alert("Booked placed successfully");
-          reset();
-        }
-      })
-      .catch((err) => console.error(err));
-  };
+  //   fetch("http://localhost:5000/booked", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(bookedData),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.acknowledged) {
+  //         alert("Booked placed successfully");
+  //         reset();
+  //       }
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
 
   const handleRemove = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
+
     if (proceed) {
       fetch(`http://localhost:5000/booked/${id}`, {
         method: "DELETE",
@@ -61,40 +59,40 @@ const AdminBooked = () => {
   };
 
   return (
-    <div class="relative">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Name
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Date
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Package
             </th>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Total Traveler
             </th>
 
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Action
             </th>
           </tr>
         </thead>
         <tbody>
           {booked?.map((booked) => (
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <th
                 scope="row"
-                class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {booked?.name}
               </th>
-              <td class="px-6 py-4 text-center">{booked?.date}</td>
-              <td class="px-6 py-4 text-center">{booked?.packages}</td>
-              <td class="px-6 py-4 text-center">{booked?.number}</td>
+              <td className="px-6 py-4 text-center">{booked?.date}</td>
+              <td className="px-6 py-4 text-center">{booked?.packages}</td>
+              <td className="px-6 py-4 text-center">{booked?.number}</td>
 
               <td className="px-6 py-4">
                 <div className="flex justify-end gap-4">

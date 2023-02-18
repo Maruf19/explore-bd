@@ -17,7 +17,6 @@ const PackageTrip = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log(imgData);
         if (imgData.success) {
           const addPackage = {
             img: imgData.data.url,
@@ -52,13 +51,12 @@ const PackageTrip = () => {
       .then((data) => setPackages(data));
   }, [packages]);
 
-  console.log(packages);
 
   const handleRemove = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to remove this order?"
     );
-    console.log(proceed);
+
     if (proceed) {
       fetch(`http://localhost:5000/tripPackage/${id}`, {
         method: "DELETE",

@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../contexts/AuthProvider";
+import {  useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MakeAdmin = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
 
   const { createUser, updateUser } = useContext(AuthContext);
   const {
@@ -19,8 +16,6 @@ const MakeAdmin = () => {
   const handleSignUp = (data) => {
     createUser(data.email, data.password, data.role)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         alert("Successfully User Created");
 
         const userInfo = {
@@ -46,7 +41,6 @@ const MakeAdmin = () => {
       email,
       role,
     };
-    console.log(user);
 
     if (role === "admin") {
       fetch("http://localhost:5000/users", {

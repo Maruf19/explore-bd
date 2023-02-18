@@ -11,7 +11,6 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
   } = useForm();
   const navigate = useNavigate();
 

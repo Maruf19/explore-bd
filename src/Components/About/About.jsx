@@ -29,8 +29,6 @@ const About = () => {
       .then(data => setTeams(data))
   }, [teams])
 
-  console.log(teams)
-
   return (
     <div>
       <ScrollToTop />

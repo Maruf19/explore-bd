@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./book.css";
-import img from "../../Assets/payment.png";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import ScrollToTop from "../ScrollToTop";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -24,7 +22,7 @@ const Book = () => {
   };
 
   const {
-    data: checkoutItems = [], isLoading, refetch,
+    data: checkoutItems = []
   } = useQuery({
     queryKey: ["carts", user?.email],
     queryFn: async () => {

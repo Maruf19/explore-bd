@@ -13,9 +13,9 @@ const Booked = () => {
 
 
   return (
-    <div>
-      <Navbar></Navbar>
-      <section className="packages container section">
+    <section>
+     <Navbar></Navbar>
+      <div className="packages container section">
         <div className="relative overflow-x-auto">
           <h1 className="flex justify-center font font-bold text-2xl pb-10">
             Who Join With Us
@@ -49,7 +49,6 @@ const Booked = () => {
                 return (
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td
-                      scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
                     >
                       {buyerName}
@@ -64,8 +63,8 @@ const Booked = () => {
             </tbody>
           </table>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

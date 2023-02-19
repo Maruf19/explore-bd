@@ -47,15 +47,15 @@ const Booked = () => {
             </thead>
             <tbody>
               {booked?.map(
-                ({ buyerName, buyerEmail, postingDate, location }) => {
+                ({ buyerName, buyerEmail, postingDate, title, location }) => {
                   return (
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <td
-                        className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center"
-                      >
+                        className=" text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex justify-center">
                         {buyerName}
                       </td>
                       <td className="px-12 py-4 text-center">{postingDate}</td>
+                      <td className="px-12 py-4 text-center">{title}</td>
                       <td>{location}</td>
                       <td className="px-4 py-4 text-center">{buyerEmail}</td>
                       <td className="px-12 py-4 text-center">Accepted</td>

@@ -10,6 +10,7 @@ const Login = () => {
   const [userEmail, setUserEmail] = useState()
   const { register, handleSubmit } = useForm();
 
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -268,7 +269,6 @@ const Login = () => {
                           <input
                             type="email"
                             name="email"
-                            onBlur={handleSubmit(handleEmailBlur)}
                             {...register("email", {
                               required: "Please provided your name",
                             })}

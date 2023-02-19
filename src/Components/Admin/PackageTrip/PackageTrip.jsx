@@ -24,6 +24,7 @@ const PackageTrip = () => {
             location: data.location,
             price: data.price,
             packageDesc: data.packageDesc,
+            date:data.date
           };
 
           fetch("https://explore-bd-server-ahm-rubayed.vercel.app/admin/tripPackage", {
@@ -102,6 +103,16 @@ const PackageTrip = () => {
                     placeholder="Snap Title"
                   />
                 </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("date")}
+                    type="text"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
+                    placeholder="Date"
+                  />
+
+                </div>
                 <div className="form-control w-full max-w-xs">
                   <input
                     {...register("location")}
@@ -158,6 +169,7 @@ const PackageTrip = () => {
                 </th>
 
                 <td class="px-6 py-4">{packages?.title}</td>
+                <td class="px-6 py-4">{packages?.date}</td>
                 <td class="px-6 py-4">{packages?.location}</td>
                 <td class="px-6 py-4">{packages?.price}</td>
                 <td class="px-6 py-4">{packages?.packageDesc}</td>

@@ -81,9 +81,10 @@ const Packages = () => {
                   <img src={travel.img} alt={travel.title} />
                 </div>
 
-                <div className="cardInfo">
-                  <h4 className="destTitle"> {travel.title}</h4>
-                  <span className="continent flex">
+                <div className="cardInfo ">
+                  <h4 className="destTitle  flex justify-center"> {travel.title}</h4>
+                  <h5 className="flex justify-center">{travel.date}</h5>
+                  <span className="continent  flex justify-center">
                     <HiOutlineLocationMarker className="icon" />
                     <span className="name">{travel.location}</span>
                   </span>

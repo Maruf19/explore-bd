@@ -3,6 +3,7 @@ import "./services.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useState } from "react";
+import ScrollToTop from "../ScrollToTop";
 
 const Services = () => {
   const [services, setServices] = useState()
@@ -19,6 +20,9 @@ const Services = () => {
   }, [services])
 
   return (
+    <div>
+       <ScrollToTop />
+    
     <section className="services container section">
       <div className="secTitle">
         <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
@@ -33,21 +37,20 @@ const Services = () => {
             <div key={_id} data-aos="fade-up" className="singleDestination">
 
               <div className="cardInfo">
-                <h4 className="destTitle"> {title}</h4>
+                <h4 className="destTitle flex justify-center  mb-5"> {title}</h4>
 
                 <div className="desc">
                   <p>{desc}</p>
                 </div>
 
-                {/* <button className="custom-btn flex">
-                  Details <HiOutlineClipboardCheck className="icon" />
-                </button> */}
+               
               </div>
             </div>
           );
         })}
       </div>
     </section>
+    </div>
   );
 };
 

@@ -36,7 +36,7 @@ const Home = () => {
             <h1 data-aos="fade-up" className="homeTitle my-6">
               Our Beautiful Bangladesh
             </h1>
-            <Link to="/Book">
+            <Link to="/Packages">
               <button className="custom-btn flex"> Book Now</button>
             </Link>
           </div>

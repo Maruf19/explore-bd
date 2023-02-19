@@ -37,9 +37,6 @@ const Booked = () => {
                 <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Email
                 </th>
-                {/* <th scope="col" className="px-6 py-3 text-sm  justify-center">
-                  Total Member
-                </th> */}
                 <th scope="col" className="px-6 py-3 text-sm  text-center">
                   Payment Status
                 </th>
@@ -56,7 +53,6 @@ const Booked = () => {
                       </td>
                       <td className="px-12 py-4 text-center">{postingDate}</td>
                       <td className="px-12 py-4 text-center">{title}</td>
-                      <td>{location}</td>
                       <td className="px-4 py-4 text-center">{buyerEmail}</td>
                       <td className="px-12 py-4 text-center">Accepted</td>
                     </tr>

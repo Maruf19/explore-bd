@@ -18,10 +18,12 @@
   --cardHover: rgb(255, 255, 255);
 }
 
+.secTitle {
+  padding-top: 2.5rem;
+}
 .secTitle .title {
-  position: relative;
-  width: -moz-max-content;
-  width: max-content;
+  position: absolute;
+  width: 200px;
   color: var(--textColor);
   margin: 1rem 0;
   z-index: 2;
@@ -31,10 +33,10 @@
   content: "";
   background: var(--SecondaryColor);
   height: 5px;
-  width: 120px;
+  width: -moz-max-content;
+  width: max-content;
   right: 0;
-  bottom: 0px;
-  z-index: -1;
+  bottom: -5px;
 }
 
 .carousel-root {
@@ -71,7 +73,7 @@
 .carousel .control-dots {
   padding-left: 5px !important;
   outline: 0;
-  bottom: 15% !important;
+  bottom: 10% !important;
 }
 
 .myCarousel h3 {
@@ -134,9 +136,6 @@
     outline: 0;
     width: 93% !important;
     margin: auto !important;
-  }
-  .carousel.carousel-slider .control-arrow {
-    display: none !important;
   }
   .myCarousel {
     background: #fafafa;

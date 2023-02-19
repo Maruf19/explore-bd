@@ -18,9 +18,10 @@
 }
 
 .secTitle {
+  padding-top: 2.5rem;
   .title {
-    position: relative;
-    width: max-content;
+    position:absolute ;
+    width: 200px;
     color: var(--textColor);
     margin: 1rem 0;
     z-index: 2;
@@ -30,10 +31,10 @@
       content: "";
       background: var(--SecondaryColor);
       height: 5px;
-      width: 120px;
+      width: max-content;
       right: 0;
-      bottom: 0px;
-      z-index: -1;
+      bottom: -5px;
+      // z-index: -1;
     }
   }
 }
@@ -72,7 +73,7 @@
 .carousel .control-dots {
   padding-left: 5px !important;
   outline: 0;
-  bottom: 15% !important;
+  bottom: 10% !important;
 }
 
 .myCarousel h3 {
@@ -144,9 +145,9 @@
     margin: auto !important;
   }
 
-  .carousel.carousel-slider .control-arrow {
-    display: none !important;
-  }
+  // .carousel.carousel-slider .control-arrow {
+  //   display: none !important;
+  // }
   .myCarousel {
     background: #fafafa;
     margin-top: -9%;

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import ScrollToTop from "../ScrollToTop";
 import "./Feedback.css";
 
 const Feedback = () => {
@@ -36,6 +37,7 @@ const Feedback = () => {
 
   return (
     <section>
+      <ScrollToTop/>
       <Navbar />
       <div className="container py-32">
         <div className="secTitle">

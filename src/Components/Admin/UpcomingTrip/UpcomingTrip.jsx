@@ -21,6 +21,7 @@ const UpcomingTrip = () => {
         if (imgData.success) {
           const addTrip = {
             title: data.title,
+            date:data.date,
             location: data.location,
             img: imgData.data.url,
           };
@@ -100,6 +101,18 @@ const UpcomingTrip = () => {
                     placeholder="Snap Title"
                   />
                 </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("date")}
+                    type="text"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
+                    placeholder="Date"
+                  />
+
+                </div>
+
+
                 <div className="form-control w-full max-w-xs">
                   <input
                     {...register("location")}
@@ -138,7 +151,7 @@ const UpcomingTrip = () => {
                 </th>
 
                 <td class="px-6 py-4">{trip?.title}</td>
-                <td class="px-6 py-4">Date</td>
+                <td class="px-6 py-4">{trip?.date}</td>
                 <td class="px-6 py-4">{trip?.location}</td>
 
                 <td className="px-6 py-4">

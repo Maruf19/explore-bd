@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import EditorLeftsideBar from "../../EditorLeftsideBar/EditorLeftsideBar";
 import "./EditorLayout.css";
 
-const AdminLayout = () => {
+const EditorLayout = () => {
   return (
     <div className="admin">
       <EditorLeftsideBar className="leftsidebar"></EditorLeftsideBar>
@@ -12,4 +12,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default EditorLayout;

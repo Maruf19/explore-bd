@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import "./contact.css";
 import Navbar from "../Navbar/Navbar";
 //import icons
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { ImAddressBook } from "react-icons/im";
 import { BiMailSend } from "react-icons/bi";
 import { BsPhone } from "react-icons/bs";
 import { RiMessengerLine } from "react-icons/ri";
@@ -40,7 +40,7 @@ const Contact = () => {
     <div>
       <ScrollToTop/>
       <Navbar></Navbar>
-      <section className="contact container section">
+      {/* <section className="contact container section">
         <div className="container">
           <div className="form">
             <div className="contact-info">
@@ -105,7 +105,52 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+<div class="contact container ">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Zindabazar, Sylhet</div>
+          <div class="text-two">Bangladesh</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">+01779580031</div>
+          <div class="text-two">+01626350719</div>
+        </div>
+        <div class="email details">
+          
+          <div class="topic">Email</div>
+          <div class="text-one">marufrony48@gmail,com</div>
+          <div class="text-two">ShompaBiswas@gmail.com</div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text capitalize">Send us a message</div>
+             <form ref={form} onSubmit={sendEmail} >
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Enter your name" required/>
+        </div>
+        <div class="input-box">
+          <input type="email" name="email" placeholder="Enter your email" required/>
+        </div>
+        <div class="input-box">
+          <input  type="tel" name="phone" placeholder="Enter your contact no" required/>
+        </div>
+        <div class="input-box message-box">
+        <input type="text"  name="message" placeholder="Enter your Message" required/>
+        </div>
+        <button class="button custom-btn flex">
+         Send Now
+        </button>
+      </form>
+    </div>
+    </div>
+  </div>
       <Footer></Footer>
     </div>
   );

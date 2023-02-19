@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import ScrollToTop from "../ScrollToTop";
 
 const Register = () => {
   const { createUser, updateUser, verifyEmail } = useContext(AuthContext);
@@ -60,6 +61,7 @@ const Register = () => {
   };
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <div className="container">
         <div className="min-w-screen pt-36 flex items-center justify-center px-5 py-5">

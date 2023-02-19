@@ -23,7 +23,7 @@ const LeftsideBar = () => {
           <h4 className="text-lg text-center">{user?.displayName}</h4>
         </div>
         <div className="flex-1">
-          <ul className="pt-2 pb-4 space-y-1 text-sm">
+          <ul className="pt-2 ml-6 pb-4 space-y-1 text-sm">
             {categories?.map((category) => (
               <li className="rounded-sm">
                 <Link

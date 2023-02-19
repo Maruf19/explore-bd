@@ -1,11 +1,11 @@
 import React from "react";
 
-const Admin = () => {
+const Editor = () => {
   return (
     <div className="flex items-center justify-center w-full text-3xl capitalize text-primary font-bold ">
-      Welcome to admin dashboard
+      Welcome to editor dashboard
     </div>
   );
 };
 
-export default Admin;
+export default Editor;

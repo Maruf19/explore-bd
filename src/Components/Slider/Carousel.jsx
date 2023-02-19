@@ -6,6 +6,7 @@ import { Carousel } from "react-responsive-carousel";
 import img from "../../Assets/img.jpg";
 import { useEffect } from "react";
 import { useState } from "react";
+import ScrollToTop from "../ScrollToTop";
 
 const Slider = () => {
   const [feedback, setFeedback] = useState([]);
@@ -25,6 +26,7 @@ const Slider = () => {
 
   return (
     <div>
+       <ScrollToTop />
       <section className=" carousel container section">
         <div className="secTitle">
           <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
@@ -38,17 +40,18 @@ const Slider = () => {
           showThumbs={false}
           showStatus={false}
           autoPlay={true}
-          interval={3000}
+          interval={5000}
         >
-          {feedback?.map((f, Name) => (
+          {feedback?.map((f) => (
             <>
               <div>
                 <img src={img} alt="" />
                 <div className="myCarousel">
-                  <p>{f.feedback}</p>
-                  <br></br>
+                  <div className="text-gray-600 mt-8 mb-3">{f.feedback}</div>
+                  
                   <h1>- {f?.name}</h1>
                 </div>
+                
               </div>
             </>
           ))}

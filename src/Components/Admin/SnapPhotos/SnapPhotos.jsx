@@ -101,6 +101,17 @@ const SnapPhotos = () => {
                     placeholder="Snap Title"
                   />
                 </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("date")}
+                    type="text"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Date"
+                  />
+                </div>
+
+
                 <div className="form-control w-full max-w-xs">
                   <input
                     {...register("location")}

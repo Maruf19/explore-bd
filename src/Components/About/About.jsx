@@ -64,9 +64,9 @@ const About = () => {
                 </div>
 
                 <div className="cardInfo">
-                  <h4 className="destTitle"> {name}</h4>
-                  <span className="continent flex">
-                    <span className="name">{desc}</span>
+                  <h4 className="destTitle flex justify-center"> {name}</h4>
+                  <span className="continent flex justify-center">
+                    <span className="name ">{desc}</span>
                   </span>
                 </div>
               </div>

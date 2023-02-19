@@ -9,7 +9,7 @@ import ScrollToTop from "../ScrollToTop";
 
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-const About = () => {
+const Schedule = () => {
   const [scheduleDesc, setScheduleDesc] = useState([]);
   const [schedule, setSchedule] = useState([]);
 
@@ -58,7 +58,7 @@ const About = () => {
           </h3>
         </div>
         <div className="secContent grid">
-          {schedule.map(({ _id, img, title, location }) => {
+          {schedule.map(({ _id, img, title, location, date }) => {
             return (
               <div
                 key={_id}
@@ -72,8 +72,9 @@ const About = () => {
                 </div>
 
                 <div className="cardInfo">
-                  <h4 className="destTitle"> {title}</h4>
-                  <span className="continent flex">
+                  <h4 className="destTitle flex justify-center"> {title}</h4>
+                  <h6 className=" flex justify-center"> {date}</h6>
+                  <span className="continent flex justify-center">
                     <HiOutlineLocationMarker className="schedule-icon" />
                     <span className="name">{location}</span>
                   </span>
@@ -88,4 +89,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Schedule;

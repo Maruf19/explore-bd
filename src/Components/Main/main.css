@@ -17,6 +17,9 @@
 .main {
   width: 100%;
 }
+.main .secTitle {
+  padding-top: 2.5rem;
+}
 .main .secTitle .title {
   position: relative;
   width: -moz-max-content;
@@ -32,7 +35,7 @@
   height: 5px;
   width: 120px;
   right: 0;
-  bottom: 0px;
+  bottom: -5px;
   z-index: -1;
 }
 .main .secContent {

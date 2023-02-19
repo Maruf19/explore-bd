@@ -59,9 +59,9 @@ const Snap = () => {
                   <img src={img} alt={title} />
                 </div>
 
-                <div className="cardInfo">
-                  <h4 className="destTitle"> {title}</h4>
-                  <span className="continent flex">
+                <div className="cardInfo ">
+                  <h4 className="destTitle flex justify-center"> {title}</h4>
+                  <span className="continent flex justify-center">
                     <HiOutlineLocationMarker className="icon" />
                     <span className="name">{location}</span>
                   </span>

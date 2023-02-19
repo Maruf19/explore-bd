@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { useForm } from "react-hook-form";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import ScrollToTop from "../ScrollToTop";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -40,6 +41,7 @@ const Login = () => {
 
   return (
     <div>
+      <ScrollToTop/>
       <Navbar></Navbar>
       <div className="container">
         <div className="min-w-screen pt-36 flex items-center justify-center px-5 py-5">

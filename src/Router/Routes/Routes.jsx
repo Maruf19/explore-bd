@@ -29,7 +29,7 @@ import AdminBooked from "../../Components/Admin/AdminBooked/AdminBooked";
 import MakeAdmin from "../../Components/Admin/MakeAdmin/MakeAdmin";
 import SuperAdmin from "../../Components/Admin/SuperAdmin/SuperAdmin";
 
-import Editor from "../../Components/Admin/Editor/Editor";
+// import Editor from "../../Components/Admin/Editor/Editor";
 import EditorLayout from "../../Components/Editor/EditorLayout/EditorLayout";
 import EditorAbout from "../../Components/Editor/EditorAbout/EditorAbout";
 import EditorBooked from "../../Components/Editor/EditorBooked/EditorBooked";
@@ -42,7 +42,7 @@ import EditorServices from "../../Components/Editor/EditorServices/EditorSerivce
 import EditorSnapPhotos from "../../Components/Editor/EditorSnapPhotos/EditorSnapPhotos";
 import EditorRoute from "../EditorRoute/EditorRoute";
 import EditorSnap from "../../Components/Editor/EditorSnap/EditorSnap";
-
+import Editor from "../../Components/Editor/Editor/Editor"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -114,7 +114,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/admin/home",
+        path: "/admin",
         element: (
           <AdminRoute>
             <Admin />
@@ -234,15 +234,12 @@ const router = createBrowserRouter([
         path: "/admin/superAdmin",
         element: <SuperAdmin />,
       },
-      {
-        path: "/admin/editor",
-        element: <Editor />,
-      },
+     
     ],
   },
 
   {
-    path: "/editor",
+    path: "/editor/",
     element: (
       <EditorRoute>
         <EditorLayout />
@@ -250,7 +247,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/editor/home",
+        path: "/editor/",
         element: (
           <EditorRoute>
             <Editor />

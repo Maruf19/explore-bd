@@ -4,31 +4,52 @@
     "to": "/editor/Home",
     "icon": "https://i.ibb.co/L6YGHFR/home.png"
   },
+
+  {
+    "name": "Services",
+    "to": "/editor/services",
+    "icon": "https://i.ibb.co/10q1DRf/4900843-female-help-service-support-technical-icon.png"
+  },
+
+  {
+    "name": "Recent Trip",
+    "to": "/editor/trip",
+    "icon": "https://i.ibb.co/jvHHsYp/3615735-insurance-package-policy-postal-protection-icon.png"
+  },
   {
     "name": "About",
     "to": "/editor/about",
-    "icon": "https://i.ibb.co/3vjDH0S/about.png"
-  },
-  {
-    "name": "Trip",
-    "to": "/editor/trip",
-    "icon": "https://i.ibb.co/jvHHsYp/3615735-insurance-package-policy-postal-protection-icon.png"
+    "icon": "https://i.ibb.co/10q1DRf/4900843-female-help-service-support-technical-icon.png"
   },
 
   {
     "name": "Team",
     "to": "/editor/team",
-    "icon": "https://i.ibb.co/ynwwNYS/team-2.png"
+    "icon": "https://i.ibb.co/yBPQFsW/1034367-advantage-team-teamwork-group-community-icon.png"
   },
+
   {
-    "name": "packages",
+    "name": "Our Packages",
     "to": "/editor/packages",
-    "icon": "https://i.ibb.co/ygQ64Jt/package.png"
+    "icon": "https://i.ibb.co/CbWD5Sp/9044943-package-icon.png"
   },
+
+  {
+    "name": "Package Trip",
+    "to": "/editor/packageTrip",
+    "icon": "https://i.ibb.co/CbWD5Sp/9044943-package-icon.png"
+  },
+
   {
     "name": "schedule",
     "to": "/editor/schedule",
-    "icon": "https://i.ibb.co/bRJ4gW9/schedule.png"
+    "icon": "https://i.ibb.co/t3vT3pQ/4975310-alarm-calendar-date-event-hour-icon.png"
+  },
+
+  {
+    "name": "Upcoming Tour",
+    "to": "/editor/upcomingtrip",
+    "icon": "https://ibb.co/0XT9H8g/packageTrip"
   },
   {
     "name": "snap",
@@ -36,15 +57,17 @@
     "icon": "https://i.ibb.co/x15gqtz/snap.png"
   },
 
-  {
-    "name": "booked",
-    "to": "/editor/booked",
-    "icon": "https://ibb.co/0XT9H8g"
-  },
-   
-  {
-    "name": "packageTrip",
-    "to": "/editor/packageTrip",
-    "icon": "https://ibb.co/0XT9H8g/packageTrip"
-  }
+  {"name":"Snap Photos",
+  "to":"/editor/snapPhotos", 
+  "icon":"https://i.ibb.co/XLbQDjY/9004833-image-photo-gallery-picture-icon.png"
+},
+
+{
+  "name":"booked",
+"to":"/editor/booked",
+"icon":"https://i.ibb.co/Hdcsm00/9554798-online-booking-internet-web-network-icon.png"
+}
+
+
+  
 ]

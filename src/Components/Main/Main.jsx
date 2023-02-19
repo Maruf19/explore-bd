@@ -8,6 +8,7 @@ import { HiOutlineClipboardCheck } from "react-icons/hi";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop";
 
 const Main = () => {
   const [trips, setTrips] = useState();
@@ -23,10 +24,13 @@ const Main = () => {
   }, [trips]);
 
   return (
-    <section className="main container section">
+    <div>
+    <ScrollToTop/>
+    <section className='main container section'>
+
       <div className="secTitle">
         <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
-          Our Recent Trip
+          Most Visited Destination
         </h3>
       </div>
 
@@ -41,10 +45,10 @@ const Main = () => {
               </div>
 
               <div className="cardInfo">
-                <h4 className="destTitle"> {title}</h4>
-                <span className="continent flex">
+                <h4 className="destTitle flex justify-center"> {title}</h4>
+                <span className="continent flex justify-center">
                   <HiOutlineLocationMarker className="icon" />
-                  <span className="name">{location}</span>
+                  <span className="name ">{location}</span>
                 </span>
 
                 <Link to="/schedule" className="custom-btn flex">
@@ -56,6 +60,7 @@ const Main = () => {
         })}
       </div>
     </section>
+    </div>
   );
 };
 

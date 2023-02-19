@@ -123,11 +123,7 @@ const CheckoutForm = ({ total, email }) => {
       });
   };
 
-  // const handleDeleteCartData = () => {
-  //   fetch(`https://explore-bd-server-ahm-rubayed.vercel.app/cart/${user?.email}`, {
-  //   method: 'DELETE',
-  // });
-  // }
+ 
 
   return (
     <div>

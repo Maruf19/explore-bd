@@ -102,7 +102,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/booked",
-    element: <Booked />,
+    element: (
+      <PrivateRoute>
+       <Booked />
+      </PrivateRoute>
+    ),
   },
 
   {

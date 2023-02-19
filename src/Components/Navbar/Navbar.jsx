@@ -105,7 +105,7 @@ const Navbar = () => {
                   <Link to="/editor">Dashboard</Link>
                 </li>
             )}
-            {user?.uid ? (
+            {user?.emailVerified ? (
               <>
                 <NavLink className="navItem" exact to="/cart">
                   <li>

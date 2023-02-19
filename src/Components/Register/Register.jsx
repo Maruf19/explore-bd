@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 const Register = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, verifyEmail } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -17,8 +17,9 @@ const Register = () => {
   const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
-        alert("Successfully User Created");
-
+        console.log(result)
+        verifyEmail()
+     
         const userInfo = {
           displayName: data.name,
         };
@@ -30,7 +31,6 @@ const Register = () => {
           .catch((error) => {
             console.log(error.message);
           });
-        // navigate('/');
       })
       .catch((error) => {
         alert(error.message);
@@ -54,7 +54,6 @@ const Register = () => {
       .then((data) => {
         if (data.acknowledged) {
           navigate("/");
-          alert("Successfully register");
           reset();
         }
       });
@@ -66,13 +65,14 @@ const Register = () => {
         <div className="min-w-screen pt-36 flex items-center justify-center px-5 py-5">
           <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
             <div className="md:flex w-full">
-              <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+            <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
                 <svg
                   id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
                   data-name="Layer 1"
                   xmlns="http://www.w3.org/2000/svg"
                   width="100%"
                   height="auto"
+                  viewBox="0 0 744.84799 747.07702"
                 >
                   <path
                     id="fa3b9e12-7275-481e-bee9-64fd9595a50d"
@@ -369,6 +369,19 @@ const Register = () => {
                           className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold cursor-pointer"
                         />
                       </div>
+                    </div>
+
+                      <div className="text-center ">
+                      <span>
+                        Already have an account?{" "}
+                        <Link
+                          to="/login"
+                          className="text-[#0073a8] font-bold"
+                        >
+                          {" "}
+                          Login
+                        </Link>
+                      </span>
                     </div>
                   </form>
                 </div>

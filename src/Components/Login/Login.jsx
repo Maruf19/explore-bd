@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -7,10 +7,8 @@ import Footer from "../Footer/Footer";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit
-  } = useForm();
+  const [userEmail, setUserEmail] = useState()
+  const { register, handleSubmit } = useForm();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,6 +17,7 @@ const Login = () => {
   const handleLogin = (data, event) => {
     signIn(data.email, data.password)
       .then((result) => {
+        console.log(result)
         alert("Successfully logged in");
         event.target.reset();
         navigate(from, { replace: true });
@@ -28,6 +27,16 @@ const Login = () => {
       });
   };
 
+  const handleEmailBlur = (data) => {
+    const email = data.email;
+    setUserEmail(email)
+    console.log(email)
+  }
+
+  const handleForgetPass = () => {
+
+  }
+
   return (
     <div>
       <Navbar></Navbar>
@@ -36,7 +45,7 @@ const Login = () => {
           <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
             <div className="md:flex w-full">
               <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
-                {/* <svg
+                <svg
                   id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
                   data-name="Layer 1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +247,7 @@ const Login = () => {
                     transform="translate(-227.576 -76.46149)"
                     fill="#2f2e41"
                   />
-                </svg> */}
+                </svg>
               </div>
               <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div className="text-center mb-10">
@@ -258,6 +267,8 @@ const Login = () => {
                           </div>
                           <input
                             type="email"
+                            name="email"
+                            onBlur={handleSubmit(handleEmailBlur)}
                             {...register("email", {
                               required: "Please provided your name",
                             })}
@@ -298,7 +309,7 @@ const Login = () => {
                       </div>
                     </div>
                     <div className="text-center capitalize text-[#0073a8] font-bold">
-                      <span> forgot password?</span>
+                      <Link onClick={handleForgetPass}> forgot password?</Link>
                     </div>
                     <div className="text-center ">
                       <span>

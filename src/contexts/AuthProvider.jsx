@@ -3,6 +3,8 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    sendEmailVerification,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -44,6 +46,17 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, userInfo);
     }
 
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+        .then(() => {
+            alert("Please check you email & verify")
+          })
+    }
+
+    const handleForgetPassword = () => {
+        sendPasswordResetEmail(auth)
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -58,6 +71,8 @@ const AuthProvider = ({ children }) => {
         googleSignIn,
         logOut,
         updateUser,
+        verifyEmail,
+        handleForgetPassword,
         user,
         loading
     }

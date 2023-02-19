@@ -281,7 +281,7 @@ const Login = () => {
                       </div>
                     </div>
                     <div className="flex -mx-3">
-                      <div className="w-full px-3 mb-12">
+                      <div className="w-full px-3 mb-8">
                         <label for="" className="text-xs font-semibold px-1">
                           Password
                         </label>

@@ -82,8 +82,8 @@ const Packages = () => {
                 </div>
 
                 <div className="cardInfo ">
-                  <h4 className="destTitle  flex justify-center"> {travel.title}</h4>
-                  <h5 className="flex justify-center">{travel.date}</h5>
+                  <h4 className="destTitle  flex justify-center font-bold"> {travel.title}</h4>
+                  <h5 className="flex justify-center text-[#0073a8] font-bold">{travel.date}</h5>
                   <span className="continent  flex justify-center">
                     <HiOutlineLocationMarker className="icon" />
                     <span className="name">{travel.location}</span>

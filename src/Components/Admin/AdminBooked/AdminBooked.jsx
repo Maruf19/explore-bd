@@ -62,7 +62,7 @@ const AdminBooked = () => {
       <h2 className=" flex justify-center text-2xl ml-12 text-[#0073a8] font-bold mt-20">
         Booking Details
       </h2>
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10 ml-20">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10 ml-16">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3 text-center">

@@ -72,8 +72,8 @@ const Schedule = () => {
                 </div>
 
                 <div className="cardInfo">
-                  <h4 className="destTitle flex justify-center"> {title}</h4>
-                  <h6 className=" flex justify-center"> {date}</h6>
+                  <h4 className="destTitle flex justify-center font-bold"> {title}</h4>
+                  <h6 className=" flex justify-center text-[#0073a8] font-bold"> {date}</h6>
                   <span className="continent flex justify-center">
                     <HiOutlineLocationMarker className="schedule-icon" />
                     <span className="name">{location}</span>

@@ -60,7 +60,7 @@ const AdminBooked = () => {
 
   return (
     <div className="relative">
-        <h2 className=" flex justify-center text-2xl ml-12 text-[#0073a8] font-bold mt-20"> </h2>
+        <h2 className=" flex justify-center text-2xl ml-12 text-[#0073a8] font-bold mt-16"> </h2>
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-20">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>

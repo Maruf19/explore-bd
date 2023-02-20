@@ -106,7 +106,7 @@ const UpcomingTrip = () => {
                   <input
                     {...register("date")}
                     type="text"
-                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-36"
+                    className="text-black input input-bordered border border-black input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-32"
                     placeholder="Date"
                   />
 

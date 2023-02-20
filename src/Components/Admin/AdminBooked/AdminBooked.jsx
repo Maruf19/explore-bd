@@ -59,7 +59,10 @@ const AdminBooked = () => {
 
   return (
     <div className="relative">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-32 ml-36">
+      <h2 className=" flex justify-center text-2xl ml-12 text-[#0073a8] font-bold mt-20">
+        Booking Details
+      </h2>
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10 ml-20">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3 text-center">
@@ -86,12 +89,10 @@ const AdminBooked = () => {
         <tbody>
           {booked?.map((book) => (
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <td
-                className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <td className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {book?.buyerName}
               </td>
-              <td
-                className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <td className="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {book?.buyerEmail}
               </td>
               <td className="px-6 py-4 text-center">{book?.postingDate}</td>
@@ -102,7 +103,8 @@ const AdminBooked = () => {
                 <div className="flex justify-end gap-4">
                   <button
                     x-data="{ tooltip: 'Delete' }"
-                    onClick={() => handleRemove(book._id)}>
+                    onClick={() => handleRemove(book._id)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

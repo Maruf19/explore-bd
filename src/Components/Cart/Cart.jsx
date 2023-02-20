@@ -86,25 +86,25 @@ const Cart = () => {
                   </div>
                   <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center border-gray-100">
-                      <span
+                      <button
                         onClick={handleDecrement}
                         className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
                       >
                         {" "}
                         -{" "}
-                      </span>
+                      </button>
 
                       <div className="h-8 w-8 border bg-white text-center pt-[0.40px] outline-none">
                         {" "}
                         {quantity}{" "}
                       </div>
-                      <span
+                      <button
                         onClick={handleIncrement}
                         className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
                       >
                         {" "}
                         +{" "}
-                      </span>
+                      </button>
                     </div>
                     <div className="flex items-center space-x-4">
                       <p className="text-lg text-[#0073a8] font-bold">

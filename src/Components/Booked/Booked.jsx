@@ -18,7 +18,7 @@ const Booked = () => {
       <Navbar></Navbar>
       <div className="packages container section">
         <div className="relative overflow-x-auto">
-          <h1 className="flex justify-center font font-bold text-2xl pb-10">
+          <h1 className="flex justify-center  text-2xl ml-12 text-[#0073a8] font-bold pb-5">
             Who Join With Us
           </h1>
 

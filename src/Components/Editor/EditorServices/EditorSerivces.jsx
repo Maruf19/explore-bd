@@ -68,33 +68,35 @@ const AdminSerivces = () => {
             onSubmit={handleSubmit(handleAddService)}
             className="bg-transparent border shadow-2xl  h-[400px]"
           >
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 mt-24 ml-8">
               <div className="form-control w-full max-w-xs">
-                <input
-                  {...register("title")}
-                  type="text"
-                  className="text-black input input-bordered border border-black  p-2 rounded-lg shadow-lg ml-28 mt-20"
-                  placeholder="Title"
-                />
+                  <input
+                    {...register("title", {
+                      required: "Please provided trip description",
+                    })}
+                    type="text"
+                    className="text-black input-bordered border border-black input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Service Description"
+                  />
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                  <input
+                    {...register("desc", {
+                      required: "Please provided trip description",
+                    })}
+                    type="text"
+                    className="text-black input-bordered border border-black input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
+                    placeholder="Service Description"
+                  />
+                </div>
               </div>
 
-              <div className="form-control w-full max-w-xs">
-                <input
-                  {...register("desc", {
-                    required: "Please provided trip description",
-                  })}
-                  type="text"
-                  className="text-black input-bordered border border-black input input-bordered w-full max-w-xs p-2 rounded-lg shadow-lg ml-28"
-                  placeholder="Service Description"
-                />
-              </div>
-            </div>
-
-            <input
-              className=" w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white mt-0 text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full ml-[120px]"
-              type="submit"
-              value="Add Serivce"
-            />
+              <input
+                className="mt-5 w-1/2 cursor-pointer border-2 hover:shadow-lg transition-all duration-300 ease-in-out hover:text-black text-white text-center bg-[#0073a8] hover:bg-[transparent]  p-2 rounded-full ml-[150px]"
+                type="submit"
+                value="Add Serivce"
+              />
           </form>
         </div>
       </div>

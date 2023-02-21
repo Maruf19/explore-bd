@@ -6,7 +6,7 @@ import ScrollToTop from "../ScrollToTop";
 import "./Feedback.css";
 
 const Feedback = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,8 +14,7 @@ const Feedback = () => {
     const feedback = event.target.feedback.value;
     const feedbackData = {
       feedback,
-      name: user?.displayName
-
+      name: user?.displayName,
     };
 
     fetch("https://explore-bd-server-ahm-rubayed.vercel.app/feedback", {
@@ -37,27 +36,27 @@ const Feedback = () => {
 
   return (
     <section>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
-      <div className="container py-32">
-        <div className="secTitle">
-          <h3 data-aos="fade-up" data-aos-duration="3000" className="title">
+      <div className="container py-32 ml-20">
+        <div className="capitalize font-bold">
+          <h3 data-aos="fade-up" data-aos-duration="3000">
             Give your valuable feedback here
           </h3>
         </div>
 
-        <form className="feedback-form" onSubmit={handleSubmit}>
-          <div>
+        <form onSubmit={handleSubmit}>
+          <div >
             {" "}
             <textarea
               name="feedback"
               cols="120"
               rows="10"
               placeholder="Give your valuable feedback"
+              className="w-full"
             ></textarea>
-
           </div>
-          <button type="submit" value="Send" class="send-btn">
+          <button type="submit" value="Send" class="">
             {" "}
             Submit{" "}
           </button>

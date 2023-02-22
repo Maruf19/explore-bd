@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 
 const Admin = () => {
   const [countOn, setCountOn] = useState(false);
+  const [bookPrice, setBookPrice] = useState()
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
@@ -16,7 +17,18 @@ const Admin = () => {
     },
   });
 
-  console.log(users?.length)
+  useEffect(() => {
+    fetch(
+        `https://explore-bd-server-ahm-rubayed.vercel.app/booked`)
+        .then((res) => res.json())
+        .then((data) => {
+          setBookPrice(data);
+        });
+}, [])
+
+const prices = bookPrice?.map((book) => book?.price * 1)
+const total = prices?.reduce((x, y) => (x + y), 0)
+console.log(total)
 
   return (
     <section>
@@ -43,12 +55,25 @@ const Admin = () => {
                     <h2 class="font-bold uppercase text-gray-600">
                       Total Payment
                     </h2>
-                    <p class="font-bold text-3xl">
-                      $3249{" "}
-                      <span class="text-green-500">
+                    <ScrollTrigger
+                        onEnter={() => setCountOn(true)}
+                        onExit={() => setCountOn(false)}>
+                        <div>
+                          <h1 class="font-bold text-3xl">
+                            {countOn && (
+                              <CountUp
+                                start={0}
+                                end={total}
+                                duration={1.3}
+                                delay={0}
+                              ></CountUp>
+                            )}
+                          </h1>
+                          <span class="text-green-500">
                         <i class="fas fa-caret-up"></i>
                       </span>
-                    </p>
+                        </div>
+                      </ScrollTrigger>
                   </div>
                 </div>
               </div>

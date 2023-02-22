@@ -99,11 +99,12 @@ const CheckoutForm = ({ total, email }) => {
         .then((res) => res.json()),
   });
 
-  const handleAddData = (id, img, title, location, transactionId) => {
+  const handleAddData = (id, img, title, price, location, transactionId) => {
     const data = {
       id,
       img,
       title,
+      price,
       location,
       transactionId,
       buyerName: user?.displayName,

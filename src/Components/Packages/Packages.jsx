@@ -17,7 +17,7 @@ const Packages = () => {
   const [packageDesc, setPackageDesc] = useState();
   // const [packages, setpackages] = useState(null)
 
-  const packages = useLoaderData()
+  const packages = useLoaderData();
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -33,8 +33,8 @@ const Packages = () => {
   const handleAddToCart = (travel) => {
     const travelCart = {
       email: user?.email,
-      travel
-    }
+      travel,
+    };
     fetch("https://explore-bd-server-ahm-rubayed.vercel.app/cart", {
       method: "POST",
       headers: {
@@ -48,7 +48,7 @@ const Packages = () => {
           alert("Added to cart successfully");
         }
       });
-  }
+  };
 
   return (
     <div>
@@ -75,15 +75,23 @@ const Packages = () => {
         <div className="secContent grid">
           {packages.map((travel) => {
             return (
-              <div key={travel._id} data-aos="fade-up" className="singleDestination">
-
+              <div
+                key={travel._id}
+                data-aos="fade-up"
+                className="singleDestination"
+              >
                 <div className="imageDiv">
                   <img src={travel.img} alt={travel.title} />
                 </div>
 
                 <div className="cardInfo ">
-                  <h4 className="destTitle  flex justify-center"> {travel.title}</h4>
-                  <h5 className="flex justify-center">{travel.date}</h5>
+                  <h4 className="destTitle  flex justify-center font-bold">
+                    {" "}
+                    {travel.title}
+                  </h4>
+                  <h5 className="flex justify-center text-[#0073a8] font-bold">
+                    {travel.date}
+                  </h5>
                   <span className="continent  flex justify-center">
                     <HiOutlineLocationMarker className="icon" />
                     <span className="name">{travel.location}</span>
@@ -114,7 +122,10 @@ const Packages = () => {
                     </Link>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={() => handleAddToCart(travel)} className="custom-btn flex">
+                    <button
+                      onClick={() => handleAddToCart(travel)}
+                      className="custom-btn flex"
+                    >
                       Add to Cart
                     </button>
                     <Link to="/contact" className="custom-btn flex">
@@ -125,8 +136,7 @@ const Packages = () => {
               </div>
               // <div></div>
             );
-          }
-          )}
+          })}
         </div>
       </section>
       <Footer></Footer>

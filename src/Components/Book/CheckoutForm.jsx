@@ -155,7 +155,7 @@ const CheckoutForm = ({ total, email }) => {
           />
         </div>
 
-        <div className="form-control w-full max-w-xs  ml-24">
+        {/* <div className="form-control w-full max-w-xs  ml-24">
           <input
             name="passport"
             type="text"
@@ -163,7 +163,7 @@ const CheckoutForm = ({ total, email }) => {
             placeholder="NID/Passport No"
             required
           />
-        </div>
+        </div> */}
         <CardElement
           className="px-24 mt-6 "
           options={{

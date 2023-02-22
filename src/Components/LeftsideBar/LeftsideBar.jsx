@@ -14,7 +14,7 @@ const LeftsideBar = () => {
   }, [categories]);
 
   return (
-    <div className="flex flex-col p-3 bg-slate-400 shadow basis-1/5  h-[1200px]">
+    <div className="flex flex-col p-3 bg-slate-400 shadow basis-1/5 h-[1200px]">
       <div className="space-y-3">
         <div className="">
           <h2 className="text-xl font-bold text-center my-3 block">

@@ -83,6 +83,7 @@ const CheckoutForm = ({ total, email }) => {
           singleItem?.travel._id,
           singleItem?.travel.img,
           singleItem?.travel.title,
+          singleItem?.travel.price,
           singleItem?.location,
           paymentIntent.id
         );

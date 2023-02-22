@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MakeAdmin = () => {
-
   const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ const MakeAdmin = () => {
     createUser(data.email, data.password, data.role)
       .then((result) => {
         alert("Successfully User Created");
-
+        navigate("/admin/makeAdmin")
         const userInfo = {
           displayName: data.name,
         };
@@ -53,6 +54,7 @@ const MakeAdmin = () => {
           if (data.acknowledged) {
             alert("Successfully created new admin");
             reset();
+            navigate("/admin/makeAdmin")
           }
         });
     }
@@ -70,6 +72,7 @@ const MakeAdmin = () => {
           if (data.acknowledged) {
             alert("Successfully created new editor");
             reset();
+            navigate("/admin/makeAdmin")
           }
         });
     }
@@ -91,8 +94,7 @@ const MakeAdmin = () => {
                 <div>
                   <form
                     onSubmit={handleSubmit(handleSignUp)}
-                    className="w-full"
-                  >
+                    className="w-full">
                     <div className="flex -mx-3">
                       <div className="w-1/2 px-3 mb-5">
                         <label for="" className="text-xs font-semibold px-1">
